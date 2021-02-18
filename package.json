@@ -1,0 +1,36 @@
+{
+  "name": "cells-sdk",
+  "version": "1.0.0",
+  "description": "Javascript SDK for Pydio Cells",
+  "main": "lib/index.js",
+  "module": "src/index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pydio/cells-sdk-js.git"
+  },
+  "keywords": [
+    "sdk"
+  ],
+  "author": "Abstrium SAS",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/pydio/cells-sdk-js/issues"
+  },
+  "homepage": "https://github.com/pydio/cells-sdk-js#readme",
+  "devDependencies": {
+    "@babel/core": "^7.12.16",
+    "@babel/plugin-proposal-class-properties": "^7.12.13",
+    "@babel/preset-env": "^7.12.16",
+    "grunt": "^1.3.0",
+    "grunt-babel": "^8.0.0"
+  },
+  "dependencies": {
+    "superagent": "^6.1.0"
+  }
+}

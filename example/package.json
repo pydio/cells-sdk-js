@@ -1,0 +1,20 @@
+{
+  "name": "cells-sdk-example",
+  "version": "1.0.0",
+  "description": "Basic NodeJS application using Cells SDK",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Abstrium",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "prompt": "^1.1.0"
+  },
+  "dependencies": {
+    "basename": "^0.1.2",
+    "cells-sdk": "file:..",
+    "console-table-printer": "^2.7.5",
+    "moment": "^2.29.1"
+  }
+}
