@@ -100,6 +100,12 @@ export default class ObjectDataSource {
             if (data.hasOwnProperty('Watch')) {
                 obj['Watch'] = ApiClient.convertToType(data['Watch'], 'Boolean');
             }
+            if (data.hasOwnProperty('FlatStorage')) {
+                obj['FlatStorage'] = ApiClient.convertToType(data['FlatStorage'], 'Boolean');
+            }
+            if (data.hasOwnProperty('SkipSyncOnRestart')) {
+                obj['SkipSyncOnRestart'] = ApiClient.convertToType(data['SkipSyncOnRestart'], 'Boolean');
+            }
             if (data.hasOwnProperty('EncryptionMode')) {
                 obj['EncryptionMode'] = ObjectEncryptionMode.constructFromObject(data['EncryptionMode']);
             }
@@ -175,6 +181,14 @@ export default class ObjectDataSource {
     * @member {Boolean} Watch
     */
     Watch = undefined;
+    /**
+    * @member {Boolean} FlatStorage
+    */
+    FlatStorage = undefined;
+    /**
+    * @member {Boolean} SkipSyncOnRestart
+    */
+    SkipSyncOnRestart = undefined;
     /**
     * @member {module:model/ObjectEncryptionMode} EncryptionMode
     */

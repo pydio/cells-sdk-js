@@ -530,6 +530,8 @@ export default class ConfigServiceApi {
      * @param {String} opts.apiSecret Corresponding objects service api secret.
      * @param {String} opts.peerAddress Peer address of the data source.
      * @param {Boolean} opts.watch Not implemented, whether to watch for underlying changes on the FS.
+     * @param {Boolean} opts.flatStorage Store data in flat format (object-storage like).
+     * @param {Boolean} opts.skipSyncOnRestart Do not trigger resync at start.
      * @param {module:model/String} opts.encryptionMode Type of encryption applied before sending data to storage. (default to CLEAR)
      * @param {String} opts.encryptionKey Encryption key used for encrypting data.
      * @param {String} opts.versioningPolicyName Versioning policy describes how files are kept in the versioning queue.
@@ -563,6 +565,8 @@ export default class ConfigServiceApi {
         'ApiSecret': opts['apiSecret'],
         'PeerAddress': opts['peerAddress'],
         'Watch': opts['watch'],
+        'FlatStorage': opts['flatStorage'],
+        'SkipSyncOnRestart': opts['skipSyncOnRestart'],
         'EncryptionMode': opts['encryptionMode'],
         'EncryptionKey': opts['encryptionKey'],
         'VersioningPolicyName': opts['versioningPolicyName'],
@@ -602,6 +606,8 @@ export default class ConfigServiceApi {
      * @param {String} opts.apiSecret Corresponding objects service api secret.
      * @param {String} opts.peerAddress Peer address of the data source.
      * @param {Boolean} opts.watch Not implemented, whether to watch for underlying changes on the FS.
+     * @param {Boolean} opts.flatStorage Store data in flat format (object-storage like).
+     * @param {Boolean} opts.skipSyncOnRestart Do not trigger resync at start.
      * @param {module:model/String} opts.encryptionMode Type of encryption applied before sending data to storage. (default to CLEAR)
      * @param {String} opts.encryptionKey Encryption key used for encrypting data.
      * @param {String} opts.versioningPolicyName Versioning policy describes how files are kept in the versioning queue.
