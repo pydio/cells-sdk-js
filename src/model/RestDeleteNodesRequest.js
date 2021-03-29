@@ -63,6 +63,9 @@ export default class RestDeleteNodesRequest {
             if (data.hasOwnProperty('Recursive')) {
                 obj['Recursive'] = ApiClient.convertToType(data['Recursive'], 'Boolean');
             }
+            if (data.hasOwnProperty('RemovePermanently')) {
+                obj['RemovePermanently'] = ApiClient.convertToType(data['RemovePermanently'], 'Boolean');
+            }
         }
         return obj;
     }
@@ -75,6 +78,10 @@ export default class RestDeleteNodesRequest {
     * @member {Boolean} Recursive
     */
     Recursive = undefined;
+    /**
+    * @member {Boolean} RemovePermanently
+    */
+    RemovePermanently = undefined;
 
 
 
