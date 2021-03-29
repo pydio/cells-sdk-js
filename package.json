@@ -1,6 +1,6 @@
 {
   "name": "cells-sdk",
-  "version": "2.3.0",
+  "version": "2.3.1",
   "description": "Javascript SDK for Pydio Cells",
   "main": "lib/index.js",
   "module": "src/index.js",
