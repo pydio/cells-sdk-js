@@ -15,8 +15,10 @@
 import ApiClient from '../ApiClient';
 import JobsActionOutputFilter from './JobsActionOutputFilter';
 import JobsContextMetaFilter from './JobsContextMetaFilter';
+import JobsDataSourceSelector from './JobsDataSourceSelector';
 import JobsIdmSelector from './JobsIdmSelector';
 import JobsNodesSelector from './JobsNodesSelector';
+import JobsTriggerFilter from './JobsTriggerFilter';
 import JobsUsersSelector from './JobsUsersSelector';
 
 
@@ -94,11 +96,20 @@ export default class JobsAction {
             if (data.hasOwnProperty('IdmFilter')) {
                 obj['IdmFilter'] = JobsIdmSelector.constructFromObject(data['IdmFilter']);
             }
+            if (data.hasOwnProperty('DataSourceSelector')) {
+                obj['DataSourceSelector'] = JobsDataSourceSelector.constructFromObject(data['DataSourceSelector']);
+            }
+            if (data.hasOwnProperty('DataSourceFilter')) {
+                obj['DataSourceFilter'] = JobsDataSourceSelector.constructFromObject(data['DataSourceFilter']);
+            }
             if (data.hasOwnProperty('ActionOutputFilter')) {
                 obj['ActionOutputFilter'] = JobsActionOutputFilter.constructFromObject(data['ActionOutputFilter']);
             }
             if (data.hasOwnProperty('ContextMetaFilter')) {
                 obj['ContextMetaFilter'] = JobsContextMetaFilter.constructFromObject(data['ContextMetaFilter']);
+            }
+            if (data.hasOwnProperty('TriggerFilter')) {
+                obj['TriggerFilter'] = JobsTriggerFilter.constructFromObject(data['TriggerFilter']);
             }
             if (data.hasOwnProperty('Parameters')) {
                 obj['Parameters'] = ApiClient.convertToType(data['Parameters'], {'String': 'String'});
@@ -158,6 +169,14 @@ export default class JobsAction {
     */
     IdmFilter = undefined;
     /**
+    * @member {module:model/JobsDataSourceSelector} DataSourceSelector
+    */
+    DataSourceSelector = undefined;
+    /**
+    * @member {module:model/JobsDataSourceSelector} DataSourceFilter
+    */
+    DataSourceFilter = undefined;
+    /**
     * @member {module:model/JobsActionOutputFilter} ActionOutputFilter
     */
     ActionOutputFilter = undefined;
@@ -165,6 +184,10 @@ export default class JobsAction {
     * @member {module:model/JobsContextMetaFilter} ContextMetaFilter
     */
     ContextMetaFilter = undefined;
+    /**
+    * @member {module:model/JobsTriggerFilter} TriggerFilter
+    */
+    TriggerFilter = undefined;
     /**
     * @member {Object.<String, String>} Parameters
     */
