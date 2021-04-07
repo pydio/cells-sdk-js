@@ -88,6 +88,8 @@ import JobsContextMetaFilter from './model/JobsContextMetaFilter';
 import JobsContextMetaFilterType from './model/JobsContextMetaFilterType';
 import JobsCtrlCommand from './model/JobsCtrlCommand';
 import JobsCtrlCommandResponse from './model/JobsCtrlCommandResponse';
+import JobsDataSourceSelector from './model/JobsDataSourceSelector';
+import JobsDataSourceSelectorType from './model/JobsDataSourceSelectorType';
 import JobsDeleteTasksRequest from './model/JobsDeleteTasksRequest';
 import JobsDeleteTasksResponse from './model/JobsDeleteTasksResponse';
 import JobsIdmSelector from './model/JobsIdmSelector';
@@ -99,6 +101,7 @@ import JobsNodesSelector from './model/JobsNodesSelector';
 import JobsSchedule from './model/JobsSchedule';
 import JobsTask from './model/JobsTask';
 import JobsTaskStatus from './model/JobsTaskStatus';
+import JobsTriggerFilter from './model/JobsTriggerFilter';
 import JobsUsersSelector from './model/JobsUsersSelector';
 import ListLogRequestLogFormat from './model/ListLogRequestLogFormat';
 import ListSharedResourcesRequestListShareType from './model/ListSharedResourcesRequestListShareType';
@@ -757,6 +760,18 @@ export {
     JobsCtrlCommandResponse,
 
     /**
+     * The JobsDataSourceSelector model constructor.
+     * @property {module:model/JobsDataSourceSelector}
+     */
+    JobsDataSourceSelector,
+
+    /**
+     * The JobsDataSourceSelectorType model constructor.
+     * @property {module:model/JobsDataSourceSelectorType}
+     */
+    JobsDataSourceSelectorType,
+
+    /**
      * The JobsDeleteTasksRequest model constructor.
      * @property {module:model/JobsDeleteTasksRequest}
      */
@@ -821,6 +836,12 @@ export {
      * @property {module:model/JobsTaskStatus}
      */
     JobsTaskStatus,
+
+    /**
+     * The JobsTriggerFilter model constructor.
+     * @property {module:model/JobsTriggerFilter}
+     */
+    JobsTriggerFilter,
 
     /**
      * The JobsUsersSelector model constructor.

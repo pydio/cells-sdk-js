@@ -13,6 +13,7 @@
 
 
 import ApiClient from '../ApiClient';
+import TreeNode from './TreeNode';
 import TreeNodeChangeEvent from './TreeNodeChangeEvent';
 
 
@@ -78,6 +79,9 @@ export default class TreeChangeLog {
             if (data.hasOwnProperty('Event')) {
                 obj['Event'] = TreeNodeChangeEvent.constructFromObject(data['Event']);
             }
+            if (data.hasOwnProperty('Location')) {
+                obj['Location'] = TreeNode.constructFromObject(data['Location']);
+            }
         }
         return obj;
     }
@@ -110,6 +114,10 @@ export default class TreeChangeLog {
     * @member {module:model/TreeNodeChangeEvent} Event
     */
     Event = undefined;
+    /**
+    * @member {module:model/TreeNode} Location
+    */
+    Location = undefined;
 
 
 

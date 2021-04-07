@@ -19,6 +19,7 @@ import IdmRole from './IdmRole';
 import IdmUser from './IdmUser';
 import IdmWorkspace from './IdmWorkspace';
 import JobsActionOutput from './JobsActionOutput';
+import ObjectDataSource from './ObjectDataSource';
 import ProtobufAny from './ProtobufAny';
 import TreeNode from './TreeNode';
 
@@ -85,6 +86,9 @@ export default class JobsActionMessage {
             if (data.hasOwnProperty('Activities')) {
                 obj['Activities'] = ApiClient.convertToType(data['Activities'], [ActivityObject]);
             }
+            if (data.hasOwnProperty('DataSources')) {
+                obj['DataSources'] = ApiClient.convertToType(data['DataSources'], [ObjectDataSource]);
+            }
             if (data.hasOwnProperty('OutputChain')) {
                 obj['OutputChain'] = ApiClient.convertToType(data['OutputChain'], [JobsActionOutput]);
             }
@@ -120,6 +124,10 @@ export default class JobsActionMessage {
     * @member {Array.<module:model/ActivityObject>} Activities
     */
     Activities = undefined;
+    /**
+    * @member {Array.<module:model/ObjectDataSource>} DataSources
+    */
+    DataSources = undefined;
     /**
     * @member {Array.<module:model/JobsActionOutput>} OutputChain
     */
