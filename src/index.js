@@ -238,6 +238,7 @@ import TreeReadNodeResponse from './model/TreeReadNodeResponse';
 import TreeSearchFacet from './model/TreeSearchFacet';
 import TreeSearchRequest from './model/TreeSearchRequest';
 import TreeVersioningKeepPeriod from './model/TreeVersioningKeepPeriod';
+import TreeVersioningNodeDeletedStrategy from './model/TreeVersioningNodeDeletedStrategy';
 import TreeVersioningPolicy from './model/TreeVersioningPolicy';
 import TreeWorkspaceRelativePath from './model/TreeWorkspaceRelativePath';
 import UpdateApplyUpdateRequest from './model/UpdateApplyUpdateRequest';
@@ -1658,6 +1659,12 @@ export {
      * @property {module:model/TreeVersioningKeepPeriod}
      */
     TreeVersioningKeepPeriod,
+
+    /**
+     * The TreeVersioningNodeDeletedStrategy model constructor.
+     * @property {module:model/TreeVersioningNodeDeletedStrategy}
+     */
+    TreeVersioningNodeDeletedStrategy,
 
     /**
      * The TreeVersioningPolicy model constructor.

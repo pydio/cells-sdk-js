@@ -14,6 +14,7 @@
 
 import ApiClient from '../ApiClient';
 import TreeVersioningKeepPeriod from './TreeVersioningKeepPeriod';
+import TreeVersioningNodeDeletedStrategy from './TreeVersioningNodeDeletedStrategy';
 
 
 
@@ -84,6 +85,9 @@ export default class TreeVersioningPolicy {
             if (data.hasOwnProperty('KeepPeriods')) {
                 obj['KeepPeriods'] = ApiClient.convertToType(data['KeepPeriods'], [TreeVersioningKeepPeriod]);
             }
+            if (data.hasOwnProperty('NodeDeletedStrategy')) {
+                obj['NodeDeletedStrategy'] = TreeVersioningNodeDeletedStrategy.constructFromObject(data['NodeDeletedStrategy']);
+            }
         }
         return obj;
     }
@@ -124,6 +128,10 @@ export default class TreeVersioningPolicy {
     * @member {Array.<module:model/TreeVersioningKeepPeriod>} KeepPeriods
     */
     KeepPeriods = undefined;
+    /**
+    * @member {module:model/TreeVersioningNodeDeletedStrategy} NodeDeletedStrategy
+    */
+    NodeDeletedStrategy = undefined;
 
 
 

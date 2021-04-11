@@ -634,6 +634,7 @@ export default class ConfigServiceApi {
      * @param {String} opts.maxTotalSize 
      * @param {String} opts.maxSizePerFile 
      * @param {String} opts.ignoreFilesGreaterThan 
+     * @param {module:model/String} opts.nodeDeletedStrategy  (default to KeepAll)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/TreeVersioningPolicy} and HTTP response
      */
     getVersioningPolicyWithHttpInfo(uuid, opts) {
@@ -656,7 +657,8 @@ export default class ConfigServiceApi {
         'VersionsDataSourceBucket': opts['versionsDataSourceBucket'],
         'MaxTotalSize': opts['maxTotalSize'],
         'MaxSizePerFile': opts['maxSizePerFile'],
-        'IgnoreFilesGreaterThan': opts['ignoreFilesGreaterThan']
+        'IgnoreFilesGreaterThan': opts['ignoreFilesGreaterThan'],
+        'NodeDeletedStrategy': opts['nodeDeletedStrategy']
       };
       let headerParams = {
       };
@@ -686,6 +688,7 @@ export default class ConfigServiceApi {
      * @param {String} opts.maxTotalSize 
      * @param {String} opts.maxSizePerFile 
      * @param {String} opts.ignoreFilesGreaterThan 
+     * @param {module:model/String} opts.nodeDeletedStrategy  (default to KeepAll)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/TreeVersioningPolicy}
      */
     getVersioningPolicy(uuid, opts) {
