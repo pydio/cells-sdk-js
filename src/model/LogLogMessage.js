@@ -132,6 +132,9 @@ export default class LogLogMessage {
             if (data.hasOwnProperty('SchedulerTaskActionPath')) {
                 obj['SchedulerTaskActionPath'] = ApiClient.convertToType(data['SchedulerTaskActionPath'], 'String');
             }
+            if (data.hasOwnProperty('JsonZaps')) {
+                obj['JsonZaps'] = ApiClient.convertToType(data['JsonZaps'], 'String');
+            }
         }
         return obj;
     }
@@ -236,6 +239,10 @@ export default class LogLogMessage {
     * @member {String} SchedulerTaskActionPath
     */
     SchedulerTaskActionPath = undefined;
+    /**
+    * @member {String} JsonZaps
+    */
+    JsonZaps = undefined;
 
 
 
