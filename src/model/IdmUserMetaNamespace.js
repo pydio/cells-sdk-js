@@ -75,6 +75,9 @@ export default class IdmUserMetaNamespace {
             if (data.hasOwnProperty('Policies')) {
                 obj['Policies'] = ApiClient.convertToType(data['Policies'], [ServiceResourcePolicy]);
             }
+            if (data.hasOwnProperty('PoliciesContextEditable')) {
+                obj['PoliciesContextEditable'] = ApiClient.convertToType(data['PoliciesContextEditable'], 'Boolean');
+            }
         }
         return obj;
     }
@@ -103,6 +106,10 @@ export default class IdmUserMetaNamespace {
     * @member {Array.<module:model/ServiceResourcePolicy>} Policies
     */
     Policies = undefined;
+    /**
+    * @member {Boolean} PoliciesContextEditable
+    */
+    PoliciesContextEditable = undefined;
 
 
 
