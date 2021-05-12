@@ -22,6 +22,7 @@ import JobsNodesSelector from './JobsNodesSelector';
 import JobsSchedule from './JobsSchedule';
 import JobsTask from './JobsTask';
 import JobsUsersSelector from './JobsUsersSelector';
+import ProtobufAny from './ProtobufAny';
 
 
 
@@ -125,6 +126,9 @@ export default class JobsJob {
             if (data.hasOwnProperty('Parameters')) {
                 obj['Parameters'] = ApiClient.convertToType(data['Parameters'], [JobsJobParameter]);
             }
+            if (data.hasOwnProperty('ResourcesDependencies')) {
+                obj['ResourcesDependencies'] = ApiClient.convertToType(data['ResourcesDependencies'], [ProtobufAny]);
+            }
         }
         return obj;
     }
@@ -209,6 +213,10 @@ export default class JobsJob {
     * @member {Array.<module:model/JobsJobParameter>} Parameters
     */
     Parameters = undefined;
+    /**
+    * @member {Array.<module:model/ProtobufAny>} ResourcesDependencies
+    */
+    ResourcesDependencies = undefined;
 
 
 

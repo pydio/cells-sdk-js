@@ -72,6 +72,9 @@ export default class ActivityObject {
             if (data.hasOwnProperty('summary')) {
                 obj['summary'] = ApiClient.convertToType(data['summary'], 'String');
             }
+            if (data.hasOwnProperty('markdown')) {
+                obj['markdown'] = ApiClient.convertToType(data['markdown'], 'String');
+            }
             if (data.hasOwnProperty('context')) {
                 obj['context'] = ActivityObject.constructFromObject(data['context']);
             }
@@ -264,6 +267,10 @@ export default class ActivityObject {
     * @member {String} summary
     */
     summary = undefined;
+    /**
+    * @member {String} markdown
+    */
+    markdown = undefined;
     /**
     * @member {module:model/ActivityObject} context
     */
