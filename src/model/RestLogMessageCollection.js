@@ -60,9 +60,6 @@ export default class RestLogMessageCollection {
             if (data.hasOwnProperty('Logs')) {
                 obj['Logs'] = ApiClient.convertToType(data['Logs'], [LogLogMessage]);
             }
-            if (data.hasOwnProperty('ServerUtcOffset')) {
-                obj['ServerUtcOffset'] = ApiClient.convertToType(data['ServerUtcOffset'], 'Number');
-            }
         }
         return obj;
     }
@@ -71,10 +68,6 @@ export default class RestLogMessageCollection {
     * @member {Array.<module:model/LogLogMessage>} Logs
     */
     Logs = undefined;
-    /**
-    * @member {Number} ServerUtcOffset
-    */
-    ServerUtcOffset = undefined;
 
 
 
