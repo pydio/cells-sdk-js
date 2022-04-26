@@ -13,66 +13,59 @@
 
 import ApiClient from '../ApiClient';
 /**
-* Enum class NodeChangeEventEventType.
+* Enum class RegistryItemType.
 * @enum {}
 * @readonly
 */
-export default class NodeChangeEventEventType {
+export default class RegistryItemType {
     
         /**
-         * value: "CREATE"
+         * value: "ALL"
          * @const
          */
-        "CREATE" = "CREATE";
+        "ALL" = "ALL";
 
     
         /**
-         * value: "READ"
+         * value: "SERVICE"
          * @const
          */
-        "READ" = "READ";
+        "SERVICE" = "SERVICE";
 
     
         /**
-         * value: "UPDATE_PATH"
+         * value: "SERVER"
          * @const
          */
-        "UPDATE_PATH" = "UPDATE_PATH";
+        "SERVER" = "SERVER";
 
     
         /**
-         * value: "UPDATE_CONTENT"
+         * value: "DAO"
          * @const
          */
-        "UPDATE_CONTENT" = "UPDATE_CONTENT";
+        "DAO" = "DAO";
 
     
         /**
-         * value: "UPDATE_META"
+         * value: "GENERIC"
          * @const
          */
-        "UPDATE_META" = "UPDATE_META";
+        "GENERIC" = "GENERIC";
 
     
         /**
-         * value: "UPDATE_USER_META"
+         * value: "EDGE"
          * @const
          */
-        "UPDATE_USER_META" = "UPDATE_USER_META";
-
-    
-        /**
-         * value: "DELETE"
-         * @const
-         */
-        "DELETE" = "DELETE";
+        "EDGE" = "EDGE";
 
     
 
     /**
-    * Returns a <code>NodeChangeEventEventType</code> enum value from a Javascript object name.
+    * Returns a <code>RegistryItemType</code> enum value from a Javascript object name.
     * @param {Object} data The plain JavaScript object containing the name of the enum value.
-    * @return {module:model/NodeChangeEventEventType} The enum <code>NodeChangeEventEventType</code> value.
+    * @return {module:model/RegistryItemType} The enum <code>RegistryItemType</code> value.
     */
     static constructFromObject(object) {
         return object;

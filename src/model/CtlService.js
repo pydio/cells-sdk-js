@@ -55,6 +55,9 @@ class CtlService {
             if (data.hasOwnProperty('Description')) {
                 obj['Description'] = ApiClient.convertToType(data['Description'], 'String');
             }
+            if (data.hasOwnProperty('Metadata')) {
+                obj['Metadata'] = ApiClient.convertToType(data['Metadata'], {'String': 'String'});
+            }
             if (data.hasOwnProperty('Name')) {
                 obj['Name'] = ApiClient.convertToType(data['Name'], 'String');
             }
@@ -86,6 +89,11 @@ CtlService.prototype['Controllable'] = undefined;
  * @member {String} Description
  */
 CtlService.prototype['Description'] = undefined;
+
+/**
+ * @member {Object.<String, String>} Metadata
+ */
+CtlService.prototype['Metadata'] = undefined;
 
 /**
  * @member {String} Name

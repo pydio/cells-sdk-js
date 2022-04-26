@@ -27,6 +27,8 @@ import EncryptionAdminImportKeyResponse from '../model/EncryptionAdminImportKeyR
 import EncryptionAdminListKeysRequest from '../model/EncryptionAdminListKeysRequest';
 import EncryptionAdminListKeysResponse from '../model/EncryptionAdminListKeysResponse';
 import ObjectDataSource from '../model/ObjectDataSource';
+import RegistryListRequest from '../model/RegistryListRequest';
+import RegistryListResponse from '../model/RegistryListResponse';
 import RestConfiguration from '../model/RestConfiguration';
 import RestControlServiceRequest from '../model/RestControlServiceRequest';
 import RestCreatePeerFolderRequest from '../model/RestCreatePeerFolderRequest';
@@ -988,6 +990,49 @@ export default class ConfigServiceApi {
      */
     listProcesses(body) {
       return this.listProcessesWithHttpInfo(body)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * @param {module:model/RegistryListRequest} body 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/RegistryListResponse} and HTTP response
+     */
+    listRegistryWithHttpInfo(body) {
+      let postBody = body;
+      // verify the required parameter 'body' is set
+      if (body === undefined || body === null) {
+        throw new Error("Missing the required parameter 'body' when calling listRegistry");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = RegistryListResponse;
+      return this.apiClient.callApi(
+        '/config/registry', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * @param {module:model/RegistryListRequest} body 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/RegistryListResponse}
+     */
+    listRegistry(body) {
+      return this.listRegistryWithHttpInfo(body)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

@@ -12,8 +12,8 @@
  */
 
 import ApiClient from '../ApiClient';
-import NodeChangeEventEventType from './NodeChangeEventEventType';
 import TreeNode from './TreeNode';
+import TreeNodeChangeEventEventType from './TreeNodeChangeEventEventType';
 
 /**
  * The TreeNodeChangeEvent model module.
@@ -65,7 +65,7 @@ class TreeNodeChangeEvent {
                 obj['Target'] = TreeNode.constructFromObject(data['Target']);
             }
             if (data.hasOwnProperty('Type')) {
-                obj['Type'] = NodeChangeEventEventType.constructFromObject(data['Type']);
+                obj['Type'] = TreeNodeChangeEventEventType.constructFromObject(data['Type']);
             }
         }
         return obj;
@@ -100,7 +100,7 @@ TreeNodeChangeEvent.prototype['Source'] = undefined;
 TreeNodeChangeEvent.prototype['Target'] = undefined;
 
 /**
- * @member {module:model/NodeChangeEventEventType} Type
+ * @member {module:model/TreeNodeChangeEventEventType} Type
  */
 TreeNodeChangeEvent.prototype['Type'] = undefined;
 

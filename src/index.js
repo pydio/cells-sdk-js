@@ -115,12 +115,22 @@ import LogLogMessage from './model/LogLogMessage';
 import MailerMail from './model/MailerMail';
 import MailerSendMailResponse from './model/MailerSendMailResponse';
 import MailerUser from './model/MailerUser';
-import NodeChangeEventEventType from './model/NodeChangeEventEventType';
 import ObjectDataSource from './model/ObjectDataSource';
 import ObjectEncryptionMode from './model/ObjectEncryptionMode';
 import ObjectStorageType from './model/ObjectStorageType';
 import PackagePackageStatus from './model/PackagePackageStatus';
 import ProtobufAny from './model/ProtobufAny';
+import RegistryActionType from './model/RegistryActionType';
+import RegistryDao from './model/RegistryDao';
+import RegistryEdge from './model/RegistryEdge';
+import RegistryGeneric from './model/RegistryGeneric';
+import RegistryItem from './model/RegistryItem';
+import RegistryItemType from './model/RegistryItemType';
+import RegistryListRequest from './model/RegistryListRequest';
+import RegistryListResponse from './model/RegistryListResponse';
+import RegistryOptions from './model/RegistryOptions';
+import RegistryServer from './model/RegistryServer';
+import RegistryService from './model/RegistryService';
 import ResourcePolicyQueryQueryType from './model/ResourcePolicyQueryQueryType';
 import RestACLCollection from './model/RestACLCollection';
 import RestActionDescription from './model/RestActionDescription';
@@ -236,6 +246,7 @@ import TreeGeoQuery from './model/TreeGeoQuery';
 import TreeListNodesRequest from './model/TreeListNodesRequest';
 import TreeNode from './model/TreeNode';
 import TreeNodeChangeEvent from './model/TreeNodeChangeEvent';
+import TreeNodeChangeEventEventType from './model/TreeNodeChangeEventEventType';
 import TreeNodeType from './model/TreeNodeType';
 import TreeQuery from './model/TreeQuery';
 import TreeReadNodeRequest from './model/TreeReadNodeRequest';
@@ -930,12 +941,6 @@ export {
     MailerUser,
 
     /**
-     * The NodeChangeEventEventType model constructor.
-     * @property {module:model/NodeChangeEventEventType}
-     */
-    NodeChangeEventEventType,
-
-    /**
      * The ObjectDataSource model constructor.
      * @property {module:model/ObjectDataSource}
      */
@@ -964,6 +969,72 @@ export {
      * @property {module:model/ProtobufAny}
      */
     ProtobufAny,
+
+    /**
+     * The RegistryActionType model constructor.
+     * @property {module:model/RegistryActionType}
+     */
+    RegistryActionType,
+
+    /**
+     * The RegistryDao model constructor.
+     * @property {module:model/RegistryDao}
+     */
+    RegistryDao,
+
+    /**
+     * The RegistryEdge model constructor.
+     * @property {module:model/RegistryEdge}
+     */
+    RegistryEdge,
+
+    /**
+     * The RegistryGeneric model constructor.
+     * @property {module:model/RegistryGeneric}
+     */
+    RegistryGeneric,
+
+    /**
+     * The RegistryItem model constructor.
+     * @property {module:model/RegistryItem}
+     */
+    RegistryItem,
+
+    /**
+     * The RegistryItemType model constructor.
+     * @property {module:model/RegistryItemType}
+     */
+    RegistryItemType,
+
+    /**
+     * The RegistryListRequest model constructor.
+     * @property {module:model/RegistryListRequest}
+     */
+    RegistryListRequest,
+
+    /**
+     * The RegistryListResponse model constructor.
+     * @property {module:model/RegistryListResponse}
+     */
+    RegistryListResponse,
+
+    /**
+     * The RegistryOptions model constructor.
+     * @property {module:model/RegistryOptions}
+     */
+    RegistryOptions,
+
+    /**
+     * The RegistryServer model constructor.
+     * @property {module:model/RegistryServer}
+     */
+    RegistryServer,
+
+    /**
+     * The RegistryService model constructor.
+     * @property {module:model/RegistryService}
+     */
+    RegistryService,
 
     /**
      * The ResourcePolicyQueryQueryType model constructor.
@@ -1654,6 +1725,12 @@ export {
      * @property {module:model/TreeNodeChangeEvent}
      */
     TreeNodeChangeEvent,
+
+    /**
+     * The TreeNodeChangeEventEventType model constructor.
+     * @property {module:model/TreeNodeChangeEventEventType}
+     */
+    TreeNodeChangeEventEventType,
 
     /**
      * The TreeNodeType model constructor.
