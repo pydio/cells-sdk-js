@@ -47,15 +47,6 @@ class RegistryEdge {
         if (data) {
             obj = obj || new RegistryEdge();
 
-            if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'String');
-            }
-            if (data.hasOwnProperty('metadata')) {
-                obj['metadata'] = ApiClient.convertToType(data['metadata'], {'String': 'String'});
-            }
-            if (data.hasOwnProperty('name')) {
-                obj['name'] = ApiClient.convertToType(data['name'], 'String');
-            }
             if (data.hasOwnProperty('vertices')) {
                 obj['vertices'] = ApiClient.convertToType(data['vertices'], ['String']);
             }
@@ -65,21 +56,6 @@ class RegistryEdge {
 
 
 }
-
-/**
- * @member {String} id
- */
-RegistryEdge.prototype['id'] = undefined;
-
-/**
- * @member {Object.<String, String>} metadata
- */
-RegistryEdge.prototype['metadata'] = undefined;
-
-/**
- * @member {String} name
- */
-RegistryEdge.prototype['name'] = undefined;
 
 /**
  * @member {Array.<String>} vertices

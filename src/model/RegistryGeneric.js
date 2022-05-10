@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import RegistryItemType from './RegistryItemType';
 
 /**
  * The RegistryGeneric model module.
@@ -47,14 +48,8 @@ class RegistryGeneric {
         if (data) {
             obj = obj || new RegistryGeneric();
 
-            if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'String');
-            }
-            if (data.hasOwnProperty('metadata')) {
-                obj['metadata'] = ApiClient.convertToType(data['metadata'], {'String': 'String'});
-            }
-            if (data.hasOwnProperty('name')) {
-                obj['name'] = ApiClient.convertToType(data['name'], 'String');
+            if (data.hasOwnProperty('type')) {
+                obj['type'] = RegistryItemType.constructFromObject(data['type']);
             }
         }
         return obj;
@@ -64,19 +59,9 @@ class RegistryGeneric {
 }
 
 /**
- * @member {String} id
+ * @member {module:model/RegistryItemType} type
  */
-RegistryGeneric.prototype['id'] = undefined;
-
-/**
- * @member {Object.<String, String>} metadata
- */
-RegistryGeneric.prototype['metadata'] = undefined;
-
-/**
- * @member {String} name
- */
-RegistryGeneric.prototype['name'] = undefined;
+RegistryGeneric.prototype['type'] = undefined;
 
 
 

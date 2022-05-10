@@ -15,6 +15,7 @@ import ApiClient from '../ApiClient';
 import RegistryDao from './RegistryDao';
 import RegistryEdge from './RegistryEdge';
 import RegistryGeneric from './RegistryGeneric';
+import RegistryNode from './RegistryNode';
 import RegistryServer from './RegistryServer';
 import RegistryService from './RegistryService';
 
@@ -64,6 +65,18 @@ class RegistryItem {
             if (data.hasOwnProperty('generic')) {
                 obj['generic'] = RegistryGeneric.constructFromObject(data['generic']);
             }
+            if (data.hasOwnProperty('id')) {
+                obj['id'] = ApiClient.convertToType(data['id'], 'String');
+            }
+            if (data.hasOwnProperty('metadata')) {
+                obj['metadata'] = ApiClient.convertToType(data['metadata'], {'String': 'String'});
+            }
+            if (data.hasOwnProperty('name')) {
+                obj['name'] = ApiClient.convertToType(data['name'], 'String');
+            }
+            if (data.hasOwnProperty('node')) {
+                obj['node'] = RegistryNode.constructFromObject(data['node']);
+            }
             if (data.hasOwnProperty('server')) {
                 obj['server'] = RegistryServer.constructFromObject(data['server']);
             }
@@ -96,6 +109,26 @@ RegistryItem.prototype['edge'] = undefined;
  * @member {module:model/RegistryGeneric} generic
  */
 RegistryItem.prototype['generic'] = undefined;
+
+/**
+ * @member {String} id
+ */
+RegistryItem.prototype['id'] = undefined;
+
+/**
+ * @member {Object.<String, String>} metadata
+ */
+RegistryItem.prototype['metadata'] = undefined;
+
+/**
+ * @member {String} name
+ */
+RegistryItem.prototype['name'] = undefined;
+
+/**
+ * @member {module:model/RegistryNode} node
+ */
+RegistryItem.prototype['node'] = undefined;
 
 /**
  * @member {module:model/RegistryServer} server

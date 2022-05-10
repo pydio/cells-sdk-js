@@ -128,6 +128,7 @@ import RegistryItem from './model/RegistryItem';
 import RegistryItemType from './model/RegistryItemType';
 import RegistryListRequest from './model/RegistryListRequest';
 import RegistryListResponse from './model/RegistryListResponse';
+import RegistryNode from './model/RegistryNode';
 import RegistryOptions from './model/RegistryOptions';
 import RegistryServer from './model/RegistryServer';
 import RegistryService from './model/RegistryService';
@@ -1017,6 +1018,12 @@ export {
      * @property {module:model/RegistryListResponse}
      */
     RegistryListResponse,
+
+    /**
+     * The RegistryNode model constructor.
+     * @property {module:model/RegistryNode}
+     */
+    RegistryNode,
 
     /**
      * The RegistryOptions model constructor.

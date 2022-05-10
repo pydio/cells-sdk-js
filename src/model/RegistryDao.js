@@ -53,15 +53,6 @@ class RegistryDao {
             if (data.hasOwnProperty('dsn')) {
                 obj['dsn'] = ApiClient.convertToType(data['dsn'], 'String');
             }
-            if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'String');
-            }
-            if (data.hasOwnProperty('metadata')) {
-                obj['metadata'] = ApiClient.convertToType(data['metadata'], {'String': 'String'});
-            }
-            if (data.hasOwnProperty('name')) {
-                obj['name'] = ApiClient.convertToType(data['name'], 'String');
-            }
         }
         return obj;
     }
@@ -78,21 +69,6 @@ RegistryDao.prototype['driver'] = undefined;
  * @member {String} dsn
  */
 RegistryDao.prototype['dsn'] = undefined;
-
-/**
- * @member {String} id
- */
-RegistryDao.prototype['id'] = undefined;
-
-/**
- * @member {Object.<String, String>} metadata
- */
-RegistryDao.prototype['metadata'] = undefined;
-
-/**
- * @member {String} name
- */
-RegistryDao.prototype['name'] = undefined;
 
 
 

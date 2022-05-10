@@ -47,20 +47,8 @@ class RegistryServer {
         if (data) {
             obj = obj || new RegistryServer();
 
-            if (data.hasOwnProperty('address')) {
-                obj['address'] = ApiClient.convertToType(data['address'], ['String']);
-            }
-            if (data.hasOwnProperty('endpoints')) {
-                obj['endpoints'] = ApiClient.convertToType(data['endpoints'], ['String']);
-            }
-            if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'String');
-            }
-            if (data.hasOwnProperty('metadata')) {
-                obj['metadata'] = ApiClient.convertToType(data['metadata'], {'String': 'String'});
-            }
-            if (data.hasOwnProperty('name')) {
-                obj['name'] = ApiClient.convertToType(data['name'], 'String');
+            if (data.hasOwnProperty('protocol')) {
+                obj['protocol'] = ApiClient.convertToType(data['protocol'], 'String');
             }
         }
         return obj;
@@ -70,29 +58,9 @@ class RegistryServer {
 }
 
 /**
- * @member {Array.<String>} address
+ * @member {String} protocol
  */
-RegistryServer.prototype['address'] = undefined;
-
-/**
- * @member {Array.<String>} endpoints
- */
-RegistryServer.prototype['endpoints'] = undefined;
-
-/**
- * @member {String} id
- */
-RegistryServer.prototype['id'] = undefined;
-
-/**
- * @member {Object.<String, String>} metadata
- */
-RegistryServer.prototype['metadata'] = undefined;
-
-/**
- * @member {String} name
- */
-RegistryServer.prototype['name'] = undefined;
+RegistryServer.prototype['protocol'] = undefined;
 
 
 

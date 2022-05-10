@@ -48,15 +48,6 @@ class RegistryService {
         if (data) {
             obj = obj || new RegistryService();
 
-            if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'String');
-            }
-            if (data.hasOwnProperty('metadata')) {
-                obj['metadata'] = ApiClient.convertToType(data['metadata'], {'String': 'String'});
-            }
-            if (data.hasOwnProperty('name')) {
-                obj['name'] = ApiClient.convertToType(data['name'], 'String');
-            }
             if (data.hasOwnProperty('options')) {
                 obj['options'] = RegistryOptions.constructFromObject(data['options']);
             }
@@ -72,21 +63,6 @@ class RegistryService {
 
 
 }
-
-/**
- * @member {String} id
- */
-RegistryService.prototype['id'] = undefined;
-
-/**
- * @member {Object.<String, String>} metadata
- */
-RegistryService.prototype['metadata'] = undefined;
-
-/**
- * @member {String} name
- */
-RegistryService.prototype['name'] = undefined;
 
 /**
  * @member {module:model/RegistryOptions} options

@@ -27,6 +27,20 @@ export default class RegistryItemType {
 
     
         /**
+         * value: "EDGE"
+         * @const
+         */
+        "EDGE" = "EDGE";
+
+    
+        /**
+         * value: "NODE"
+         * @const
+         */
+        "NODE" = "NODE";
+
+    
+        /**
          * value: "SERVICE"
          * @const
          */
@@ -55,10 +69,38 @@ export default class RegistryItemType {
 
     
         /**
-         * value: "EDGE"
+         * value: "ADDRESS"
          * @const
          */
-        "EDGE" = "EDGE";
+        "ADDRESS" = "ADDRESS";
+
+    
+        /**
+         * value: "TAG"
+         * @const
+         */
+        "TAG" = "TAG";
+
+    
+        /**
+         * value: "PROCESS"
+         * @const
+         */
+        "PROCESS" = "PROCESS";
+
+    
+        /**
+         * value: "ENDPOINT"
+         * @const
+         */
+        "ENDPOINT" = "ENDPOINT";
+
+    
+        /**
+         * value: "STATS"
+         * @const
+         */
+        "STATS" = "STATS";
 
     
 
