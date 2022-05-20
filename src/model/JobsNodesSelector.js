@@ -66,6 +66,9 @@ class JobsNodesSelector {
             if (data.hasOwnProperty('Query')) {
                 obj['Query'] = ServiceQuery.constructFromObject(data['Query']);
             }
+            if (data.hasOwnProperty('Timeout')) {
+                obj['Timeout'] = ApiClient.convertToType(data['Timeout'], 'String');
+            }
         }
         return obj;
     }
@@ -102,6 +105,11 @@ JobsNodesSelector.prototype['Pathes'] = undefined;
  * @member {module:model/ServiceQuery} Query
  */
 JobsNodesSelector.prototype['Query'] = undefined;
+
+/**
+ * @member {String} Timeout
+ */
+JobsNodesSelector.prototype['Timeout'] = undefined;
 
 
 

@@ -58,14 +58,14 @@ class RegistryOptions {
             if (data.hasOwnProperty('metaValue')) {
                 obj['metaValue'] = ApiClient.convertToType(data['metaValue'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
-                obj['name'] = ApiClient.convertToType(data['name'], 'String');
+            if (data.hasOwnProperty('names')) {
+                obj['names'] = ApiClient.convertToType(data['names'], ['String']);
             }
             if (data.hasOwnProperty('ttl')) {
                 obj['ttl'] = ApiClient.convertToType(data['ttl'], 'String');
             }
-            if (data.hasOwnProperty('type')) {
-                obj['type'] = RegistryItemType.constructFromObject(data['type']);
+            if (data.hasOwnProperty('types')) {
+                obj['types'] = ApiClient.convertToType(data['types'], [RegistryItemType]);
             }
         }
         return obj;
@@ -90,9 +90,9 @@ RegistryOptions.prototype['metaName'] = undefined;
 RegistryOptions.prototype['metaValue'] = undefined;
 
 /**
- * @member {String} name
+ * @member {Array.<String>} names
  */
-RegistryOptions.prototype['name'] = undefined;
+RegistryOptions.prototype['names'] = undefined;
 
 /**
  * @member {String} ttl
@@ -100,9 +100,9 @@ RegistryOptions.prototype['name'] = undefined;
 RegistryOptions.prototype['ttl'] = undefined;
 
 /**
- * @member {module:model/RegistryItemType} type
+ * @member {Array.<module:model/RegistryItemType>} types
  */
-RegistryOptions.prototype['type'] = undefined;
+RegistryOptions.prototype['types'] = undefined;
 
 
 

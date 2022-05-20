@@ -117,6 +117,9 @@ class JobsJob {
             if (data.hasOwnProperty('TasksSilentUpdate')) {
                 obj['TasksSilentUpdate'] = ApiClient.convertToType(data['TasksSilentUpdate'], 'Boolean');
             }
+            if (data.hasOwnProperty('Timeout')) {
+                obj['Timeout'] = ApiClient.convertToType(data['Timeout'], 'String');
+            }
             if (data.hasOwnProperty('UserEventFilter')) {
                 obj['UserEventFilter'] = JobsUsersSelector.constructFromObject(data['UserEventFilter']);
             }
@@ -226,6 +229,11 @@ JobsJob.prototype['Tasks'] = undefined;
  * @member {Boolean} TasksSilentUpdate
  */
 JobsJob.prototype['TasksSilentUpdate'] = undefined;
+
+/**
+ * @member {String} Timeout
+ */
+JobsJob.prototype['Timeout'] = undefined;
 
 /**
  * @member {module:model/JobsUsersSelector} UserEventFilter

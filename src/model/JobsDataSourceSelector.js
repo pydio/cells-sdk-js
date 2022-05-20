@@ -64,6 +64,9 @@ class JobsDataSourceSelector {
             if (data.hasOwnProperty('Query')) {
                 obj['Query'] = ServiceQuery.constructFromObject(data['Query']);
             }
+            if (data.hasOwnProperty('Timeout')) {
+                obj['Timeout'] = ApiClient.convertToType(data['Timeout'], 'String');
+            }
             if (data.hasOwnProperty('Type')) {
                 obj['Type'] = JobsDataSourceSelectorType.constructFromObject(data['Type']);
             }
@@ -98,6 +101,11 @@ JobsDataSourceSelector.prototype['Label'] = undefined;
  * @member {module:model/ServiceQuery} Query
  */
 JobsDataSourceSelector.prototype['Query'] = undefined;
+
+/**
+ * @member {String} Timeout
+ */
+JobsDataSourceSelector.prototype['Timeout'] = undefined;
 
 /**
  * @member {module:model/JobsDataSourceSelectorType} Type

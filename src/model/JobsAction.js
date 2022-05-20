@@ -102,6 +102,9 @@ class JobsAction {
             if (data.hasOwnProperty('Parameters')) {
                 obj['Parameters'] = ApiClient.convertToType(data['Parameters'], {'String': 'String'});
             }
+            if (data.hasOwnProperty('Timeout')) {
+                obj['Timeout'] = ApiClient.convertToType(data['Timeout'], 'String');
+            }
             if (data.hasOwnProperty('TriggerFilter')) {
                 obj['TriggerFilter'] = JobsTriggerFilter.constructFromObject(data['TriggerFilter']);
             }
@@ -197,6 +200,11 @@ JobsAction.prototype['NodesSelector'] = undefined;
  * @member {Object.<String, String>} Parameters
  */
 JobsAction.prototype['Parameters'] = undefined;
+
+/**
+ * @member {String} Timeout
+ */
+JobsAction.prototype['Timeout'] = undefined;
 
 /**
  * @member {module:model/JobsTriggerFilter} TriggerFilter

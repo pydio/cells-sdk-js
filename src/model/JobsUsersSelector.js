@@ -64,6 +64,9 @@ class JobsUsersSelector {
             if (data.hasOwnProperty('Query')) {
                 obj['Query'] = ServiceQuery.constructFromObject(data['Query']);
             }
+            if (data.hasOwnProperty('Timeout')) {
+                obj['Timeout'] = ApiClient.convertToType(data['Timeout'], 'String');
+            }
             if (data.hasOwnProperty('Users')) {
                 obj['Users'] = ApiClient.convertToType(data['Users'], [IdmUser]);
             }
@@ -98,6 +101,11 @@ JobsUsersSelector.prototype['Label'] = undefined;
  * @member {module:model/ServiceQuery} Query
  */
 JobsUsersSelector.prototype['Query'] = undefined;
+
+/**
+ * @member {String} Timeout
+ */
+JobsUsersSelector.prototype['Timeout'] = undefined;
 
 /**
  * @member {Array.<module:model/IdmUser>} Users
