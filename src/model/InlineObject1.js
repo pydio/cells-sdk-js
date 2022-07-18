@@ -12,9 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
-import IdmWorkspaceScope from './IdmWorkspaceScope';
 import ServiceResourcePolicy from './ServiceResourcePolicy';
-import TreeNode from './TreeNode';
 
 /**
  * The InlineObject1 model module.
@@ -24,7 +22,7 @@ import TreeNode from './TreeNode';
 class InlineObject1 {
     /**
      * Constructs a new <code>InlineObject1</code>.
-     * A Workspace is composed of a set of nodes UUIDs and is used to provide accesses to the tree via ACLs.
+     * Role represents a generic set of permissions that can be applied to any users or groups.
      * @alias module:model/InlineObject1
      */
     constructor() { 
@@ -51,11 +49,17 @@ class InlineObject1 {
         if (data) {
             obj = obj || new InlineObject1();
 
-            if (data.hasOwnProperty('Attributes')) {
-                obj['Attributes'] = ApiClient.convertToType(data['Attributes'], 'String');
+            if (data.hasOwnProperty('AutoApplies')) {
+                obj['AutoApplies'] = ApiClient.convertToType(data['AutoApplies'], ['String']);
             }
-            if (data.hasOwnProperty('Description')) {
-                obj['Description'] = ApiClient.convertToType(data['Description'], 'String');
+            if (data.hasOwnProperty('ForceOverride')) {
+                obj['ForceOverride'] = ApiClient.convertToType(data['ForceOverride'], 'Boolean');
+            }
+            if (data.hasOwnProperty('GroupRole')) {
+                obj['GroupRole'] = ApiClient.convertToType(data['GroupRole'], 'Boolean');
+            }
+            if (data.hasOwnProperty('IsTeam')) {
+                obj['IsTeam'] = ApiClient.convertToType(data['IsTeam'], 'Boolean');
             }
             if (data.hasOwnProperty('Label')) {
                 obj['Label'] = ApiClient.convertToType(data['Label'], 'String');
@@ -69,17 +73,8 @@ class InlineObject1 {
             if (data.hasOwnProperty('PoliciesContextEditable')) {
                 obj['PoliciesContextEditable'] = ApiClient.convertToType(data['PoliciesContextEditable'], 'Boolean');
             }
-            if (data.hasOwnProperty('RootNodes')) {
-                obj['RootNodes'] = ApiClient.convertToType(data['RootNodes'], {'String': TreeNode});
-            }
-            if (data.hasOwnProperty('RootUUIDs')) {
-                obj['RootUUIDs'] = ApiClient.convertToType(data['RootUUIDs'], ['String']);
-            }
-            if (data.hasOwnProperty('Scope')) {
-                obj['Scope'] = IdmWorkspaceScope.constructFromObject(data['Scope']);
-            }
-            if (data.hasOwnProperty('UUID')) {
-                obj['UUID'] = ApiClient.convertToType(data['UUID'], 'String');
+            if (data.hasOwnProperty('UserRole')) {
+                obj['UserRole'] = ApiClient.convertToType(data['UserRole'], 'Boolean');
             }
         }
         return obj;
@@ -89,14 +84,25 @@ class InlineObject1 {
 }
 
 /**
- * @member {String} Attributes
+ * @member {Array.<String>} AutoApplies
  */
-InlineObject1.prototype['Attributes'] = undefined;
+InlineObject1.prototype['AutoApplies'] = undefined;
 
 /**
- * @member {String} Description
+ * Is used in a stack of roles, this one will always be applied last.
+ * @member {Boolean} ForceOverride
  */
-InlineObject1.prototype['Description'] = undefined;
+InlineObject1.prototype['ForceOverride'] = undefined;
+
+/**
+ * @member {Boolean} GroupRole
+ */
+InlineObject1.prototype['GroupRole'] = undefined;
+
+/**
+ * @member {Boolean} IsTeam
+ */
+InlineObject1.prototype['IsTeam'] = undefined;
 
 /**
  * @member {String} Label
@@ -119,24 +125,9 @@ InlineObject1.prototype['Policies'] = undefined;
 InlineObject1.prototype['PoliciesContextEditable'] = undefined;
 
 /**
- * @member {Object.<String, module:model/TreeNode>} RootNodes
+ * @member {Boolean} UserRole
  */
-InlineObject1.prototype['RootNodes'] = undefined;
-
-/**
- * @member {Array.<String>} RootUUIDs
- */
-InlineObject1.prototype['RootUUIDs'] = undefined;
-
-/**
- * @member {module:model/IdmWorkspaceScope} Scope
- */
-InlineObject1.prototype['Scope'] = undefined;
-
-/**
- * @member {String} UUID
- */
-InlineObject1.prototype['UUID'] = undefined;
+InlineObject1.prototype['UserRole'] = undefined;
 
 
 

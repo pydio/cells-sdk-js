@@ -69,6 +69,7 @@ import IdmWorkspaceScope from './model/IdmWorkspaceScope';
 import IdmWorkspaceSingleQuery from './model/IdmWorkspaceSingleQuery';
 import InlineObject from './model/InlineObject';
 import InlineObject1 from './model/InlineObject1';
+import InlineObject2 from './model/InlineObject2';
 import InstallCheckResult from './model/InstallCheckResult';
 import InstallGetAgreementResponse from './model/InstallGetAgreementResponse';
 import InstallGetDefaultsResponse from './model/InstallGetDefaultsResponse';
@@ -664,6 +665,12 @@ export {
      * @property {module:model/InlineObject1}
      */
     InlineObject1,
+
+    /**
+     * The InlineObject2 model constructor.
+     * @property {module:model/InlineObject2}
+     */
+    InlineObject2,
 
     /**
      * The InstallCheckResult model constructor.

@@ -49,8 +49,8 @@ class RegistryOptions {
         if (data) {
             obj = obj || new RegistryOptions();
 
-            if (data.hasOwnProperty('action')) {
-                obj['action'] = RegistryActionType.constructFromObject(data['action']);
+            if (data.hasOwnProperty('actions')) {
+                obj['actions'] = ApiClient.convertToType(data['actions'], [RegistryActionType]);
             }
             if (data.hasOwnProperty('metaName')) {
                 obj['metaName'] = ApiClient.convertToType(data['metaName'], 'String');
@@ -75,9 +75,9 @@ class RegistryOptions {
 }
 
 /**
- * @member {module:model/RegistryActionType} action
+ * @member {Array.<module:model/RegistryActionType>} actions
  */
-RegistryOptions.prototype['action'] = undefined;
+RegistryOptions.prototype['actions'] = undefined;
 
 /**
  * @member {String} metaName

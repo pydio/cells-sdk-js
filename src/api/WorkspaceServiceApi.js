@@ -14,7 +14,7 @@
 
 import ApiClient from "../ApiClient";
 import IdmWorkspace from '../model/IdmWorkspace';
-import InlineObject1 from '../model/InlineObject1';
+import InlineObject2 from '../model/InlineObject2';
 import RestDeleteResponse from '../model/RestDeleteResponse';
 import RestError from '../model/RestError';
 import RestSearchWorkspaceRequest from '../model/RestSearchWorkspaceRequest';
@@ -116,7 +116,7 @@ export default class WorkspaceServiceApi {
     /**
      * Create or update a workspace
      * @param {String} Slug Slug is an url-compatible form of the workspace label, or can be freely modified (max length 500)
-     * @param {module:model/InlineObject1} body 
+     * @param {module:model/InlineObject2} body 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/IdmWorkspace} and HTTP response
      */
     putWorkspaceWithHttpInfo(Slug, body) {
@@ -154,7 +154,7 @@ export default class WorkspaceServiceApi {
     /**
      * Create or update a workspace
      * @param {String} Slug Slug is an url-compatible form of the workspace label, or can be freely modified (max length 500)
-     * @param {module:model/InlineObject1} body 
+     * @param {module:model/InlineObject2} body 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/IdmWorkspace}
      */
     putWorkspace(Slug, body) {

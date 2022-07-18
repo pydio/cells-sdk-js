@@ -13,6 +13,7 @@
 
 
 import ApiClient from "../ApiClient";
+import InlineObject from '../model/InlineObject';
 import RestDocumentAccessTokenRequest from '../model/RestDocumentAccessTokenRequest';
 import RestDocumentAccessTokenResponse from '../model/RestDocumentAccessTokenResponse';
 import RestError from '../model/RestError';
@@ -135,13 +136,18 @@ export default class TokenServiceApi {
     /**
      * Generate a unique token for the reset password process
      * @param {String} UserLogin Start a ResetPassword workflow for this user
+     * @param {module:model/InlineObject} body 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/RestResetPasswordTokenResponse} and HTTP response
      */
-    resetPasswordTokenWithHttpInfo(UserLogin) {
-      let postBody = null;
+    resetPasswordTokenWithHttpInfo(UserLogin, body) {
+      let postBody = body;
       // verify the required parameter 'UserLogin' is set
       if (UserLogin === undefined || UserLogin === null) {
         throw new Error("Missing the required parameter 'UserLogin' when calling resetPasswordToken");
+      }
+      // verify the required parameter 'body' is set
+      if (body === undefined || body === null) {
+        throw new Error("Missing the required parameter 'body' when calling resetPasswordToken");
       }
 
       let pathParams = {
@@ -155,7 +161,7 @@ export default class TokenServiceApi {
       };
 
       let authNames = [];
-      let contentTypes = [];
+      let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = RestResetPasswordTokenResponse;
       return this.apiClient.callApi(
@@ -168,10 +174,11 @@ export default class TokenServiceApi {
     /**
      * Generate a unique token for the reset password process
      * @param {String} UserLogin Start a ResetPassword workflow for this user
+     * @param {module:model/InlineObject} body 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/RestResetPasswordTokenResponse}
      */
-    resetPasswordToken(UserLogin) {
-      return this.resetPasswordTokenWithHttpInfo(UserLogin)
+    resetPasswordToken(UserLogin, body) {
+      return this.resetPasswordTokenWithHttpInfo(UserLogin, body)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

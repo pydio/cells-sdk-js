@@ -14,7 +14,7 @@
 
 import ApiClient from "../ApiClient";
 import IdmRole from '../model/IdmRole';
-import InlineObject from '../model/InlineObject';
+import InlineObject1 from '../model/InlineObject1';
 import RestError from '../model/RestError';
 import RestRolesCollection from '../model/RestRolesCollection';
 import RestSearchRoleRequest from '../model/RestSearchRoleRequest';
@@ -233,7 +233,7 @@ export default class RoleServiceApi {
     /**
      * Create or update a Role
      * @param {String} Uuid Unique identifier of this role
-     * @param {module:model/InlineObject} body 
+     * @param {module:model/InlineObject1} body 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/IdmRole} and HTTP response
      */
     setRoleWithHttpInfo(Uuid, body) {
@@ -271,7 +271,7 @@ export default class RoleServiceApi {
     /**
      * Create or update a Role
      * @param {String} Uuid Unique identifier of this role
-     * @param {module:model/InlineObject} body 
+     * @param {module:model/InlineObject1} body 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/IdmRole}
      */
     setRole(Uuid, body) {

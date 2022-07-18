@@ -12,7 +12,6 @@
  */
 
 import ApiClient from '../ApiClient';
-import ServiceResourcePolicy from './ServiceResourcePolicy';
 
 /**
  * The InlineObject model module.
@@ -22,7 +21,6 @@ import ServiceResourcePolicy from './ServiceResourcePolicy';
 class InlineObject {
     /**
      * Constructs a new <code>InlineObject</code>.
-     * Role represents a generic set of permissions that can be applied to any users or groups.
      * @alias module:model/InlineObject
      */
     constructor() { 
@@ -49,32 +47,8 @@ class InlineObject {
         if (data) {
             obj = obj || new InlineObject();
 
-            if (data.hasOwnProperty('AutoApplies')) {
-                obj['AutoApplies'] = ApiClient.convertToType(data['AutoApplies'], ['String']);
-            }
-            if (data.hasOwnProperty('ForceOverride')) {
-                obj['ForceOverride'] = ApiClient.convertToType(data['ForceOverride'], 'Boolean');
-            }
-            if (data.hasOwnProperty('GroupRole')) {
-                obj['GroupRole'] = ApiClient.convertToType(data['GroupRole'], 'Boolean');
-            }
-            if (data.hasOwnProperty('IsTeam')) {
-                obj['IsTeam'] = ApiClient.convertToType(data['IsTeam'], 'Boolean');
-            }
-            if (data.hasOwnProperty('Label')) {
-                obj['Label'] = ApiClient.convertToType(data['Label'], 'String');
-            }
-            if (data.hasOwnProperty('LastUpdated')) {
-                obj['LastUpdated'] = ApiClient.convertToType(data['LastUpdated'], 'Number');
-            }
-            if (data.hasOwnProperty('Policies')) {
-                obj['Policies'] = ApiClient.convertToType(data['Policies'], [ServiceResourcePolicy]);
-            }
-            if (data.hasOwnProperty('PoliciesContextEditable')) {
-                obj['PoliciesContextEditable'] = ApiClient.convertToType(data['PoliciesContextEditable'], 'Boolean');
-            }
-            if (data.hasOwnProperty('UserRole')) {
-                obj['UserRole'] = ApiClient.convertToType(data['UserRole'], 'Boolean');
+            if (data.hasOwnProperty('Create')) {
+                obj['Create'] = ApiClient.convertToType(data['Create'], 'Boolean');
             }
         }
         return obj;
@@ -84,50 +58,9 @@ class InlineObject {
 }
 
 /**
- * @member {Array.<String>} AutoApplies
+ * @member {Boolean} Create
  */
-InlineObject.prototype['AutoApplies'] = undefined;
-
-/**
- * Is used in a stack of roles, this one will always be applied last.
- * @member {Boolean} ForceOverride
- */
-InlineObject.prototype['ForceOverride'] = undefined;
-
-/**
- * @member {Boolean} GroupRole
- */
-InlineObject.prototype['GroupRole'] = undefined;
-
-/**
- * @member {Boolean} IsTeam
- */
-InlineObject.prototype['IsTeam'] = undefined;
-
-/**
- * @member {String} Label
- */
-InlineObject.prototype['Label'] = undefined;
-
-/**
- * @member {Number} LastUpdated
- */
-InlineObject.prototype['LastUpdated'] = undefined;
-
-/**
- * @member {Array.<module:model/ServiceResourcePolicy>} Policies
- */
-InlineObject.prototype['Policies'] = undefined;
-
-/**
- * @member {Boolean} PoliciesContextEditable
- */
-InlineObject.prototype['PoliciesContextEditable'] = undefined;
-
-/**
- * @member {Boolean} UserRole
- */
-InlineObject.prototype['UserRole'] = undefined;
+InlineObject.prototype['Create'] = undefined;
 
 
 

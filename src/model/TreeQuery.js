@@ -55,6 +55,9 @@ class TreeQuery {
             if (data.hasOwnProperty('DurationDate')) {
                 obj['DurationDate'] = ApiClient.convertToType(data['DurationDate'], 'String');
             }
+            if (data.hasOwnProperty('ETag')) {
+                obj['ETag'] = ApiClient.convertToType(data['ETag'], 'String');
+            }
             if (data.hasOwnProperty('Extension')) {
                 obj['Extension'] = ApiClient.convertToType(data['Extension'], 'String');
             }
@@ -116,6 +119,11 @@ TreeQuery.prototype['Content'] = undefined;
  * @member {String} DurationDate
  */
 TreeQuery.prototype['DurationDate'] = undefined;
+
+/**
+ * @member {String} ETag
+ */
+TreeQuery.prototype['ETag'] = undefined;
 
 /**
  * @member {String} Extension
