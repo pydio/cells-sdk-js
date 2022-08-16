@@ -193,6 +193,8 @@ import RestPutCellRequest from './model/RestPutCellRequest';
 import RestPutShareLinkRequest from './model/RestPutShareLinkRequest';
 import RestPutUserMetaTagRequest from './model/RestPutUserMetaTagRequest';
 import RestPutUserMetaTagResponse from './model/RestPutUserMetaTagResponse';
+import RestRecommendRequest from './model/RestRecommendRequest';
+import RestRecommendResponse from './model/RestRecommendResponse';
 import RestRelationResponse from './model/RestRelationResponse';
 import RestResetPasswordRequest from './model/RestResetPasswordRequest';
 import RestResetPasswordResponse from './model/RestResetPasswordResponse';
@@ -1409,6 +1411,18 @@ export {
      * @property {module:model/RestPutUserMetaTagResponse}
      */
     RestPutUserMetaTagResponse,
+
+    /**
+     * The RestRecommendRequest model constructor.
+     * @property {module:model/RestRecommendRequest}
+     */
+    RestRecommendRequest,
+
+    /**
+     * The RestRecommendResponse model constructor.
+     * @property {module:model/RestRecommendResponse}
+     */
+    RestRecommendResponse,
 
     /**
      * The RestRelationResponse model constructor.

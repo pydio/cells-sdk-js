@@ -14,6 +14,8 @@
 
 import ApiClient from "../ApiClient";
 import RestError from '../model/RestError';
+import RestRecommendRequest from '../model/RestRecommendRequest';
+import RestRecommendResponse from '../model/RestRecommendResponse';
 import RestRelationResponse from '../model/RestRelationResponse';
 import RestUserStateResponse from '../model/RestUserStateResponse';
 
@@ -35,6 +37,49 @@ export default class GraphServiceApi {
         this.apiClient = apiClient || ApiClient.instance;
     }
 
+
+
+    /**
+     * @param {module:model/RestRecommendRequest} body 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/RestRecommendResponse} and HTTP response
+     */
+    recommendWithHttpInfo(body) {
+      let postBody = body;
+      // verify the required parameter 'body' is set
+      if (body === undefined || body === null) {
+        throw new Error("Missing the required parameter 'body' when calling recommend");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = RestRecommendResponse;
+      return this.apiClient.callApi(
+        '/graph/recommend', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * @param {module:model/RestRecommendRequest} body 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/RestRecommendResponse}
+     */
+    recommend(body) {
+      return this.recommendWithHttpInfo(body)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
 
 
     /**
