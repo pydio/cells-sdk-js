@@ -33,6 +33,8 @@ import RestConfiguration from '../model/RestConfiguration';
 import RestControlServiceRequest from '../model/RestControlServiceRequest';
 import RestCreatePeerFolderRequest from '../model/RestCreatePeerFolderRequest';
 import RestCreatePeerFolderResponse from '../model/RestCreatePeerFolderResponse';
+import RestCreateStorageBucketRequest from '../model/RestCreateStorageBucketRequest';
+import RestCreateStorageBucketResponse from '../model/RestCreateStorageBucketResponse';
 import RestDataSourceCollection from '../model/RestDataSourceCollection';
 import RestDeleteDataSourceResponse from '../model/RestDeleteDataSourceResponse';
 import RestDiscoveryResponse from '../model/RestDiscoveryResponse';
@@ -253,6 +255,58 @@ export default class ConfigServiceApi {
      */
     createPeerFolder(PeerAddress, body) {
       return this.createPeerFolderWithHttpInfo(PeerAddress, body)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * List Buckets on a given object storage
+     * @param {String} BucketName 
+     * @param {module:model/RestCreateStorageBucketRequest} body 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/RestCreateStorageBucketResponse} and HTTP response
+     */
+    createStorageBucketWithHttpInfo(BucketName, body) {
+      let postBody = body;
+      // verify the required parameter 'BucketName' is set
+      if (BucketName === undefined || BucketName === null) {
+        throw new Error("Missing the required parameter 'BucketName' when calling createStorageBucket");
+      }
+      // verify the required parameter 'body' is set
+      if (body === undefined || body === null) {
+        throw new Error("Missing the required parameter 'body' when calling createStorageBucket");
+      }
+
+      let pathParams = {
+        'BucketName': BucketName
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = RestCreateStorageBucketResponse;
+      return this.apiClient.callApi(
+        '/config/buckets/{BucketName}', 'PUT',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * List Buckets on a given object storage
+     * @param {String} BucketName 
+     * @param {module:model/RestCreateStorageBucketRequest} body 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/RestCreateStorageBucketResponse}
+     */
+    createStorageBucket(BucketName, body) {
+      return this.createStorageBucketWithHttpInfo(BucketName, body)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

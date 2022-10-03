@@ -147,6 +147,8 @@ import RestCreatePeerFolderRequest from './model/RestCreatePeerFolderRequest';
 import RestCreatePeerFolderResponse from './model/RestCreatePeerFolderResponse';
 import RestCreateSelectionRequest from './model/RestCreateSelectionRequest';
 import RestCreateSelectionResponse from './model/RestCreateSelectionResponse';
+import RestCreateStorageBucketRequest from './model/RestCreateStorageBucketRequest';
+import RestCreateStorageBucketResponse from './model/RestCreateStorageBucketResponse';
 import RestDataSourceCollection from './model/RestDataSourceCollection';
 import RestDeleteCellResponse from './model/RestDeleteCellResponse';
 import RestDeleteDataSourceResponse from './model/RestDeleteDataSourceResponse';
@@ -1135,6 +1137,18 @@ export {
      * @property {module:model/RestCreateSelectionResponse}
      */
     RestCreateSelectionResponse,
+
+    /**
+     * The RestCreateStorageBucketRequest model constructor.
+     * @property {module:model/RestCreateStorageBucketRequest}
+     */
+    RestCreateStorageBucketRequest,
+
+    /**
+     * The RestCreateStorageBucketResponse model constructor.
+     * @property {module:model/RestCreateStorageBucketResponse}
+     */
+    RestCreateStorageBucketResponse,
 
     /**
      * The RestDataSourceCollection model constructor.
