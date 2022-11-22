@@ -93,6 +93,9 @@ class JobsAction {
             if (data.hasOwnProperty('Label')) {
                 obj['Label'] = ApiClient.convertToType(data['Label'], 'String');
             }
+            if (data.hasOwnProperty('MergeAction')) {
+                obj['MergeAction'] = JobsAction.constructFromObject(data['MergeAction']);
+            }
             if (data.hasOwnProperty('NodesFilter')) {
                 obj['NodesFilter'] = JobsNodesSelector.constructFromObject(data['NodesFilter']);
             }
@@ -185,6 +188,11 @@ JobsAction.prototype['IdmSelector'] = undefined;
  * @member {String} Label
  */
 JobsAction.prototype['Label'] = undefined;
+
+/**
+ * @member {module:model/JobsAction} MergeAction
+ */
+JobsAction.prototype['MergeAction'] = undefined;
 
 /**
  * @member {module:model/JobsNodesSelector} NodesFilter

@@ -68,6 +68,9 @@ class JobsActionOutput {
             if (data.hasOwnProperty('Time')) {
                 obj['Time'] = ApiClient.convertToType(data['Time'], 'Number');
             }
+            if (data.hasOwnProperty('Vars')) {
+                obj['Vars'] = ApiClient.convertToType(data['Vars'], {'String': 'String'});
+            }
         }
         return obj;
     }
@@ -109,6 +112,12 @@ JobsActionOutput.prototype['Success'] = undefined;
  * @member {Number} Time
  */
 JobsActionOutput.prototype['Time'] = undefined;
+
+/**
+ * Vars container, values are json-encoded.
+ * @member {Object.<String, String>} Vars
+ */
+JobsActionOutput.prototype['Vars'] = undefined;
 
 
 

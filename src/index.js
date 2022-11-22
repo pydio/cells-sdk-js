@@ -100,6 +100,7 @@ import JobsDeleteTasksResponse from './model/JobsDeleteTasksResponse';
 import JobsIdmSelector from './model/JobsIdmSelector';
 import JobsIdmSelectorType from './model/JobsIdmSelectorType';
 import JobsJob from './model/JobsJob';
+import JobsJobHook from './model/JobsJobHook';
 import JobsJobParameter from './model/JobsJobParameter';
 import JobsListJobsRequest from './model/JobsListJobsRequest';
 import JobsNodesSelector from './model/JobsNodesSelector';
@@ -855,6 +856,12 @@ export {
      * @property {module:model/JobsJob}
      */
     JobsJob,
+
+    /**
+     * The JobsJobHook model constructor.
+     * @property {module:model/JobsJobHook}
+     */
+    JobsJobHook,
 
     /**
      * The JobsJobParameter model constructor.

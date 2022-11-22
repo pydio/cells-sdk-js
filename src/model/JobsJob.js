@@ -16,6 +16,7 @@ import JobsAction from './JobsAction';
 import JobsContextMetaFilter from './JobsContextMetaFilter';
 import JobsDataSourceSelector from './JobsDataSourceSelector';
 import JobsIdmSelector from './JobsIdmSelector';
+import JobsJobHook from './JobsJobHook';
 import JobsJobParameter from './JobsJobParameter';
 import JobsNodesSelector from './JobsNodesSelector';
 import JobsSchedule from './JobsSchedule';
@@ -69,6 +70,9 @@ class JobsJob {
             if (data.hasOwnProperty('ContextMetaFilter')) {
                 obj['ContextMetaFilter'] = JobsContextMetaFilter.constructFromObject(data['ContextMetaFilter']);
             }
+            if (data.hasOwnProperty('CreatedAt')) {
+                obj['CreatedAt'] = ApiClient.convertToType(data['CreatedAt'], 'Number');
+            }
             if (data.hasOwnProperty('Custom')) {
                 obj['Custom'] = ApiClient.convertToType(data['Custom'], 'Boolean');
             }
@@ -77,6 +81,9 @@ class JobsJob {
             }
             if (data.hasOwnProperty('EventNames')) {
                 obj['EventNames'] = ApiClient.convertToType(data['EventNames'], ['String']);
+            }
+            if (data.hasOwnProperty('Hooks')) {
+                obj['Hooks'] = ApiClient.convertToType(data['Hooks'], [JobsJobHook]);
             }
             if (data.hasOwnProperty('ID')) {
                 obj['ID'] = ApiClient.convertToType(data['ID'], 'String');
@@ -95,6 +102,12 @@ class JobsJob {
             }
             if (data.hasOwnProperty('MaxConcurrency')) {
                 obj['MaxConcurrency'] = ApiClient.convertToType(data['MaxConcurrency'], 'Number');
+            }
+            if (data.hasOwnProperty('MergeAction')) {
+                obj['MergeAction'] = JobsAction.constructFromObject(data['MergeAction']);
+            }
+            if (data.hasOwnProperty('ModifiedAt')) {
+                obj['ModifiedAt'] = ApiClient.convertToType(data['ModifiedAt'], 'Number');
             }
             if (data.hasOwnProperty('NodeEventFilter')) {
                 obj['NodeEventFilter'] = JobsNodesSelector.constructFromObject(data['NodeEventFilter']);
@@ -122,6 +135,9 @@ class JobsJob {
             }
             if (data.hasOwnProperty('UserEventFilter')) {
                 obj['UserEventFilter'] = JobsUsersSelector.constructFromObject(data['UserEventFilter']);
+            }
+            if (data.hasOwnProperty('VersionMeta')) {
+                obj['VersionMeta'] = ApiClient.convertToType(data['VersionMeta'], {'String': 'String'});
             }
         }
         return obj;
@@ -151,6 +167,11 @@ JobsJob.prototype['AutoStart'] = undefined;
 JobsJob.prototype['ContextMetaFilter'] = undefined;
 
 /**
+ * @member {Number} CreatedAt
+ */
+JobsJob.prototype['CreatedAt'] = undefined;
+
+/**
  * @member {Boolean} Custom
  */
 JobsJob.prototype['Custom'] = undefined;
@@ -164,6 +185,11 @@ JobsJob.prototype['DataSourceFilter'] = undefined;
  * @member {Array.<String>} EventNames
  */
 JobsJob.prototype['EventNames'] = undefined;
+
+/**
+ * @member {Array.<module:model/JobsJobHook>} Hooks
+ */
+JobsJob.prototype['Hooks'] = undefined;
 
 /**
  * @member {String} ID
@@ -194,6 +220,16 @@ JobsJob.prototype['Languages'] = undefined;
  * @member {Number} MaxConcurrency
  */
 JobsJob.prototype['MaxConcurrency'] = undefined;
+
+/**
+ * @member {module:model/JobsAction} MergeAction
+ */
+JobsJob.prototype['MergeAction'] = undefined;
+
+/**
+ * @member {Number} ModifiedAt
+ */
+JobsJob.prototype['ModifiedAt'] = undefined;
 
 /**
  * @member {module:model/JobsNodesSelector} NodeEventFilter
@@ -239,6 +275,11 @@ JobsJob.prototype['Timeout'] = undefined;
  * @member {module:model/JobsUsersSelector} UserEventFilter
  */
 JobsJob.prototype['UserEventFilter'] = undefined;
+
+/**
+ * @member {Object.<String, String>} VersionMeta
+ */
+JobsJob.prototype['VersionMeta'] = undefined;
 
 
 
