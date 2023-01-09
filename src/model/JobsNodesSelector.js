@@ -57,6 +57,9 @@ class JobsNodesSelector {
             if (data.hasOwnProperty('Description')) {
                 obj['Description'] = ApiClient.convertToType(data['Description'], 'String');
             }
+            if (data.hasOwnProperty('FanOutInput')) {
+                obj['FanOutInput'] = ApiClient.convertToType(data['FanOutInput'], 'Boolean');
+            }
             if (data.hasOwnProperty('Label')) {
                 obj['Label'] = ApiClient.convertToType(data['Label'], 'String');
             }
@@ -90,6 +93,11 @@ JobsNodesSelector.prototype['Collect'] = undefined;
  * @member {String} Description
  */
 JobsNodesSelector.prototype['Description'] = undefined;
+
+/**
+ * @member {Boolean} FanOutInput
+ */
+JobsNodesSelector.prototype['FanOutInput'] = undefined;
 
 /**
  * @member {String} Label

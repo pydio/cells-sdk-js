@@ -58,6 +58,9 @@ class JobsIdmSelector {
             if (data.hasOwnProperty('Description')) {
                 obj['Description'] = ApiClient.convertToType(data['Description'], 'String');
             }
+            if (data.hasOwnProperty('FanOutInput')) {
+                obj['FanOutInput'] = ApiClient.convertToType(data['FanOutInput'], 'Boolean');
+            }
             if (data.hasOwnProperty('Label')) {
                 obj['Label'] = ApiClient.convertToType(data['Label'], 'String');
             }
@@ -91,6 +94,11 @@ JobsIdmSelector.prototype['Collect'] = undefined;
  * @member {String} Description
  */
 JobsIdmSelector.prototype['Description'] = undefined;
+
+/**
+ * @member {Boolean} FanOutInput
+ */
+JobsIdmSelector.prototype['FanOutInput'] = undefined;
 
 /**
  * @member {String} Label

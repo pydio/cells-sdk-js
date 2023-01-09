@@ -58,6 +58,9 @@ class JobsDataSourceSelector {
             if (data.hasOwnProperty('Description')) {
                 obj['Description'] = ApiClient.convertToType(data['Description'], 'String');
             }
+            if (data.hasOwnProperty('FanOutInput')) {
+                obj['FanOutInput'] = ApiClient.convertToType(data['FanOutInput'], 'Boolean');
+            }
             if (data.hasOwnProperty('Label')) {
                 obj['Label'] = ApiClient.convertToType(data['Label'], 'String');
             }
@@ -91,6 +94,11 @@ JobsDataSourceSelector.prototype['Collect'] = undefined;
  * @member {String} Description
  */
 JobsDataSourceSelector.prototype['Description'] = undefined;
+
+/**
+ * @member {Boolean} FanOutInput
+ */
+JobsDataSourceSelector.prototype['FanOutInput'] = undefined;
 
 /**
  * @member {String} Label
