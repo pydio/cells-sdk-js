@@ -141,6 +141,7 @@ TreeQuery.prototype['FileName'] = undefined;
 TreeQuery.prototype['FileNameOrContent'] = undefined;
 
 /**
+ * Bleve-like search query to search for a specific metadata value. When querying nodes, this will redirect this query to the Search Engine. When filtering an input, this will load an in-memory bleve engine to evaluate the node.  Bleve query string format is a space separated list of `[+-]key:value`, where node meta keys must be prepended with \"Meta.\" For Example, for tags: `+Meta.usermeta-tags:myvalue`
  * @member {String} FreeString
  */
 TreeQuery.prototype['FreeString'] = undefined;

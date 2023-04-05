@@ -44,14 +44,14 @@ export default class WorkspaceServiceApi {
      * Delete an existing workspace
      * @param {String} Slug Slug is an url-compatible form of the workspace label, or can be freely modified (max length 500)
      * @param {Object} opts Optional parameters
-     * @param {String} opts.UUID Unique identifier of the workspace.
-     * @param {String} opts.Label Label of the workspace (max length 500).
-     * @param {String} opts.Description Description of the workspace (max length 1000).
-     * @param {module:model/String} opts.Scope Scope can be ADMIN, ROOM (=CELL) or LINK. (default to 'ANY')
-     * @param {Number} opts.LastUpdated Last modification time.
-     * @param {String} opts.Attributes JSON-encoded list of attributes.
-     * @param {Array.<String>} opts.RootUUIDs Quick list of the RootNodes uuids.
-     * @param {Boolean} opts.PoliciesContextEditable Context-resolved to quickly check if workspace is editable or not.
+     * @param {String} opts.UUID Unique identifier of the workspace
+     * @param {String} opts.Label Label of the workspace (max length 500)
+     * @param {String} opts.Description Description of the workspace (max length 1000)
+     * @param {module:model/String} opts.Scope Scope can be ADMIN, ROOM (=CELL) or LINK (default to 'ANY')
+     * @param {Number} opts.LastUpdated Last modification time
+     * @param {String} opts.Attributes JSON-encoded list of attributes
+     * @param {Array.<String>} opts.RootUUIDs Quick list of the RootNodes uuids
+     * @param {Boolean} opts.PoliciesContextEditable Context-resolved to quickly check if workspace is editable or not
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/RestDeleteResponse} and HTTP response
      */
     deleteWorkspaceWithHttpInfo(Slug, opts) {
@@ -95,14 +95,14 @@ export default class WorkspaceServiceApi {
      * Delete an existing workspace
      * @param {String} Slug Slug is an url-compatible form of the workspace label, or can be freely modified (max length 500)
      * @param {Object} opts Optional parameters
-     * @param {String} opts.UUID Unique identifier of the workspace.
-     * @param {String} opts.Label Label of the workspace (max length 500).
-     * @param {String} opts.Description Description of the workspace (max length 1000).
-     * @param {module:model/String} opts.Scope Scope can be ADMIN, ROOM (=CELL) or LINK. (default to 'ANY')
-     * @param {Number} opts.LastUpdated Last modification time.
-     * @param {String} opts.Attributes JSON-encoded list of attributes.
-     * @param {Array.<String>} opts.RootUUIDs Quick list of the RootNodes uuids.
-     * @param {Boolean} opts.PoliciesContextEditable Context-resolved to quickly check if workspace is editable or not.
+     * @param {String} opts.UUID Unique identifier of the workspace
+     * @param {String} opts.Label Label of the workspace (max length 500)
+     * @param {String} opts.Description Description of the workspace (max length 1000)
+     * @param {module:model/String} opts.Scope Scope can be ADMIN, ROOM (=CELL) or LINK (default to 'ANY')
+     * @param {Number} opts.LastUpdated Last modification time
+     * @param {String} opts.Attributes JSON-encoded list of attributes
+     * @param {Array.<String>} opts.RootUUIDs Quick list of the RootNodes uuids
+     * @param {Boolean} opts.PoliciesContextEditable Context-resolved to quickly check if workspace is editable or not
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/RestDeleteResponse}
      */
     deleteWorkspace(Slug, opts) {

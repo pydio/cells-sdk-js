@@ -52,6 +52,9 @@ class JobsDataSourceSelector {
             if (data.hasOwnProperty('All')) {
                 obj['All'] = ApiClient.convertToType(data['All'], 'Boolean');
             }
+            if (data.hasOwnProperty('ClearInput')) {
+                obj['ClearInput'] = ApiClient.convertToType(data['ClearInput'], 'Boolean');
+            }
             if (data.hasOwnProperty('Collect')) {
                 obj['Collect'] = ApiClient.convertToType(data['Collect'], 'Boolean');
             }
@@ -84,6 +87,11 @@ class JobsDataSourceSelector {
  * @member {Boolean} All
  */
 JobsDataSourceSelector.prototype['All'] = undefined;
+
+/**
+ * @member {Boolean} ClearInput
+ */
+JobsDataSourceSelector.prototype['ClearInput'] = undefined;
 
 /**
  * @member {Boolean} Collect

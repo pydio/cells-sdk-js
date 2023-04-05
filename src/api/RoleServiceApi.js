@@ -43,13 +43,13 @@ export default class RoleServiceApi {
      * Delete a Role by ID
      * @param {String} Uuid Unique identifier of this role
      * @param {Object} opts Optional parameters
-     * @param {String} opts.Label Label of this role.
-     * @param {Boolean} opts.IsTeam Whether this role represents a user team or not.
-     * @param {Boolean} opts.GroupRole Whether this role is attached to a Group object.
-     * @param {Boolean} opts.UserRole Whether this role is attached to a User object.
-     * @param {Number} opts.LastUpdated Last modification date of the role.
-     * @param {Array.<String>} opts.AutoApplies List of profiles (standard, shared, admin) on which the role will be automatically applied.
-     * @param {Boolean} opts.PoliciesContextEditable Whether the policies resolve into an editable state.
+     * @param {String} opts.Label Label of this role
+     * @param {Boolean} opts.IsTeam Whether this role represents a user team or not
+     * @param {Boolean} opts.GroupRole Whether this role is attached to a Group object
+     * @param {Boolean} opts.UserRole Whether this role is attached to a User object
+     * @param {Number} opts.LastUpdated Last modification date of the role
+     * @param {Array.<String>} opts.AutoApplies List of profiles (standard, shared, admin) on which the role will be automatically applied
+     * @param {Boolean} opts.PoliciesContextEditable Whether the policies resolve into an editable state
      * @param {Boolean} opts.ForceOverride Is used in a stack of roles, this one will always be applied last.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/IdmRole} and HTTP response
      */
@@ -94,13 +94,13 @@ export default class RoleServiceApi {
      * Delete a Role by ID
      * @param {String} Uuid Unique identifier of this role
      * @param {Object} opts Optional parameters
-     * @param {String} opts.Label Label of this role.
-     * @param {Boolean} opts.IsTeam Whether this role represents a user team or not.
-     * @param {Boolean} opts.GroupRole Whether this role is attached to a Group object.
-     * @param {Boolean} opts.UserRole Whether this role is attached to a User object.
-     * @param {Number} opts.LastUpdated Last modification date of the role.
-     * @param {Array.<String>} opts.AutoApplies List of profiles (standard, shared, admin) on which the role will be automatically applied.
-     * @param {Boolean} opts.PoliciesContextEditable Whether the policies resolve into an editable state.
+     * @param {String} opts.Label Label of this role
+     * @param {Boolean} opts.IsTeam Whether this role represents a user team or not
+     * @param {Boolean} opts.GroupRole Whether this role is attached to a Group object
+     * @param {Boolean} opts.UserRole Whether this role is attached to a User object
+     * @param {Number} opts.LastUpdated Last modification date of the role
+     * @param {Array.<String>} opts.AutoApplies List of profiles (standard, shared, admin) on which the role will be automatically applied
+     * @param {Boolean} opts.PoliciesContextEditable Whether the policies resolve into an editable state
      * @param {Boolean} opts.ForceOverride Is used in a stack of roles, this one will always be applied last.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/IdmRole}
      */
@@ -116,13 +116,13 @@ export default class RoleServiceApi {
      * Get a Role by ID
      * @param {String} Uuid Unique identifier of this role
      * @param {Object} opts Optional parameters
-     * @param {String} opts.Label Label of this role.
-     * @param {Boolean} opts.IsTeam Whether this role represents a user team or not.
-     * @param {Boolean} opts.GroupRole Whether this role is attached to a Group object.
-     * @param {Boolean} opts.UserRole Whether this role is attached to a User object.
-     * @param {Number} opts.LastUpdated Last modification date of the role.
-     * @param {Array.<String>} opts.AutoApplies List of profiles (standard, shared, admin) on which the role will be automatically applied.
-     * @param {Boolean} opts.PoliciesContextEditable Whether the policies resolve into an editable state.
+     * @param {String} opts.Label Label of this role
+     * @param {Boolean} opts.IsTeam Whether this role represents a user team or not
+     * @param {Boolean} opts.GroupRole Whether this role is attached to a Group object
+     * @param {Boolean} opts.UserRole Whether this role is attached to a User object
+     * @param {Number} opts.LastUpdated Last modification date of the role
+     * @param {Array.<String>} opts.AutoApplies List of profiles (standard, shared, admin) on which the role will be automatically applied
+     * @param {Boolean} opts.PoliciesContextEditable Whether the policies resolve into an editable state
      * @param {Boolean} opts.ForceOverride Is used in a stack of roles, this one will always be applied last.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/IdmRole} and HTTP response
      */
@@ -167,13 +167,13 @@ export default class RoleServiceApi {
      * Get a Role by ID
      * @param {String} Uuid Unique identifier of this role
      * @param {Object} opts Optional parameters
-     * @param {String} opts.Label Label of this role.
-     * @param {Boolean} opts.IsTeam Whether this role represents a user team or not.
-     * @param {Boolean} opts.GroupRole Whether this role is attached to a Group object.
-     * @param {Boolean} opts.UserRole Whether this role is attached to a User object.
-     * @param {Number} opts.LastUpdated Last modification date of the role.
-     * @param {Array.<String>} opts.AutoApplies List of profiles (standard, shared, admin) on which the role will be automatically applied.
-     * @param {Boolean} opts.PoliciesContextEditable Whether the policies resolve into an editable state.
+     * @param {String} opts.Label Label of this role
+     * @param {Boolean} opts.IsTeam Whether this role represents a user team or not
+     * @param {Boolean} opts.GroupRole Whether this role is attached to a Group object
+     * @param {Boolean} opts.UserRole Whether this role is attached to a User object
+     * @param {Number} opts.LastUpdated Last modification date of the role
+     * @param {Array.<String>} opts.AutoApplies List of profiles (standard, shared, admin) on which the role will be automatically applied
+     * @param {Boolean} opts.PoliciesContextEditable Whether the policies resolve into an editable state
      * @param {Boolean} opts.ForceOverride Is used in a stack of roles, this one will always be applied last.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/IdmRole}
      */

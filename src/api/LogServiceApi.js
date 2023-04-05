@@ -39,7 +39,7 @@ export default class LogServiceApi {
 
     /**
      * Technical Logs, in Json or CSV format
-     * @param {module:model/LogListLogRequest} body 
+     * @param {module:model/LogListLogRequest} body ListLogRequest launches a parameterised query in the log repository and streams the results.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/RestLogMessageCollection} and HTTP response
      */
     syslogWithHttpInfo(body) {
@@ -71,7 +71,7 @@ export default class LogServiceApi {
 
     /**
      * Technical Logs, in Json or CSV format
-     * @param {module:model/LogListLogRequest} body 
+     * @param {module:model/LogListLogRequest} body ListLogRequest launches a parameterised query in the log repository and streams the results.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/RestLogMessageCollection}
      */
     syslog(body) {

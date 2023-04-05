@@ -67,6 +67,12 @@ class TreeListNodesRequest {
             if (data.hasOwnProperty('Recursive')) {
                 obj['Recursive'] = ApiClient.convertToType(data['Recursive'], 'Boolean');
             }
+            if (data.hasOwnProperty('SortDirDesc')) {
+                obj['SortDirDesc'] = ApiClient.convertToType(data['SortDirDesc'], 'Boolean');
+            }
+            if (data.hasOwnProperty('SortField')) {
+                obj['SortField'] = ApiClient.convertToType(data['SortField'], 'String');
+            }
             if (data.hasOwnProperty('StatFlags')) {
                 obj['StatFlags'] = ApiClient.convertToType(data['StatFlags'], ['Number']);
             }
@@ -112,6 +118,16 @@ TreeListNodesRequest.prototype['Offset'] = undefined;
  * @member {Boolean} Recursive
  */
 TreeListNodesRequest.prototype['Recursive'] = undefined;
+
+/**
+ * @member {Boolean} SortDirDesc
+ */
+TreeListNodesRequest.prototype['SortDirDesc'] = undefined;
+
+/**
+ * @member {String} SortField
+ */
+TreeListNodesRequest.prototype['SortField'] = undefined;
 
 /**
  * @member {Array.<Number>} StatFlags

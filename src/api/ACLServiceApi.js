@@ -41,7 +41,7 @@ export default class ACLServiceApi {
 
     /**
      * Delete one or more ACLs
-     * @param {module:model/IdmACL} body 
+     * @param {module:model/IdmACL} body ACL are the basic flags that can be put anywhere in the tree to provide some specific rights to a given role. The context of how they apply can be fine-tuned by workspace.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/RestDeleteResponse} and HTTP response
      */
     deleteAclWithHttpInfo(body) {
@@ -73,7 +73,7 @@ export default class ACLServiceApi {
 
     /**
      * Delete one or more ACLs
-     * @param {module:model/IdmACL} body 
+     * @param {module:model/IdmACL} body ACL are the basic flags that can be put anywhere in the tree to provide some specific rights to a given role. The context of how they apply can be fine-tuned by workspace.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/RestDeleteResponse}
      */
     deleteAcl(body) {
@@ -86,7 +86,7 @@ export default class ACLServiceApi {
 
     /**
      * Store an ACL
-     * @param {module:model/IdmACL} body 
+     * @param {module:model/IdmACL} body ACL are the basic flags that can be put anywhere in the tree to provide some specific rights to a given role. The context of how they apply can be fine-tuned by workspace.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/IdmACL} and HTTP response
      */
     putAclWithHttpInfo(body) {
@@ -118,7 +118,7 @@ export default class ACLServiceApi {
 
     /**
      * Store an ACL
-     * @param {module:model/IdmACL} body 
+     * @param {module:model/IdmACL} body ACL are the basic flags that can be put anywhere in the tree to provide some specific rights to a given role. The context of how they apply can be fine-tuned by workspace.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/IdmACL}
      */
     putAcl(body) {

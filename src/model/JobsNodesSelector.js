@@ -51,6 +51,9 @@ class JobsNodesSelector {
             if (data.hasOwnProperty('All')) {
                 obj['All'] = ApiClient.convertToType(data['All'], 'Boolean');
             }
+            if (data.hasOwnProperty('ClearInput')) {
+                obj['ClearInput'] = ApiClient.convertToType(data['ClearInput'], 'Boolean');
+            }
             if (data.hasOwnProperty('Collect')) {
                 obj['Collect'] = ApiClient.convertToType(data['Collect'], 'Boolean');
             }
@@ -83,6 +86,11 @@ class JobsNodesSelector {
  * @member {Boolean} All
  */
 JobsNodesSelector.prototype['All'] = undefined;
+
+/**
+ * @member {Boolean} ClearInput
+ */
+JobsNodesSelector.prototype['ClearInput'] = undefined;
 
 /**
  * @member {Boolean} Collect

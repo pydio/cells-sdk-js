@@ -52,6 +52,9 @@ class RegistryOptions {
             if (data.hasOwnProperty('actions')) {
                 obj['actions'] = ApiClient.convertToType(data['actions'], [RegistryActionType]);
             }
+            if (data.hasOwnProperty('ids')) {
+                obj['ids'] = ApiClient.convertToType(data['ids'], ['String']);
+            }
             if (data.hasOwnProperty('metaName')) {
                 obj['metaName'] = ApiClient.convertToType(data['metaName'], 'String');
             }
@@ -78,6 +81,11 @@ class RegistryOptions {
  * @member {Array.<module:model/RegistryActionType>} actions
  */
 RegistryOptions.prototype['actions'] = undefined;
+
+/**
+ * @member {Array.<String>} ids
+ */
+RegistryOptions.prototype['ids'] = undefined;
 
 /**
  * @member {String} metaName

@@ -64,6 +64,9 @@ class JobsJob {
             if (data.hasOwnProperty('AutoClean')) {
                 obj['AutoClean'] = ApiClient.convertToType(data['AutoClean'], 'Boolean');
             }
+            if (data.hasOwnProperty('AutoRestart')) {
+                obj['AutoRestart'] = ApiClient.convertToType(data['AutoRestart'], 'Boolean');
+            }
             if (data.hasOwnProperty('AutoStart')) {
                 obj['AutoStart'] = ApiClient.convertToType(data['AutoStart'], 'Boolean');
             }
@@ -155,6 +158,11 @@ JobsJob.prototype['Actions'] = undefined;
  * @member {Boolean} AutoClean
  */
 JobsJob.prototype['AutoClean'] = undefined;
+
+/**
+ * @member {Boolean} AutoRestart
+ */
+JobsJob.prototype['AutoRestart'] = undefined;
 
 /**
  * @member {Boolean} AutoStart

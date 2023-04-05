@@ -59,6 +59,12 @@ class RestGetBulkMetaRequest {
             if (data.hasOwnProperty('Offset')) {
                 obj['Offset'] = ApiClient.convertToType(data['Offset'], 'Number');
             }
+            if (data.hasOwnProperty('SortDirDesc')) {
+                obj['SortDirDesc'] = ApiClient.convertToType(data['SortDirDesc'], 'Boolean');
+            }
+            if (data.hasOwnProperty('SortField')) {
+                obj['SortField'] = ApiClient.convertToType(data['SortField'], 'String');
+            }
             if (data.hasOwnProperty('Versions')) {
                 obj['Versions'] = ApiClient.convertToType(data['Versions'], 'Boolean');
             }
@@ -88,6 +94,16 @@ RestGetBulkMetaRequest.prototype['NodePaths'] = undefined;
  * @member {Number} Offset
  */
 RestGetBulkMetaRequest.prototype['Offset'] = undefined;
+
+/**
+ * @member {Boolean} SortDirDesc
+ */
+RestGetBulkMetaRequest.prototype['SortDirDesc'] = undefined;
+
+/**
+ * @member {String} SortField
+ */
+RestGetBulkMetaRequest.prototype['SortField'] = undefined;
 
 /**
  * @member {Boolean} Versions

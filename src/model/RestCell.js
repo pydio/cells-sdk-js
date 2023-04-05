@@ -53,6 +53,9 @@ class RestCell {
             if (data.hasOwnProperty('ACLs')) {
                 obj['ACLs'] = ApiClient.convertToType(data['ACLs'], {'String': RestCellAcl});
             }
+            if (data.hasOwnProperty('AccessEnd')) {
+                obj['AccessEnd'] = ApiClient.convertToType(data['AccessEnd'], 'String');
+            }
             if (data.hasOwnProperty('Description')) {
                 obj['Description'] = ApiClient.convertToType(data['Description'], 'String');
             }
@@ -82,6 +85,11 @@ class RestCell {
  * @member {Object.<String, module:model/RestCellAcl>} ACLs
  */
 RestCell.prototype['ACLs'] = undefined;
+
+/**
+ * @member {String} AccessEnd
+ */
+RestCell.prototype['AccessEnd'] = undefined;
 
 /**
  * @member {String} Description
