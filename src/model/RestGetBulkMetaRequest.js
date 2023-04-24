@@ -50,6 +50,9 @@ class RestGetBulkMetaRequest {
             if (data.hasOwnProperty('AllMetaProviders')) {
                 obj['AllMetaProviders'] = ApiClient.convertToType(data['AllMetaProviders'], 'Boolean');
             }
+            if (data.hasOwnProperty('Filters')) {
+                obj['Filters'] = ApiClient.convertToType(data['Filters'], {'String': 'String'});
+            }
             if (data.hasOwnProperty('Limit')) {
                 obj['Limit'] = ApiClient.convertToType(data['Limit'], 'Number');
             }
@@ -79,6 +82,11 @@ class RestGetBulkMetaRequest {
  * @member {Boolean} AllMetaProviders
  */
 RestGetBulkMetaRequest.prototype['AllMetaProviders'] = undefined;
+
+/**
+ * @member {Object.<String, String>} Filters
+ */
+RestGetBulkMetaRequest.prototype['Filters'] = undefined;
 
 /**
  * @member {Number} Limit
