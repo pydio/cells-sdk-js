@@ -14,6 +14,7 @@
 import ApiClient from '../ApiClient';
 import JobsActionOutputFilter from './JobsActionOutputFilter';
 import JobsContextMetaFilter from './JobsContextMetaFilter';
+import JobsDataSelector from './JobsDataSelector';
 import JobsDataSourceSelector from './JobsDataSourceSelector';
 import JobsIdmSelector from './JobsIdmSelector';
 import JobsNodesSelector from './JobsNodesSelector';
@@ -68,6 +69,12 @@ class JobsAction {
             }
             if (data.hasOwnProperty('ContextMetaFilter')) {
                 obj['ContextMetaFilter'] = JobsContextMetaFilter.constructFromObject(data['ContextMetaFilter']);
+            }
+            if (data.hasOwnProperty('DataFilter')) {
+                obj['DataFilter'] = JobsDataSelector.constructFromObject(data['DataFilter']);
+            }
+            if (data.hasOwnProperty('DataSelector')) {
+                obj['DataSelector'] = JobsDataSelector.constructFromObject(data['DataSelector']);
             }
             if (data.hasOwnProperty('DataSourceFilter')) {
                 obj['DataSourceFilter'] = JobsDataSourceSelector.constructFromObject(data['DataSourceFilter']);
@@ -148,6 +155,16 @@ JobsAction.prototype['ChainedActions'] = undefined;
  * @member {module:model/JobsContextMetaFilter} ContextMetaFilter
  */
 JobsAction.prototype['ContextMetaFilter'] = undefined;
+
+/**
+ * @member {module:model/JobsDataSelector} DataFilter
+ */
+JobsAction.prototype['DataFilter'] = undefined;
+
+/**
+ * @member {module:model/JobsDataSelector} DataSelector
+ */
+JobsAction.prototype['DataSelector'] = undefined;
 
 /**
  * @member {module:model/JobsDataSourceSelector} DataSourceFilter

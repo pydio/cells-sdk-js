@@ -109,6 +109,9 @@ class JobsJob {
             if (data.hasOwnProperty('MergeAction')) {
                 obj['MergeAction'] = JobsAction.constructFromObject(data['MergeAction']);
             }
+            if (data.hasOwnProperty('Metadata')) {
+                obj['Metadata'] = ApiClient.convertToType(data['Metadata'], {'String': 'String'});
+            }
             if (data.hasOwnProperty('ModifiedAt')) {
                 obj['ModifiedAt'] = ApiClient.convertToType(data['ModifiedAt'], 'Number');
             }
@@ -233,6 +236,12 @@ JobsJob.prototype['MaxConcurrency'] = undefined;
  * @member {module:model/JobsAction} MergeAction
  */
 JobsJob.prototype['MergeAction'] = undefined;
+
+/**
+ * Additional user-defined metadata, can be used for icon, documentation, pre-requisites, etc.
+ * @member {Object.<String, String>} Metadata
+ */
+JobsJob.prototype['Metadata'] = undefined;
 
 /**
  * @member {Number} ModifiedAt

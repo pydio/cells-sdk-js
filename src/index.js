@@ -93,6 +93,7 @@ import JobsContextMetaFilter from './model/JobsContextMetaFilter';
 import JobsContextMetaFilterType from './model/JobsContextMetaFilterType';
 import JobsCtrlCommand from './model/JobsCtrlCommand';
 import JobsCtrlCommandResponse from './model/JobsCtrlCommandResponse';
+import JobsDataSelector from './model/JobsDataSelector';
 import JobsDataSourceSelector from './model/JobsDataSourceSelector';
 import JobsDataSourceSelectorType from './model/JobsDataSourceSelectorType';
 import JobsDeleteTasksRequest from './model/JobsDeleteTasksRequest';
@@ -814,6 +815,12 @@ export {
      * @property {module:model/JobsCtrlCommandResponse}
      */
     JobsCtrlCommandResponse,
+
+    /**
+     * The JobsDataSelector model constructor.
+     * @property {module:model/JobsDataSelector}
+     */
+    JobsDataSelector,
 
     /**
      * The JobsDataSourceSelector model constructor.
