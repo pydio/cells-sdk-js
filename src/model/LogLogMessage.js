@@ -108,6 +108,9 @@ class LogLogMessage {
             if (data.hasOwnProperty('SpanUuid')) {
                 obj['SpanUuid'] = ApiClient.convertToType(data['SpanUuid'], 'String');
             }
+            if (data.hasOwnProperty('TransferSize')) {
+                obj['TransferSize'] = ApiClient.convertToType(data['TransferSize'], 'String');
+            }
             if (data.hasOwnProperty('Ts')) {
                 obj['Ts'] = ApiClient.convertToType(data['Ts'], 'Number');
             }
@@ -232,6 +235,11 @@ LogLogMessage.prototype['SpanRootUuid'] = undefined;
  * @member {String} SpanUuid
  */
 LogLogMessage.prototype['SpanUuid'] = undefined;
+
+/**
+ * @member {String} TransferSize
+ */
+LogLogMessage.prototype['TransferSize'] = undefined;
 
 /**
  * @member {Number} Ts
