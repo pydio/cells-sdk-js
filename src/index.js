@@ -107,6 +107,7 @@ import JobsJobParameter from './model/JobsJobParameter';
 import JobsListJobsRequest from './model/JobsListJobsRequest';
 import JobsNodesSelector from './model/JobsNodesSelector';
 import JobsSchedule from './model/JobsSchedule';
+import JobsSelectorRange from './model/JobsSelectorRange';
 import JobsTask from './model/JobsTask';
 import JobsTaskStatus from './model/JobsTaskStatus';
 import JobsTriggerFilter from './model/JobsTriggerFilter';
@@ -900,6 +901,12 @@ export {
      * @property {module:model/JobsSchedule}
      */
     JobsSchedule,
+
+    /**
+     * The JobsSelectorRange model constructor.
+     * @property {module:model/JobsSelectorRange}
+     */
+    JobsSelectorRange,
 
     /**
      * The JobsTask model constructor.

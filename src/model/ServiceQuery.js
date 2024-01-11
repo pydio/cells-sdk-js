@@ -62,6 +62,12 @@ class ServiceQuery {
             if (data.hasOwnProperty('ResourcePolicyQuery')) {
                 obj['ResourcePolicyQuery'] = ServiceResourcePolicyQuery.constructFromObject(data['ResourcePolicyQuery']);
             }
+            if (data.hasOwnProperty('SortDesc')) {
+                obj['SortDesc'] = ApiClient.convertToType(data['SortDesc'], 'Boolean');
+            }
+            if (data.hasOwnProperty('SortField')) {
+                obj['SortField'] = ApiClient.convertToType(data['SortField'], 'String');
+            }
             if (data.hasOwnProperty('SubQueries')) {
                 obj['SubQueries'] = ApiClient.convertToType(data['SubQueries'], [ProtobufAny]);
             }
@@ -94,6 +100,16 @@ ServiceQuery.prototype['Operation'] = undefined;
  * @member {module:model/ServiceResourcePolicyQuery} ResourcePolicyQuery
  */
 ServiceQuery.prototype['ResourcePolicyQuery'] = undefined;
+
+/**
+ * @member {Boolean} SortDesc
+ */
+ServiceQuery.prototype['SortDesc'] = undefined;
+
+/**
+ * @member {String} SortField
+ */
+ServiceQuery.prototype['SortField'] = undefined;
 
 /**
  * @member {Array.<module:model/ProtobufAny>} SubQueries

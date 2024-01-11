@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import JobsSelectorRange from './JobsSelectorRange';
 import ServiceQuery from './ServiceQuery';
 
 /**
@@ -72,6 +73,9 @@ class JobsNodesSelector {
             if (data.hasOwnProperty('Query')) {
                 obj['Query'] = ServiceQuery.constructFromObject(data['Query']);
             }
+            if (data.hasOwnProperty('Range')) {
+                obj['Range'] = JobsSelectorRange.constructFromObject(data['Range']);
+            }
             if (data.hasOwnProperty('Timeout')) {
                 obj['Timeout'] = ApiClient.convertToType(data['Timeout'], 'String');
             }
@@ -121,6 +125,11 @@ JobsNodesSelector.prototype['Pathes'] = undefined;
  * @member {module:model/ServiceQuery} Query
  */
 JobsNodesSelector.prototype['Query'] = undefined;
+
+/**
+ * @member {module:model/JobsSelectorRange} Range
+ */
+JobsNodesSelector.prototype['Range'] = undefined;
 
 /**
  * @member {String} Timeout

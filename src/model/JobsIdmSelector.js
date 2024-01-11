@@ -13,6 +13,7 @@
 
 import ApiClient from '../ApiClient';
 import JobsIdmSelectorType from './JobsIdmSelectorType';
+import JobsSelectorRange from './JobsSelectorRange';
 import ServiceQuery from './ServiceQuery';
 
 /**
@@ -70,6 +71,9 @@ class JobsIdmSelector {
             if (data.hasOwnProperty('Query')) {
                 obj['Query'] = ServiceQuery.constructFromObject(data['Query']);
             }
+            if (data.hasOwnProperty('Range')) {
+                obj['Range'] = JobsSelectorRange.constructFromObject(data['Range']);
+            }
             if (data.hasOwnProperty('Timeout')) {
                 obj['Timeout'] = ApiClient.convertToType(data['Timeout'], 'String');
             }
@@ -117,6 +121,11 @@ JobsIdmSelector.prototype['Label'] = undefined;
  * @member {module:model/ServiceQuery} Query
  */
 JobsIdmSelector.prototype['Query'] = undefined;
+
+/**
+ * @member {module:model/JobsSelectorRange} Range
+ */
+JobsIdmSelector.prototype['Range'] = undefined;
 
 /**
  * @member {String} Timeout
