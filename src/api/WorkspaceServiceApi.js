@@ -42,21 +42,10 @@ export default class WorkspaceServiceApi {
 
     /**
      * Delete an existing workspace
-     * @param {String} Slug Slug is an url-compatible form of the workspace label, or can be freely modified (max length 500)
-     * @param {Object} opts Optional parameters
-     * @param {String} [UUID] Unique identifier of the workspace
-     * @param {String} [Label] Label of the workspace (max length 500)
-     * @param {String} [Description] Description of the workspace (max length 1000)
-     * @param {module:model/String} [Scope = 'ANY')] Scope can be ADMIN, ROOM (=CELL) or LINK
-     * @param {Number} [LastUpdated] Last modification time
-     * @param {String} [Attributes] JSON-encoded list of attributes
-     * @param {Array.<String>} [RootUUIDs] Quick list of the RootNodes uuids
-     * @param {Array.<String>} [RootNodes] List of the Root Nodes in the tree that compose this workspace  This is a request variable of the map type. The query format is \"map_name[key]=value\", e.g. If the map name is Age, the key type is string, and the value type is integer, the query parameter is expressed as Age[\"bob\"]=18
-     * @param {Boolean} [PoliciesContextEditable] Context-resolved to quickly check if workspace is editable or not
+     * @param {String} Slug 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/RestDeleteResponse} and HTTP response
      */
-    deleteWorkspaceWithHttpInfo(Slug, opts) {
-      opts = opts || {};
+    deleteWorkspaceWithHttpInfo(Slug) {
       let postBody = null;
       // verify the required parameter 'Slug' is set
       if (Slug === undefined || Slug === null) {
@@ -67,15 +56,6 @@ export default class WorkspaceServiceApi {
         'Slug': Slug
       };
       let queryParams = {
-        'UUID': opts['UUID'],
-        'Label': opts['Label'],
-        'Description': opts['Description'],
-        'Scope': opts['Scope'],
-        'LastUpdated': opts['LastUpdated'],
-        'Attributes': opts['Attributes'],
-        'RootUUIDs': this.apiClient.buildCollectionParam(opts['RootUUIDs'], 'multi'),
-        'RootNodes': this.apiClient.buildCollectionParam(opts['RootNodes'], 'csv'),
-        'PoliciesContextEditable': opts['PoliciesContextEditable']
       };
       let headerParams = {
       };
@@ -95,21 +75,11 @@ export default class WorkspaceServiceApi {
 
     /**
      * Delete an existing workspace
-     * @param {String} Slug Slug is an url-compatible form of the workspace label, or can be freely modified (max length 500)
-     * @param {Object} opts Optional parameters
-     * @param {String} opts.UUID Unique identifier of the workspace
-     * @param {String} opts.Label Label of the workspace (max length 500)
-     * @param {String} opts.Description Description of the workspace (max length 1000)
-     * @param {module:model/String} opts.Scope Scope can be ADMIN, ROOM (=CELL) or LINK (default to 'ANY')
-     * @param {Number} opts.LastUpdated Last modification time
-     * @param {String} opts.Attributes JSON-encoded list of attributes
-     * @param {Array.<String>} opts.RootUUIDs Quick list of the RootNodes uuids
-     * @param {Array.<String>} opts.RootNodes List of the Root Nodes in the tree that compose this workspace  This is a request variable of the map type. The query format is \"map_name[key]=value\", e.g. If the map name is Age, the key type is string, and the value type is integer, the query parameter is expressed as Age[\"bob\"]=18
-     * @param {Boolean} opts.PoliciesContextEditable Context-resolved to quickly check if workspace is editable or not
+     * @param {String} Slug 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/RestDeleteResponse}
      */
-    deleteWorkspace(Slug, opts) {
-      return this.deleteWorkspaceWithHttpInfo(Slug, opts)
+    deleteWorkspace(Slug) {
+      return this.deleteWorkspaceWithHttpInfo(Slug)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

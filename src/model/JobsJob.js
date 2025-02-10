@@ -13,6 +13,7 @@
 
 import ApiClient from '../ApiClient';
 import JobsAction from './JobsAction';
+import JobsChatEventFilter from './JobsChatEventFilter';
 import JobsContextMetaFilter from './JobsContextMetaFilter';
 import JobsDataSourceSelector from './JobsDataSourceSelector';
 import JobsIdmSelector from './JobsIdmSelector';
@@ -69,6 +70,9 @@ class JobsJob {
             }
             if (data.hasOwnProperty('AutoStart')) {
                 obj['AutoStart'] = ApiClient.convertToType(data['AutoStart'], 'Boolean');
+            }
+            if (data.hasOwnProperty('ChatEventFilter')) {
+                obj['ChatEventFilter'] = JobsChatEventFilter.constructFromObject(data['ChatEventFilter']);
             }
             if (data.hasOwnProperty('ContextMetaFilter')) {
                 obj['ContextMetaFilter'] = JobsContextMetaFilter.constructFromObject(data['ContextMetaFilter']);
@@ -164,6 +168,10 @@ class JobsJob {
             for (const item of data['Actions']) {
                 JobsAction.validateJSON(item);
             };
+        }
+        // validate the optional field `ChatEventFilter`
+        if (data['ChatEventFilter']) { // data not null
+          JobsChatEventFilter.validateJSON(data['ChatEventFilter']);
         }
         // validate the optional field `ContextMetaFilter`
         if (data['ContextMetaFilter']) { // data not null
@@ -279,6 +287,11 @@ JobsJob.prototype['AutoRestart'] = undefined;
  * @member {Boolean} AutoStart
  */
 JobsJob.prototype['AutoStart'] = undefined;
+
+/**
+ * @member {module:model/JobsChatEventFilter} ChatEventFilter
+ */
+JobsJob.prototype['ChatEventFilter'] = undefined;
 
 /**
  * @member {module:model/JobsContextMetaFilter} ContextMetaFilter

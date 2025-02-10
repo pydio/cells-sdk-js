@@ -93,6 +93,7 @@ import JobsActionLog from './model/JobsActionLog';
 import JobsActionMessage from './model/JobsActionMessage';
 import JobsActionOutput from './model/JobsActionOutput';
 import JobsActionOutputFilter from './model/JobsActionOutputFilter';
+import JobsChatEventFilter from './model/JobsChatEventFilter';
 import JobsCommand from './model/JobsCommand';
 import JobsContextMetaFilter from './model/JobsContextMetaFilter';
 import JobsContextMetaFilterType from './model/JobsContextMetaFilterType';
@@ -249,7 +250,6 @@ import RestUsersCollection from './model/RestUsersCollection';
 import RestVersioningPolicyCollection from './model/RestVersioningPolicyCollection';
 import RestWorkspaceCollection from './model/RestWorkspaceCollection';
 import RoleServiceSetRoleBody from './model/RoleServiceSetRoleBody';
-import RpcStatus from './model/RpcStatus';
 import ServiceOperationType from './model/ServiceOperationType';
 import ServiceQuery from './model/ServiceQuery';
 import ServiceResourcePolicy from './model/ServiceResourcePolicy';
@@ -826,6 +826,12 @@ export {
      * @property {module:model/JobsActionOutputFilter}
      */
     JobsActionOutputFilter,
+
+    /**
+     * The JobsChatEventFilter model constructor.
+     * @property {module:model/JobsChatEventFilter}
+     */
+    JobsChatEventFilter,
 
     /**
      * The JobsCommand model constructor.
@@ -1762,12 +1768,6 @@ export {
      * @property {module:model/RoleServiceSetRoleBody}
      */
     RoleServiceSetRoleBody,
-
-    /**
-     * The RpcStatus model constructor.
-     * @property {module:model/RpcStatus}
-     */
-    RpcStatus,
 
     /**
      * The ServiceOperationType model constructor.

@@ -87,9 +87,6 @@ class ActivityObject {
             if (data.hasOwnProperty('content')) {
                 obj['content'] = ActivityObject.constructFromObject(data['content']);
             }
-            if (data.hasOwnProperty('context')) {
-                obj['context'] = ActivityObject.constructFromObject(data['context']);
-            }
             if (data.hasOwnProperty('current')) {
                 obj['current'] = ActivityObject.constructFromObject(data['current']);
             }
@@ -283,10 +280,6 @@ class ActivityObject {
         // validate the optional field `content`
         if (data['content']) { // data not null
           ActivityObject.validateJSON(data['content']);
-        }
-        // validate the optional field `context`
-        if (data['context']) { // data not null
-          ActivityObject.validateJSON(data['context']);
         }
         // validate the optional field `current`
         if (data['current']) { // data not null
@@ -503,11 +496,6 @@ ActivityObject.prototype['closed'] = undefined;
  * @member {module:model/ActivityObject} content
  */
 ActivityObject.prototype['content'] = undefined;
-
-/**
- * @member {module:model/ActivityObject} context
- */
-ActivityObject.prototype['context'] = undefined;
 
 /**
  * @member {module:model/ActivityObject} current

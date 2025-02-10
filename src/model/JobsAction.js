@@ -13,6 +13,7 @@
 
 import ApiClient from '../ApiClient';
 import JobsActionOutputFilter from './JobsActionOutputFilter';
+import JobsChatEventFilter from './JobsChatEventFilter';
 import JobsContextMetaFilter from './JobsContextMetaFilter';
 import JobsDataSelector from './JobsDataSelector';
 import JobsDataSourceSelector from './JobsDataSourceSelector';
@@ -66,6 +67,9 @@ class JobsAction {
             }
             if (data.hasOwnProperty('ChainedActions')) {
                 obj['ChainedActions'] = ApiClient.convertToType(data['ChainedActions'], [JobsAction]);
+            }
+            if (data.hasOwnProperty('ChatEventFilter')) {
+                obj['ChatEventFilter'] = JobsChatEventFilter.constructFromObject(data['ChatEventFilter']);
             }
             if (data.hasOwnProperty('ContextMetaFilter')) {
                 obj['ContextMetaFilter'] = JobsContextMetaFilter.constructFromObject(data['ContextMetaFilter']);
@@ -147,6 +151,10 @@ class JobsAction {
             for (const item of data['ChainedActions']) {
                 JobsAction.validateJSON(item);
             };
+        }
+        // validate the optional field `ChatEventFilter`
+        if (data['ChatEventFilter']) { // data not null
+          JobsChatEventFilter.validateJSON(data['ChatEventFilter']);
         }
         // validate the optional field `ContextMetaFilter`
         if (data['ContextMetaFilter']) { // data not null
@@ -254,6 +262,11 @@ JobsAction.prototype['Bypass'] = undefined;
  * @member {Array.<module:model/JobsAction>} ChainedActions
  */
 JobsAction.prototype['ChainedActions'] = undefined;
+
+/**
+ * @member {module:model/JobsChatEventFilter} ChatEventFilter
+ */
+JobsAction.prototype['ChatEventFilter'] = undefined;
 
 /**
  * @member {module:model/JobsContextMetaFilter} ContextMetaFilter
