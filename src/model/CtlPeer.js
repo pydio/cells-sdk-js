@@ -63,8 +63,28 @@ class CtlPeer {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>CtlPeer</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>CtlPeer</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['Address'] && !(typeof data['Address'] === 'string' || data['Address'] instanceof String)) {
+            throw new Error("Expected the field `Address` to be a primitive type in the JSON string but got " + data['Address']);
+        }
+        // ensure the json data is a string
+        if (data['Id'] && !(typeof data['Id'] === 'string' || data['Id'] instanceof String)) {
+            throw new Error("Expected the field `Id` to be a primitive type in the JSON string but got " + data['Id']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} Address

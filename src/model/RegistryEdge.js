@@ -54,8 +54,24 @@ class RegistryEdge {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>RegistryEdge</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>RegistryEdge</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is an array
+        if (!Array.isArray(data['vertices'])) {
+            throw new Error("Expected the field `vertices` to be an array in the JSON data but got " + data['vertices']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {Array.<String>} vertices

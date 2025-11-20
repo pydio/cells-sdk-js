@@ -61,8 +61,32 @@ class JobsActionOutputFilter {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>JobsActionOutputFilter</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>JobsActionOutputFilter</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['Description'] && !(typeof data['Description'] === 'string' || data['Description'] instanceof String)) {
+            throw new Error("Expected the field `Description` to be a primitive type in the JSON string but got " + data['Description']);
+        }
+        // ensure the json data is a string
+        if (data['Label'] && !(typeof data['Label'] === 'string' || data['Label'] instanceof String)) {
+            throw new Error("Expected the field `Label` to be a primitive type in the JSON string but got " + data['Label']);
+        }
+        // validate the optional field `Query`
+        if (data['Query']) { // data not null
+          ServiceQuery.validateJSON(data['Query']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} Description

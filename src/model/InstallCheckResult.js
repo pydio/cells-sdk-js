@@ -60,8 +60,28 @@ class InstallCheckResult {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>InstallCheckResult</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>InstallCheckResult</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['JsonResult'] && !(typeof data['JsonResult'] === 'string' || data['JsonResult'] instanceof String)) {
+            throw new Error("Expected the field `JsonResult` to be a primitive type in the JSON string but got " + data['JsonResult']);
+        }
+        // ensure the json data is a string
+        if (data['Name'] && !(typeof data['Name'] === 'string' || data['Name'] instanceof String)) {
+            throw new Error("Expected the field `Name` to be a primitive type in the JSON string but got " + data['Name']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} JsonResult

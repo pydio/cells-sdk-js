@@ -68,8 +68,42 @@ class RestTemplate {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>RestTemplate</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>RestTemplate</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['Label'] && !(typeof data['Label'] === 'string' || data['Label'] instanceof String)) {
+            throw new Error("Expected the field `Label` to be a primitive type in the JSON string but got " + data['Label']);
+        }
+        // validate the optional field `Node`
+        if (data['Node']) { // data not null
+          RestTemplateNode.validateJSON(data['Node']);
+        }
+        if (data['Policies']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['Policies'])) {
+                throw new Error("Expected the field `Policies` to be an array in the JSON data but got " + data['Policies']);
+            }
+            // validate the optional field `Policies` (array)
+            for (const item of data['Policies']) {
+                ServiceResourcePolicy.validateJSON(item);
+            };
+        }
+        // ensure the json data is a string
+        if (data['UUID'] && !(typeof data['UUID'] === 'string' || data['UUID'] instanceof String)) {
+            throw new Error("Expected the field `UUID` to be a primitive type in the JSON string but got " + data['UUID']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {Boolean} Editable

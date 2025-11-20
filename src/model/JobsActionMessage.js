@@ -87,8 +87,100 @@ class JobsActionMessage {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>JobsActionMessage</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>JobsActionMessage</code>.
+     */
+    static validateJSON(data) {
+        if (data['Acls']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['Acls'])) {
+                throw new Error("Expected the field `Acls` to be an array in the JSON data but got " + data['Acls']);
+            }
+            // validate the optional field `Acls` (array)
+            for (const item of data['Acls']) {
+                IdmACL.validateJSON(item);
+            };
+        }
+        if (data['Activities']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['Activities'])) {
+                throw new Error("Expected the field `Activities` to be an array in the JSON data but got " + data['Activities']);
+            }
+            // validate the optional field `Activities` (array)
+            for (const item of data['Activities']) {
+                ActivityObject.validateJSON(item);
+            };
+        }
+        if (data['DataSources']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['DataSources'])) {
+                throw new Error("Expected the field `DataSources` to be an array in the JSON data but got " + data['DataSources']);
+            }
+            // validate the optional field `DataSources` (array)
+            for (const item of data['DataSources']) {
+                ObjectDataSource.validateJSON(item);
+            };
+        }
+        if (data['Nodes']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['Nodes'])) {
+                throw new Error("Expected the field `Nodes` to be an array in the JSON data but got " + data['Nodes']);
+            }
+            // validate the optional field `Nodes` (array)
+            for (const item of data['Nodes']) {
+                TreeNode.validateJSON(item);
+            };
+        }
+        if (data['OutputChain']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['OutputChain'])) {
+                throw new Error("Expected the field `OutputChain` to be an array in the JSON data but got " + data['OutputChain']);
+            }
+            // validate the optional field `OutputChain` (array)
+            for (const item of data['OutputChain']) {
+                JobsActionOutput.validateJSON(item);
+            };
+        }
+        if (data['Roles']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['Roles'])) {
+                throw new Error("Expected the field `Roles` to be an array in the JSON data but got " + data['Roles']);
+            }
+            // validate the optional field `Roles` (array)
+            for (const item of data['Roles']) {
+                IdmRole.validateJSON(item);
+            };
+        }
+        if (data['Users']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['Users'])) {
+                throw new Error("Expected the field `Users` to be an array in the JSON data but got " + data['Users']);
+            }
+            // validate the optional field `Users` (array)
+            for (const item of data['Users']) {
+                IdmUser.validateJSON(item);
+            };
+        }
+        if (data['Workspaces']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['Workspaces'])) {
+                throw new Error("Expected the field `Workspaces` to be an array in the JSON data but got " + data['Workspaces']);
+            }
+            // validate the optional field `Workspaces` (array)
+            for (const item of data['Workspaces']) {
+                IdmWorkspace.validateJSON(item);
+            };
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {Array.<module:model/IdmACL>} Acls

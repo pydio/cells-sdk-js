@@ -58,8 +58,30 @@ class RestRolesCollection {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>RestRolesCollection</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>RestRolesCollection</code>.
+     */
+    static validateJSON(data) {
+        if (data['Roles']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['Roles'])) {
+                throw new Error("Expected the field `Roles` to be an array in the JSON data but got " + data['Roles']);
+            }
+            // validate the optional field `Roles` (array)
+            for (const item of data['Roles']) {
+                IdmRole.validateJSON(item);
+            };
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {Array.<module:model/IdmRole>} Roles

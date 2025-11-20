@@ -68,6 +68,9 @@ class TreeNode {
             if (data.hasOwnProperty('Mode')) {
                 obj['Mode'] = ApiClient.convertToType(data['Mode'], 'Number');
             }
+            if (data.hasOwnProperty('ModeString')) {
+                obj['ModeString'] = ApiClient.convertToType(data['ModeString'], 'String');
+            }
             if (data.hasOwnProperty('Path')) {
                 obj['Path'] = ApiClient.convertToType(data['Path'], 'String');
             }
@@ -84,8 +87,64 @@ class TreeNode {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>TreeNode</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>TreeNode</code>.
+     */
+    static validateJSON(data) {
+        if (data['AppearsIn']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['AppearsIn'])) {
+                throw new Error("Expected the field `AppearsIn` to be an array in the JSON data but got " + data['AppearsIn']);
+            }
+            // validate the optional field `AppearsIn` (array)
+            for (const item of data['AppearsIn']) {
+                TreeWorkspaceRelativePath.validateJSON(item);
+            };
+        }
+        if (data['Commits']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['Commits'])) {
+                throw new Error("Expected the field `Commits` to be an array in the JSON data but got " + data['Commits']);
+            }
+            // validate the optional field `Commits` (array)
+            for (const item of data['Commits']) {
+                TreeChangeLog.validateJSON(item);
+            };
+        }
+        // ensure the json data is a string
+        if (data['Etag'] && !(typeof data['Etag'] === 'string' || data['Etag'] instanceof String)) {
+            throw new Error("Expected the field `Etag` to be a primitive type in the JSON string but got " + data['Etag']);
+        }
+        // ensure the json data is a string
+        if (data['MTime'] && !(typeof data['MTime'] === 'string' || data['MTime'] instanceof String)) {
+            throw new Error("Expected the field `MTime` to be a primitive type in the JSON string but got " + data['MTime']);
+        }
+        // ensure the json data is a string
+        if (data['ModeString'] && !(typeof data['ModeString'] === 'string' || data['ModeString'] instanceof String)) {
+            throw new Error("Expected the field `ModeString` to be a primitive type in the JSON string but got " + data['ModeString']);
+        }
+        // ensure the json data is a string
+        if (data['Path'] && !(typeof data['Path'] === 'string' || data['Path'] instanceof String)) {
+            throw new Error("Expected the field `Path` to be a primitive type in the JSON string but got " + data['Path']);
+        }
+        // ensure the json data is a string
+        if (data['Size'] && !(typeof data['Size'] === 'string' || data['Size'] instanceof String)) {
+            throw new Error("Expected the field `Size` to be a primitive type in the JSON string but got " + data['Size']);
+        }
+        // ensure the json data is a string
+        if (data['Uuid'] && !(typeof data['Uuid'] === 'string' || data['Uuid'] instanceof String)) {
+            throw new Error("Expected the field `Uuid` to be a primitive type in the JSON string but got " + data['Uuid']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {Array.<module:model/TreeWorkspaceRelativePath>} AppearsIn
@@ -113,9 +172,15 @@ TreeNode.prototype['MTime'] = undefined;
 TreeNode.prototype['MetaStore'] = undefined;
 
 /**
+ * Permission mode, like 0777. Stored as string using custom ModeString field.
  * @member {Number} Mode
  */
 TreeNode.prototype['Mode'] = undefined;
+
+/**
+ * @member {String} ModeString
+ */
+TreeNode.prototype['ModeString'] = undefined;
 
 /**
  * @member {String} Path

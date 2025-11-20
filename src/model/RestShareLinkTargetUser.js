@@ -57,8 +57,24 @@ class RestShareLinkTargetUser {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>RestShareLinkTargetUser</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>RestShareLinkTargetUser</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['Display'] && !(typeof data['Display'] === 'string' || data['Display'] instanceof String)) {
+            throw new Error("Expected the field `Display` to be a primitive type in the JSON string but got " + data['Display']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} Display

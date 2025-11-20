@@ -18,7 +18,6 @@ import RestError from '../model/RestError';
 import RestGetBulkMetaRequest from '../model/RestGetBulkMetaRequest';
 import RestMetaCollection from '../model/RestMetaCollection';
 import RestMetaNamespaceRequest from '../model/RestMetaNamespaceRequest';
-import RestMetaNamespaceRequest1 from '../model/RestMetaNamespaceRequest1';
 import TreeNode from '../model/TreeNode';
 
 /**
@@ -141,7 +140,7 @@ export default class MetaServiceApi {
     /**
      * Load metadata for a given node
      * @param {String} NodePath Path to the requested node
-     * @param {module:model/RestMetaNamespaceRequest1} body 
+     * @param {module:model/RestMetaNamespaceRequest} body 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/TreeNode} and HTTP response
      */
     getMetaWithHttpInfo(NodePath, body) {
@@ -179,7 +178,7 @@ export default class MetaServiceApi {
     /**
      * Load metadata for a given node
      * @param {String} NodePath Path to the requested node
-     * @param {module:model/RestMetaNamespaceRequest1} body 
+     * @param {module:model/RestMetaNamespaceRequest} body 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/TreeNode}
      */
     getMeta(NodePath, body) {

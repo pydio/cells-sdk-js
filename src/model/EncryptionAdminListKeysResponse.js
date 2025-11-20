@@ -55,8 +55,30 @@ class EncryptionAdminListKeysResponse {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>EncryptionAdminListKeysResponse</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>EncryptionAdminListKeysResponse</code>.
+     */
+    static validateJSON(data) {
+        if (data['Keys']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['Keys'])) {
+                throw new Error("Expected the field `Keys` to be an array in the JSON data but got " + data['Keys']);
+            }
+            // validate the optional field `Keys` (array)
+            for (const item of data['Keys']) {
+                EncryptionKey.validateJSON(item);
+            };
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {Array.<module:model/EncryptionKey>} Keys

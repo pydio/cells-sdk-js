@@ -77,8 +77,46 @@ class CtlService {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>CtlService</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>CtlService</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['Description'] && !(typeof data['Description'] === 'string' || data['Description'] instanceof String)) {
+            throw new Error("Expected the field `Description` to be a primitive type in the JSON string but got " + data['Description']);
+        }
+        // ensure the json data is a string
+        if (data['Name'] && !(typeof data['Name'] === 'string' || data['Name'] instanceof String)) {
+            throw new Error("Expected the field `Name` to be a primitive type in the JSON string but got " + data['Name']);
+        }
+        if (data['RunningPeers']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['RunningPeers'])) {
+                throw new Error("Expected the field `RunningPeers` to be an array in the JSON data but got " + data['RunningPeers']);
+            }
+            // validate the optional field `RunningPeers` (array)
+            for (const item of data['RunningPeers']) {
+                CtlPeer.validateJSON(item);
+            };
+        }
+        // ensure the json data is a string
+        if (data['Tag'] && !(typeof data['Tag'] === 'string' || data['Tag'] instanceof String)) {
+            throw new Error("Expected the field `Tag` to be a primitive type in the JSON string but got " + data['Tag']);
+        }
+        // ensure the json data is a string
+        if (data['Version'] && !(typeof data['Version'] === 'string' || data['Version'] instanceof String)) {
+            throw new Error("Expected the field `Version` to be a primitive type in the JSON string but got " + data['Version']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {Boolean} Controllable

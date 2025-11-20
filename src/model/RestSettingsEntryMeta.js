@@ -66,8 +66,36 @@ class RestSettingsEntryMeta {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>RestSettingsEntryMeta</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>RestSettingsEntryMeta</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['component'] && !(typeof data['component'] === 'string' || data['component'] instanceof String)) {
+            throw new Error("Expected the field `component` to be a primitive type in the JSON string but got " + data['component']);
+        }
+        // ensure the json data is a string
+        if (data['icon_class'] && !(typeof data['icon_class'] === 'string' || data['icon_class'] instanceof String)) {
+            throw new Error("Expected the field `icon_class` to be a primitive type in the JSON string but got " + data['icon_class']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['indexed'])) {
+            throw new Error("Expected the field `indexed` to be an array in the JSON data but got " + data['indexed']);
+        }
+        // ensure the json data is a string
+        if (data['props'] && !(typeof data['props'] === 'string' || data['props'] instanceof String)) {
+            throw new Error("Expected the field `props` to be a primitive type in the JSON string but got " + data['props']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {Boolean} advanced

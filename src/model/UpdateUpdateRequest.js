@@ -72,8 +72,44 @@ class UpdateUpdateRequest {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>UpdateUpdateRequest</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>UpdateUpdateRequest</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['Channel'] && !(typeof data['Channel'] === 'string' || data['Channel'] instanceof String)) {
+            throw new Error("Expected the field `Channel` to be a primitive type in the JSON string but got " + data['Channel']);
+        }
+        // ensure the json data is a string
+        if (data['CurrentVersion'] && !(typeof data['CurrentVersion'] === 'string' || data['CurrentVersion'] instanceof String)) {
+            throw new Error("Expected the field `CurrentVersion` to be a primitive type in the JSON string but got " + data['CurrentVersion']);
+        }
+        // ensure the json data is a string
+        if (data['GOARCH'] && !(typeof data['GOARCH'] === 'string' || data['GOARCH'] instanceof String)) {
+            throw new Error("Expected the field `GOARCH` to be a primitive type in the JSON string but got " + data['GOARCH']);
+        }
+        // ensure the json data is a string
+        if (data['GOOS'] && !(typeof data['GOOS'] === 'string' || data['GOOS'] instanceof String)) {
+            throw new Error("Expected the field `GOOS` to be a primitive type in the JSON string but got " + data['GOOS']);
+        }
+        // ensure the json data is a string
+        if (data['PackageName'] && !(typeof data['PackageName'] === 'string' || data['PackageName'] instanceof String)) {
+            throw new Error("Expected the field `PackageName` to be a primitive type in the JSON string but got " + data['PackageName']);
+        }
+        // ensure the json data is a string
+        if (data['ServiceName'] && !(typeof data['ServiceName'] === 'string' || data['ServiceName'] instanceof String)) {
+            throw new Error("Expected the field `ServiceName` to be a primitive type in the JSON string but got " + data['ServiceName']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} Channel

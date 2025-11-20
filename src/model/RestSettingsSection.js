@@ -64,8 +64,42 @@ class RestSettingsSection {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>RestSettingsSection</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>RestSettingsSection</code>.
+     */
+    static validateJSON(data) {
+        if (data['CHILDREN']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['CHILDREN'])) {
+                throw new Error("Expected the field `CHILDREN` to be an array in the JSON data but got " + data['CHILDREN']);
+            }
+            // validate the optional field `CHILDREN` (array)
+            for (const item of data['CHILDREN']) {
+                RestSettingsEntry.validateJSON(item);
+            };
+        }
+        // ensure the json data is a string
+        if (data['DESCRIPTION'] && !(typeof data['DESCRIPTION'] === 'string' || data['DESCRIPTION'] instanceof String)) {
+            throw new Error("Expected the field `DESCRIPTION` to be a primitive type in the JSON string but got " + data['DESCRIPTION']);
+        }
+        // ensure the json data is a string
+        if (data['Key'] && !(typeof data['Key'] === 'string' || data['Key'] instanceof String)) {
+            throw new Error("Expected the field `Key` to be a primitive type in the JSON string but got " + data['Key']);
+        }
+        // ensure the json data is a string
+        if (data['LABEL'] && !(typeof data['LABEL'] === 'string' || data['LABEL'] instanceof String)) {
+            throw new Error("Expected the field `LABEL` to be a primitive type in the JSON string but got " + data['LABEL']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {Array.<module:model/RestSettingsEntry>} CHILDREN

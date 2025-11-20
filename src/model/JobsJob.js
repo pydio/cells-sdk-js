@@ -153,8 +153,120 @@ class JobsJob {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>JobsJob</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>JobsJob</code>.
+     */
+    static validateJSON(data) {
+        if (data['Actions']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['Actions'])) {
+                throw new Error("Expected the field `Actions` to be an array in the JSON data but got " + data['Actions']);
+            }
+            // validate the optional field `Actions` (array)
+            for (const item of data['Actions']) {
+                JobsAction.validateJSON(item);
+            };
+        }
+        // validate the optional field `ChatEventFilter`
+        if (data['ChatEventFilter']) { // data not null
+          JobsChatEventFilter.validateJSON(data['ChatEventFilter']);
+        }
+        // validate the optional field `ContextMetaFilter`
+        if (data['ContextMetaFilter']) { // data not null
+          JobsContextMetaFilter.validateJSON(data['ContextMetaFilter']);
+        }
+        // validate the optional field `DataSourceFilter`
+        if (data['DataSourceFilter']) { // data not null
+          JobsDataSourceSelector.validateJSON(data['DataSourceFilter']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['EventNames'])) {
+            throw new Error("Expected the field `EventNames` to be an array in the JSON data but got " + data['EventNames']);
+        }
+        if (data['Hooks']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['Hooks'])) {
+                throw new Error("Expected the field `Hooks` to be an array in the JSON data but got " + data['Hooks']);
+            }
+            // validate the optional field `Hooks` (array)
+            for (const item of data['Hooks']) {
+                JobsJobHook.validateJSON(item);
+            };
+        }
+        // ensure the json data is a string
+        if (data['ID'] && !(typeof data['ID'] === 'string' || data['ID'] instanceof String)) {
+            throw new Error("Expected the field `ID` to be a primitive type in the JSON string but got " + data['ID']);
+        }
+        // validate the optional field `IdmFilter`
+        if (data['IdmFilter']) { // data not null
+          JobsIdmSelector.validateJSON(data['IdmFilter']);
+        }
+        // ensure the json data is a string
+        if (data['Label'] && !(typeof data['Label'] === 'string' || data['Label'] instanceof String)) {
+            throw new Error("Expected the field `Label` to be a primitive type in the JSON string but got " + data['Label']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['Languages'])) {
+            throw new Error("Expected the field `Languages` to be an array in the JSON data but got " + data['Languages']);
+        }
+        // validate the optional field `MergeAction`
+        if (data['MergeAction']) { // data not null
+          JobsAction.validateJSON(data['MergeAction']);
+        }
+        // validate the optional field `NodeEventFilter`
+        if (data['NodeEventFilter']) { // data not null
+          JobsNodesSelector.validateJSON(data['NodeEventFilter']);
+        }
+        // ensure the json data is a string
+        if (data['Owner'] && !(typeof data['Owner'] === 'string' || data['Owner'] instanceof String)) {
+            throw new Error("Expected the field `Owner` to be a primitive type in the JSON string but got " + data['Owner']);
+        }
+        if (data['Parameters']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['Parameters'])) {
+                throw new Error("Expected the field `Parameters` to be an array in the JSON data but got " + data['Parameters']);
+            }
+            // validate the optional field `Parameters` (array)
+            for (const item of data['Parameters']) {
+                JobsJobParameter.validateJSON(item);
+            };
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['ResourcesDependencies'])) {
+            throw new Error("Expected the field `ResourcesDependencies` to be an array in the JSON data but got " + data['ResourcesDependencies']);
+        }
+        // validate the optional field `Schedule`
+        if (data['Schedule']) { // data not null
+          JobsSchedule.validateJSON(data['Schedule']);
+        }
+        if (data['Tasks']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['Tasks'])) {
+                throw new Error("Expected the field `Tasks` to be an array in the JSON data but got " + data['Tasks']);
+            }
+            // validate the optional field `Tasks` (array)
+            for (const item of data['Tasks']) {
+                JobsTask.validateJSON(item);
+            };
+        }
+        // ensure the json data is a string
+        if (data['Timeout'] && !(typeof data['Timeout'] === 'string' || data['Timeout'] instanceof String)) {
+            throw new Error("Expected the field `Timeout` to be a primitive type in the JSON string but got " + data['Timeout']);
+        }
+        // validate the optional field `UserEventFilter`
+        if (data['UserEventFilter']) { // data not null
+          JobsUsersSelector.validateJSON(data['UserEventFilter']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {Array.<module:model/JobsAction>} Actions

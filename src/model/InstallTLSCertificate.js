@@ -60,8 +60,32 @@ class InstallTLSCertificate {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>InstallTLSCertificate</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>InstallTLSCertificate</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['CellsRootCA'] && !(typeof data['CellsRootCA'] === 'string' || data['CellsRootCA'] instanceof String)) {
+            throw new Error("Expected the field `CellsRootCA` to be a primitive type in the JSON string but got " + data['CellsRootCA']);
+        }
+        // ensure the json data is a string
+        if (data['CertFile'] && !(typeof data['CertFile'] === 'string' || data['CertFile'] instanceof String)) {
+            throw new Error("Expected the field `CertFile` to be a primitive type in the JSON string but got " + data['CertFile']);
+        }
+        // ensure the json data is a string
+        if (data['KeyFile'] && !(typeof data['KeyFile'] === 'string' || data['KeyFile'] instanceof String)) {
+            throw new Error("Expected the field `KeyFile` to be a primitive type in the JSON string but got " + data['KeyFile']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} CellsRootCA

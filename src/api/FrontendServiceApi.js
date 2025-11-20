@@ -375,7 +375,7 @@ export default class FrontendServiceApi {
     /**
      * Send XML state registry
      * @param {Object} opts Optional parameters
-     * @param {String} opts.XPath 
+     * @param {String} [XPath] 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/RestFrontStateResponse} and HTTP response
      */
     frontStateWithHttpInfo(opts) {

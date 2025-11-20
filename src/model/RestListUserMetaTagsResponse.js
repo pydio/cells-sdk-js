@@ -54,8 +54,24 @@ class RestListUserMetaTagsResponse {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>RestListUserMetaTagsResponse</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>RestListUserMetaTagsResponse</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is an array
+        if (!Array.isArray(data['Tags'])) {
+            throw new Error("Expected the field `Tags` to be an array in the JSON data but got " + data['Tags']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {Array.<String>} Tags

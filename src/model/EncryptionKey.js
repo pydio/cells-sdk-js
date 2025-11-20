@@ -70,8 +70,40 @@ class EncryptionKey {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>EncryptionKey</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>EncryptionKey</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['Content'] && !(typeof data['Content'] === 'string' || data['Content'] instanceof String)) {
+            throw new Error("Expected the field `Content` to be a primitive type in the JSON string but got " + data['Content']);
+        }
+        // ensure the json data is a string
+        if (data['ID'] && !(typeof data['ID'] === 'string' || data['ID'] instanceof String)) {
+            throw new Error("Expected the field `ID` to be a primitive type in the JSON string but got " + data['ID']);
+        }
+        // validate the optional field `Info`
+        if (data['Info']) { // data not null
+          EncryptionKeyInfo.validateJSON(data['Info']);
+        }
+        // ensure the json data is a string
+        if (data['Label'] && !(typeof data['Label'] === 'string' || data['Label'] instanceof String)) {
+            throw new Error("Expected the field `Label` to be a primitive type in the JSON string but got " + data['Label']);
+        }
+        // ensure the json data is a string
+        if (data['Owner'] && !(typeof data['Owner'] === 'string' || data['Owner'] instanceof String)) {
+            throw new Error("Expected the field `Owner` to be a primitive type in the JSON string but got " + data['Owner']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} Content

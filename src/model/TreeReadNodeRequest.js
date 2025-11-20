@@ -67,8 +67,28 @@ class TreeReadNodeRequest {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>TreeReadNodeRequest</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>TreeReadNodeRequest</code>.
+     */
+    static validateJSON(data) {
+        // validate the optional field `Node`
+        if (data['Node']) { // data not null
+          TreeNode.validateJSON(data['Node']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['StatFlags'])) {
+            throw new Error("Expected the field `StatFlags` to be an array in the JSON data but got " + data['StatFlags']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {module:model/TreeNode} Node

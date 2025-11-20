@@ -63,8 +63,36 @@ class JobsSelectorRange {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>JobsSelectorRange</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>JobsSelectorRange</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['Limit'] && !(typeof data['Limit'] === 'string' || data['Limit'] instanceof String)) {
+            throw new Error("Expected the field `Limit` to be a primitive type in the JSON string but got " + data['Limit']);
+        }
+        // ensure the json data is a string
+        if (data['Offset'] && !(typeof data['Offset'] === 'string' || data['Offset'] instanceof String)) {
+            throw new Error("Expected the field `Offset` to be a primitive type in the JSON string but got " + data['Offset']);
+        }
+        // ensure the json data is a string
+        if (data['OrderBy'] && !(typeof data['OrderBy'] === 'string' || data['OrderBy'] instanceof String)) {
+            throw new Error("Expected the field `OrderBy` to be a primitive type in the JSON string but got " + data['OrderBy']);
+        }
+        // ensure the json data is a string
+        if (data['OrderDir'] && !(typeof data['OrderDir'] === 'string' || data['OrderDir'] instanceof String)) {
+            throw new Error("Expected the field `OrderDir` to be a primitive type in the JSON string but got " + data['OrderDir']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} Limit

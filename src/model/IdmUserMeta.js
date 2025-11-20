@@ -74,8 +74,50 @@ class IdmUserMeta {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>IdmUserMeta</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>IdmUserMeta</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['JsonValue'] && !(typeof data['JsonValue'] === 'string' || data['JsonValue'] instanceof String)) {
+            throw new Error("Expected the field `JsonValue` to be a primitive type in the JSON string but got " + data['JsonValue']);
+        }
+        // ensure the json data is a string
+        if (data['Namespace'] && !(typeof data['Namespace'] === 'string' || data['Namespace'] instanceof String)) {
+            throw new Error("Expected the field `Namespace` to be a primitive type in the JSON string but got " + data['Namespace']);
+        }
+        // ensure the json data is a string
+        if (data['NodeUuid'] && !(typeof data['NodeUuid'] === 'string' || data['NodeUuid'] instanceof String)) {
+            throw new Error("Expected the field `NodeUuid` to be a primitive type in the JSON string but got " + data['NodeUuid']);
+        }
+        if (data['Policies']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['Policies'])) {
+                throw new Error("Expected the field `Policies` to be an array in the JSON data but got " + data['Policies']);
+            }
+            // validate the optional field `Policies` (array)
+            for (const item of data['Policies']) {
+                ServiceResourcePolicy.validateJSON(item);
+            };
+        }
+        // validate the optional field `ResolvedNode`
+        if (data['ResolvedNode']) { // data not null
+          TreeNode.validateJSON(data['ResolvedNode']);
+        }
+        // ensure the json data is a string
+        if (data['Uuid'] && !(typeof data['Uuid'] === 'string' || data['Uuid'] instanceof String)) {
+            throw new Error("Expected the field `Uuid` to be a primitive type in the JSON string but got " + data['Uuid']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} JsonValue

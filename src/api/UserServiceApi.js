@@ -18,8 +18,8 @@ import RestDeleteResponse from '../model/RestDeleteResponse';
 import RestError from '../model/RestError';
 import RestSearchUserRequest from '../model/RestSearchUserRequest';
 import RestUsersCollection from '../model/RestUsersCollection';
-import UserCanRepresentEitherAUserOrAGroup from '../model/UserCanRepresentEitherAUserOrAGroup';
-import UserCanRepresentEitherAUserOrAGroup1 from '../model/UserCanRepresentEitherAUserOrAGroup1';
+import UserServicePutRolesBody from '../model/UserServicePutRolesBody';
+import UserServicePutUserBody from '../model/UserServicePutUserBody';
 
 /**
 * UserService service.
@@ -45,14 +45,15 @@ export default class UserServiceApi {
      * Delete a user
      * @param {String} Login User login is used to connect, field is empty for groups
      * @param {Object} opts Optional parameters
-     * @param {String} opts.Uuid User unique identifier
-     * @param {String} opts.GroupPath Path to the parent group
-     * @param {String} opts.Password Password can be passed to be updated (but never read back), field is empty for groups
-     * @param {String} opts.OldPassword OldPassword must be set when a user updates her own password
-     * @param {Boolean} opts.IsGroup Whether this object is a group or a user
-     * @param {String} opts.GroupLabel Label of the group, field is empty for users
-     * @param {Number} opts.LastConnected Last successful connection timestamp
-     * @param {Boolean} opts.PoliciesContextEditable Context-resolved to quickly check if user is editable or not.
+     * @param {String} [Uuid] User unique identifier
+     * @param {String} [GroupPath] Path to the parent group
+     * @param {String} [Attributes] A free list of attributes  This is a request variable of the map type. The query format is \"map_name[key]=value\", e.g. If the map name is Age, the key type is string, and the value type is integer, the query parameter is expressed as Age[\"bob\"]=18
+     * @param {String} [Password] Password can be passed to be updated (but never read back), field is empty for groups
+     * @param {String} [OldPassword] OldPassword must be set when a user updates her own password
+     * @param {Boolean} [IsGroup] Whether this object is a group or a user
+     * @param {String} [GroupLabel] Label of the group, field is empty for users
+     * @param {Number} [LastConnected] Last successful connection timestamp
+     * @param {Boolean} [PoliciesContextEditable] Context-resolved to quickly check if user is editable or not.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/RestDeleteResponse} and HTTP response
      */
     deleteUserWithHttpInfo(Login, opts) {
@@ -69,6 +70,7 @@ export default class UserServiceApi {
       let queryParams = {
         'Uuid': opts['Uuid'],
         'GroupPath': opts['GroupPath'],
+        'Attributes': opts['Attributes'],
         'Password': opts['Password'],
         'OldPassword': opts['OldPassword'],
         'IsGroup': opts['IsGroup'],
@@ -98,6 +100,7 @@ export default class UserServiceApi {
      * @param {Object} opts Optional parameters
      * @param {String} opts.Uuid User unique identifier
      * @param {String} opts.GroupPath Path to the parent group
+     * @param {String} opts.Attributes A free list of attributes  This is a request variable of the map type. The query format is \"map_name[key]=value\", e.g. If the map name is Age, the key type is string, and the value type is integer, the query parameter is expressed as Age[\"bob\"]=18
      * @param {String} opts.Password Password can be passed to be updated (but never read back), field is empty for groups
      * @param {String} opts.OldPassword OldPassword must be set when a user updates her own password
      * @param {Boolean} opts.IsGroup Whether this object is a group or a user
@@ -118,14 +121,15 @@ export default class UserServiceApi {
      * Get a user by login
      * @param {String} Login User login is used to connect, field is empty for groups
      * @param {Object} opts Optional parameters
-     * @param {String} opts.Uuid User unique identifier
-     * @param {String} opts.GroupPath Path to the parent group
-     * @param {String} opts.Password Password can be passed to be updated (but never read back), field is empty for groups
-     * @param {String} opts.OldPassword OldPassword must be set when a user updates her own password
-     * @param {Boolean} opts.IsGroup Whether this object is a group or a user
-     * @param {String} opts.GroupLabel Label of the group, field is empty for users
-     * @param {Number} opts.LastConnected Last successful connection timestamp
-     * @param {Boolean} opts.PoliciesContextEditable Context-resolved to quickly check if user is editable or not.
+     * @param {String} [Uuid] User unique identifier
+     * @param {String} [GroupPath] Path to the parent group
+     * @param {String} [Attributes] A free list of attributes  This is a request variable of the map type. The query format is \"map_name[key]=value\", e.g. If the map name is Age, the key type is string, and the value type is integer, the query parameter is expressed as Age[\"bob\"]=18
+     * @param {String} [Password] Password can be passed to be updated (but never read back), field is empty for groups
+     * @param {String} [OldPassword] OldPassword must be set when a user updates her own password
+     * @param {Boolean} [IsGroup] Whether this object is a group or a user
+     * @param {String} [GroupLabel] Label of the group, field is empty for users
+     * @param {Number} [LastConnected] Last successful connection timestamp
+     * @param {Boolean} [PoliciesContextEditable] Context-resolved to quickly check if user is editable or not.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/IdmUser} and HTTP response
      */
     getUserWithHttpInfo(Login, opts) {
@@ -142,6 +146,7 @@ export default class UserServiceApi {
       let queryParams = {
         'Uuid': opts['Uuid'],
         'GroupPath': opts['GroupPath'],
+        'Attributes': opts['Attributes'],
         'Password': opts['Password'],
         'OldPassword': opts['OldPassword'],
         'IsGroup': opts['IsGroup'],
@@ -171,6 +176,7 @@ export default class UserServiceApi {
      * @param {Object} opts Optional parameters
      * @param {String} opts.Uuid User unique identifier
      * @param {String} opts.GroupPath Path to the parent group
+     * @param {String} opts.Attributes A free list of attributes  This is a request variable of the map type. The query format is \"map_name[key]=value\", e.g. If the map name is Age, the key type is string, and the value type is integer, the query parameter is expressed as Age[\"bob\"]=18
      * @param {String} opts.Password Password can be passed to be updated (but never read back), field is empty for groups
      * @param {String} opts.OldPassword OldPassword must be set when a user updates her own password
      * @param {Boolean} opts.IsGroup Whether this object is a group or a user
@@ -190,7 +196,7 @@ export default class UserServiceApi {
     /**
      * Just save a user roles, without other datas
      * @param {String} Login User login is used to connect, field is empty for groups
-     * @param {module:model/UserCanRepresentEitherAUserOrAGroup} body 
+     * @param {module:model/UserServicePutRolesBody} body 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/IdmUser} and HTTP response
      */
     putRolesWithHttpInfo(Login, body) {
@@ -228,7 +234,7 @@ export default class UserServiceApi {
     /**
      * Just save a user roles, without other datas
      * @param {String} Login User login is used to connect, field is empty for groups
-     * @param {module:model/UserCanRepresentEitherAUserOrAGroup} body 
+     * @param {module:model/UserServicePutRolesBody} body 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/IdmUser}
      */
     putRoles(Login, body) {
@@ -242,7 +248,7 @@ export default class UserServiceApi {
     /**
      * Create or update a user
      * @param {String} Login User login is used to connect, field is empty for groups
-     * @param {module:model/UserCanRepresentEitherAUserOrAGroup1} body 
+     * @param {module:model/UserServicePutUserBody} body 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/IdmUser} and HTTP response
      */
     putUserWithHttpInfo(Login, body) {
@@ -280,7 +286,7 @@ export default class UserServiceApi {
     /**
      * Create or update a user
      * @param {String} Login User login is used to connect, field is empty for groups
-     * @param {module:model/UserCanRepresentEitherAUserOrAGroup1} body 
+     * @param {module:model/UserServicePutUserBody} body 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/IdmUser}
      */
     putUser(Login, body) {

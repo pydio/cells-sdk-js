@@ -12,8 +12,11 @@
  */
 
 import ApiClient from '../ApiClient';
+import IdmPolicyAction from './IdmPolicyAction';
 import IdmPolicyCondition from './IdmPolicyCondition';
 import IdmPolicyEffect from './IdmPolicyEffect';
+import IdmPolicyResource from './IdmPolicyResource';
+import IdmPolicySubject from './IdmPolicySubject';
 
 /**
  * The IdmPolicy model module.
@@ -49,6 +52,15 @@ class IdmPolicy {
         if (data) {
             obj = obj || new IdmPolicy();
 
+            if (data.hasOwnProperty('OrmActions')) {
+                obj['OrmActions'] = ApiClient.convertToType(data['OrmActions'], [IdmPolicyAction]);
+            }
+            if (data.hasOwnProperty('OrmResources')) {
+                obj['OrmResources'] = ApiClient.convertToType(data['OrmResources'], [IdmPolicyResource]);
+            }
+            if (data.hasOwnProperty('OrmSubjects')) {
+                obj['OrmSubjects'] = ApiClient.convertToType(data['OrmSubjects'], [IdmPolicySubject]);
+            }
             if (data.hasOwnProperty('actions')) {
                 obj['actions'] = ApiClient.convertToType(data['actions'], ['String']);
             }
@@ -74,8 +86,85 @@ class IdmPolicy {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>IdmPolicy</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>IdmPolicy</code>.
+     */
+    static validateJSON(data) {
+        if (data['OrmActions']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['OrmActions'])) {
+                throw new Error("Expected the field `OrmActions` to be an array in the JSON data but got " + data['OrmActions']);
+            }
+            // validate the optional field `OrmActions` (array)
+            for (const item of data['OrmActions']) {
+                IdmPolicyAction.validateJSON(item);
+            };
+        }
+        if (data['OrmResources']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['OrmResources'])) {
+                throw new Error("Expected the field `OrmResources` to be an array in the JSON data but got " + data['OrmResources']);
+            }
+            // validate the optional field `OrmResources` (array)
+            for (const item of data['OrmResources']) {
+                IdmPolicyResource.validateJSON(item);
+            };
+        }
+        if (data['OrmSubjects']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['OrmSubjects'])) {
+                throw new Error("Expected the field `OrmSubjects` to be an array in the JSON data but got " + data['OrmSubjects']);
+            }
+            // validate the optional field `OrmSubjects` (array)
+            for (const item of data['OrmSubjects']) {
+                IdmPolicySubject.validateJSON(item);
+            };
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['actions'])) {
+            throw new Error("Expected the field `actions` to be an array in the JSON data but got " + data['actions']);
+        }
+        // ensure the json data is a string
+        if (data['description'] && !(typeof data['description'] === 'string' || data['description'] instanceof String)) {
+            throw new Error("Expected the field `description` to be a primitive type in the JSON string but got " + data['description']);
+        }
+        // ensure the json data is a string
+        if (data['id'] && !(typeof data['id'] === 'string' || data['id'] instanceof String)) {
+            throw new Error("Expected the field `id` to be a primitive type in the JSON string but got " + data['id']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['resources'])) {
+            throw new Error("Expected the field `resources` to be an array in the JSON data but got " + data['resources']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['subjects'])) {
+            throw new Error("Expected the field `subjects` to be an array in the JSON data but got " + data['subjects']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
+
+/**
+ * @member {Array.<module:model/IdmPolicyAction>} OrmActions
+ */
+IdmPolicy.prototype['OrmActions'] = undefined;
+
+/**
+ * @member {Array.<module:model/IdmPolicyResource>} OrmResources
+ */
+IdmPolicy.prototype['OrmResources'] = undefined;
+
+/**
+ * @member {Array.<module:model/IdmPolicySubject>} OrmSubjects
+ */
+IdmPolicy.prototype['OrmSubjects'] = undefined;
 
 /**
  * @member {Array.<String>} actions

@@ -83,8 +83,44 @@ class ActivityStreamActivitiesRequest {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>ActivityStreamActivitiesRequest</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>ActivityStreamActivitiesRequest</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['BoxName'] && !(typeof data['BoxName'] === 'string' || data['BoxName'] instanceof String)) {
+            throw new Error("Expected the field `BoxName` to be a primitive type in the JSON string but got " + data['BoxName']);
+        }
+        // ensure the json data is a string
+        if (data['ContextData'] && !(typeof data['ContextData'] === 'string' || data['ContextData'] instanceof String)) {
+            throw new Error("Expected the field `ContextData` to be a primitive type in the JSON string but got " + data['ContextData']);
+        }
+        // ensure the json data is a string
+        if (data['Language'] && !(typeof data['Language'] === 'string' || data['Language'] instanceof String)) {
+            throw new Error("Expected the field `Language` to be a primitive type in the JSON string but got " + data['Language']);
+        }
+        // ensure the json data is a string
+        if (data['Limit'] && !(typeof data['Limit'] === 'string' || data['Limit'] instanceof String)) {
+            throw new Error("Expected the field `Limit` to be a primitive type in the JSON string but got " + data['Limit']);
+        }
+        // ensure the json data is a string
+        if (data['Offset'] && !(typeof data['Offset'] === 'string' || data['Offset'] instanceof String)) {
+            throw new Error("Expected the field `Offset` to be a primitive type in the JSON string but got " + data['Offset']);
+        }
+        // ensure the json data is a string
+        if (data['StreamFilter'] && !(typeof data['StreamFilter'] === 'string' || data['StreamFilter'] instanceof String)) {
+            throw new Error("Expected the field `StreamFilter` to be a primitive type in the JSON string but got " + data['StreamFilter']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {Boolean} AsDigest

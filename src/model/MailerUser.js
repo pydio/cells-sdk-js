@@ -63,8 +63,36 @@ class MailerUser {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>MailerUser</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>MailerUser</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['Address'] && !(typeof data['Address'] === 'string' || data['Address'] instanceof String)) {
+            throw new Error("Expected the field `Address` to be a primitive type in the JSON string but got " + data['Address']);
+        }
+        // ensure the json data is a string
+        if (data['Language'] && !(typeof data['Language'] === 'string' || data['Language'] instanceof String)) {
+            throw new Error("Expected the field `Language` to be a primitive type in the JSON string but got " + data['Language']);
+        }
+        // ensure the json data is a string
+        if (data['Name'] && !(typeof data['Name'] === 'string' || data['Name'] instanceof String)) {
+            throw new Error("Expected the field `Name` to be a primitive type in the JSON string but got " + data['Name']);
+        }
+        // ensure the json data is a string
+        if (data['Uuid'] && !(typeof data['Uuid'] === 'string' || data['Uuid'] instanceof String)) {
+            throw new Error("Expected the field `Uuid` to be a primitive type in the JSON string but got " + data['Uuid']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} Address

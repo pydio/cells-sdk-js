@@ -66,8 +66,40 @@ class TreeWorkspaceRelativePath {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>TreeWorkspaceRelativePath</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>TreeWorkspaceRelativePath</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['Path'] && !(typeof data['Path'] === 'string' || data['Path'] instanceof String)) {
+            throw new Error("Expected the field `Path` to be a primitive type in the JSON string but got " + data['Path']);
+        }
+        // ensure the json data is a string
+        if (data['WsLabel'] && !(typeof data['WsLabel'] === 'string' || data['WsLabel'] instanceof String)) {
+            throw new Error("Expected the field `WsLabel` to be a primitive type in the JSON string but got " + data['WsLabel']);
+        }
+        // ensure the json data is a string
+        if (data['WsScope'] && !(typeof data['WsScope'] === 'string' || data['WsScope'] instanceof String)) {
+            throw new Error("Expected the field `WsScope` to be a primitive type in the JSON string but got " + data['WsScope']);
+        }
+        // ensure the json data is a string
+        if (data['WsSlug'] && !(typeof data['WsSlug'] === 'string' || data['WsSlug'] instanceof String)) {
+            throw new Error("Expected the field `WsSlug` to be a primitive type in the JSON string but got " + data['WsSlug']);
+        }
+        // ensure the json data is a string
+        if (data['WsUuid'] && !(typeof data['WsUuid'] === 'string' || data['WsUuid'] instanceof String)) {
+            throw new Error("Expected the field `WsUuid` to be a primitive type in the JSON string but got " + data['WsUuid']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} Path

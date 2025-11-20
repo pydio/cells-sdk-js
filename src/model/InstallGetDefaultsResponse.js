@@ -55,8 +55,24 @@ class InstallGetDefaultsResponse {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>InstallGetDefaultsResponse</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>InstallGetDefaultsResponse</code>.
+     */
+    static validateJSON(data) {
+        // validate the optional field `config`
+        if (data['config']) { // data not null
+          InstallInstallConfig.validateJSON(data['config']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {module:model/InstallInstallConfig} config

@@ -75,8 +75,40 @@ class TreeSearchFacet {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>TreeSearchFacet</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>TreeSearchFacet</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['FieldName'] && !(typeof data['FieldName'] === 'string' || data['FieldName'] instanceof String)) {
+            throw new Error("Expected the field `FieldName` to be a primitive type in the JSON string but got " + data['FieldName']);
+        }
+        // ensure the json data is a string
+        if (data['Label'] && !(typeof data['Label'] === 'string' || data['Label'] instanceof String)) {
+            throw new Error("Expected the field `Label` to be a primitive type in the JSON string but got " + data['Label']);
+        }
+        // ensure the json data is a string
+        if (data['Max'] && !(typeof data['Max'] === 'string' || data['Max'] instanceof String)) {
+            throw new Error("Expected the field `Max` to be a primitive type in the JSON string but got " + data['Max']);
+        }
+        // ensure the json data is a string
+        if (data['Min'] && !(typeof data['Min'] === 'string' || data['Min'] instanceof String)) {
+            throw new Error("Expected the field `Min` to be a primitive type in the JSON string but got " + data['Min']);
+        }
+        // ensure the json data is a string
+        if (data['Term'] && !(typeof data['Term'] === 'string' || data['Term'] instanceof String)) {
+            throw new Error("Expected the field `Term` to be a primitive type in the JSON string but got " + data['Term']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {Number} Count

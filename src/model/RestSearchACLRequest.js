@@ -71,8 +71,38 @@ class RestSearchACLRequest {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>RestSearchACLRequest</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>RestSearchACLRequest</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['Limit'] && !(typeof data['Limit'] === 'string' || data['Limit'] instanceof String)) {
+            throw new Error("Expected the field `Limit` to be a primitive type in the JSON string but got " + data['Limit']);
+        }
+        // ensure the json data is a string
+        if (data['Offset'] && !(typeof data['Offset'] === 'string' || data['Offset'] instanceof String)) {
+            throw new Error("Expected the field `Offset` to be a primitive type in the JSON string but got " + data['Offset']);
+        }
+        if (data['Queries']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['Queries'])) {
+                throw new Error("Expected the field `Queries` to be an array in the JSON data but got " + data['Queries']);
+            }
+            // validate the optional field `Queries` (array)
+            for (const item of data['Queries']) {
+                IdmACLSingleQuery.validateJSON(item);
+            };
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {Boolean} CountOnly

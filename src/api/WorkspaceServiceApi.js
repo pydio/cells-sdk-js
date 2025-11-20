@@ -14,11 +14,11 @@
 
 import ApiClient from "../ApiClient";
 import IdmWorkspace from '../model/IdmWorkspace';
-import InlineObject2 from '../model/InlineObject2';
 import RestDeleteResponse from '../model/RestDeleteResponse';
 import RestError from '../model/RestError';
 import RestSearchWorkspaceRequest from '../model/RestSearchWorkspaceRequest';
 import RestWorkspaceCollection from '../model/RestWorkspaceCollection';
+import WorkspaceServicePutWorkspaceBody from '../model/WorkspaceServicePutWorkspaceBody';
 
 /**
 * WorkspaceService service.
@@ -42,20 +42,10 @@ export default class WorkspaceServiceApi {
 
     /**
      * Delete an existing workspace
-     * @param {String} Slug Slug is an url-compatible form of the workspace label, or can be freely modified (max length 500)
-     * @param {Object} opts Optional parameters
-     * @param {String} opts.UUID Unique identifier of the workspace
-     * @param {String} opts.Label Label of the workspace (max length 500)
-     * @param {String} opts.Description Description of the workspace (max length 1000)
-     * @param {module:model/String} opts.Scope Scope can be ADMIN, ROOM (=CELL) or LINK (default to 'ANY')
-     * @param {Number} opts.LastUpdated Last modification time
-     * @param {String} opts.Attributes JSON-encoded list of attributes
-     * @param {Array.<String>} opts.RootUUIDs Quick list of the RootNodes uuids
-     * @param {Boolean} opts.PoliciesContextEditable Context-resolved to quickly check if workspace is editable or not
+     * @param {String} Slug 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/RestDeleteResponse} and HTTP response
      */
-    deleteWorkspaceWithHttpInfo(Slug, opts) {
-      opts = opts || {};
+    deleteWorkspaceWithHttpInfo(Slug) {
       let postBody = null;
       // verify the required parameter 'Slug' is set
       if (Slug === undefined || Slug === null) {
@@ -66,14 +56,6 @@ export default class WorkspaceServiceApi {
         'Slug': Slug
       };
       let queryParams = {
-        'UUID': opts['UUID'],
-        'Label': opts['Label'],
-        'Description': opts['Description'],
-        'Scope': opts['Scope'],
-        'LastUpdated': opts['LastUpdated'],
-        'Attributes': opts['Attributes'],
-        'RootUUIDs': this.apiClient.buildCollectionParam(opts['RootUUIDs'], 'multi'),
-        'PoliciesContextEditable': opts['PoliciesContextEditable']
       };
       let headerParams = {
       };
@@ -93,20 +75,11 @@ export default class WorkspaceServiceApi {
 
     /**
      * Delete an existing workspace
-     * @param {String} Slug Slug is an url-compatible form of the workspace label, or can be freely modified (max length 500)
-     * @param {Object} opts Optional parameters
-     * @param {String} opts.UUID Unique identifier of the workspace
-     * @param {String} opts.Label Label of the workspace (max length 500)
-     * @param {String} opts.Description Description of the workspace (max length 1000)
-     * @param {module:model/String} opts.Scope Scope can be ADMIN, ROOM (=CELL) or LINK (default to 'ANY')
-     * @param {Number} opts.LastUpdated Last modification time
-     * @param {String} opts.Attributes JSON-encoded list of attributes
-     * @param {Array.<String>} opts.RootUUIDs Quick list of the RootNodes uuids
-     * @param {Boolean} opts.PoliciesContextEditable Context-resolved to quickly check if workspace is editable or not
+     * @param {String} Slug 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/RestDeleteResponse}
      */
-    deleteWorkspace(Slug, opts) {
-      return this.deleteWorkspaceWithHttpInfo(Slug, opts)
+    deleteWorkspace(Slug) {
+      return this.deleteWorkspaceWithHttpInfo(Slug)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -116,7 +89,7 @@ export default class WorkspaceServiceApi {
     /**
      * Create or update a workspace
      * @param {String} Slug Slug is an url-compatible form of the workspace label, or can be freely modified (max length 500)
-     * @param {module:model/InlineObject2} body 
+     * @param {module:model/WorkspaceServicePutWorkspaceBody} body 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/IdmWorkspace} and HTTP response
      */
     putWorkspaceWithHttpInfo(Slug, body) {
@@ -154,7 +127,7 @@ export default class WorkspaceServiceApi {
     /**
      * Create or update a workspace
      * @param {String} Slug Slug is an url-compatible form of the workspace label, or can be freely modified (max length 500)
-     * @param {module:model/InlineObject2} body 
+     * @param {module:model/WorkspaceServicePutWorkspaceBody} body 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/IdmWorkspace}
      */
     putWorkspace(Slug, body) {

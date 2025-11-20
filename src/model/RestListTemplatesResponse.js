@@ -55,8 +55,30 @@ class RestListTemplatesResponse {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>RestListTemplatesResponse</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>RestListTemplatesResponse</code>.
+     */
+    static validateJSON(data) {
+        if (data['Templates']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['Templates'])) {
+                throw new Error("Expected the field `Templates` to be an array in the JSON data but got " + data['Templates']);
+            }
+            // validate the optional field `Templates` (array)
+            for (const item of data['Templates']) {
+                RestTemplate.validateJSON(item);
+            };
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {Array.<module:model/RestTemplate>} Templates

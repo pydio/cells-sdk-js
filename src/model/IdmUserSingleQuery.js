@@ -94,8 +94,60 @@ class IdmUserSingleQuery {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>IdmUserSingleQuery</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>IdmUserSingleQuery</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['AttributeName'] && !(typeof data['AttributeName'] === 'string' || data['AttributeName'] instanceof String)) {
+            throw new Error("Expected the field `AttributeName` to be a primitive type in the JSON string but got " + data['AttributeName']);
+        }
+        // ensure the json data is a string
+        if (data['AttributeValue'] && !(typeof data['AttributeValue'] === 'string' || data['AttributeValue'] instanceof String)) {
+            throw new Error("Expected the field `AttributeValue` to be a primitive type in the JSON string but got " + data['AttributeValue']);
+        }
+        // ensure the json data is a string
+        if (data['ConnectedSince'] && !(typeof data['ConnectedSince'] === 'string' || data['ConnectedSince'] instanceof String)) {
+            throw new Error("Expected the field `ConnectedSince` to be a primitive type in the JSON string but got " + data['ConnectedSince']);
+        }
+        // ensure the json data is a string
+        if (data['FullPath'] && !(typeof data['FullPath'] === 'string' || data['FullPath'] instanceof String)) {
+            throw new Error("Expected the field `FullPath` to be a primitive type in the JSON string but got " + data['FullPath']);
+        }
+        // ensure the json data is a string
+        if (data['GroupPath'] && !(typeof data['GroupPath'] === 'string' || data['GroupPath'] instanceof String)) {
+            throw new Error("Expected the field `GroupPath` to be a primitive type in the JSON string but got " + data['GroupPath']);
+        }
+        // ensure the json data is a string
+        if (data['HasProfile'] && !(typeof data['HasProfile'] === 'string' || data['HasProfile'] instanceof String)) {
+            throw new Error("Expected the field `HasProfile` to be a primitive type in the JSON string but got " + data['HasProfile']);
+        }
+        // ensure the json data is a string
+        if (data['HasRole'] && !(typeof data['HasRole'] === 'string' || data['HasRole'] instanceof String)) {
+            throw new Error("Expected the field `HasRole` to be a primitive type in the JSON string but got " + data['HasRole']);
+        }
+        // ensure the json data is a string
+        if (data['Login'] && !(typeof data['Login'] === 'string' || data['Login'] instanceof String)) {
+            throw new Error("Expected the field `Login` to be a primitive type in the JSON string but got " + data['Login']);
+        }
+        // ensure the json data is a string
+        if (data['Password'] && !(typeof data['Password'] === 'string' || data['Password'] instanceof String)) {
+            throw new Error("Expected the field `Password` to be a primitive type in the JSON string but got " + data['Password']);
+        }
+        // ensure the json data is a string
+        if (data['Uuid'] && !(typeof data['Uuid'] === 'string' || data['Uuid'] instanceof String)) {
+            throw new Error("Expected the field `Uuid` to be a primitive type in the JSON string but got " + data['Uuid']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {Boolean} AttributeAnyValue

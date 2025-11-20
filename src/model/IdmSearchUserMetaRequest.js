@@ -67,8 +67,40 @@ class IdmSearchUserMetaRequest {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>IdmSearchUserMetaRequest</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>IdmSearchUserMetaRequest</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is an array
+        if (!Array.isArray(data['MetaUuids'])) {
+            throw new Error("Expected the field `MetaUuids` to be an array in the JSON data but got " + data['MetaUuids']);
+        }
+        // ensure the json data is a string
+        if (data['Namespace'] && !(typeof data['Namespace'] === 'string' || data['Namespace'] instanceof String)) {
+            throw new Error("Expected the field `Namespace` to be a primitive type in the JSON string but got " + data['Namespace']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['NodeUuids'])) {
+            throw new Error("Expected the field `NodeUuids` to be an array in the JSON data but got " + data['NodeUuids']);
+        }
+        // validate the optional field `ResourceQuery`
+        if (data['ResourceQuery']) { // data not null
+          ServiceResourcePolicyQuery.validateJSON(data['ResourceQuery']);
+        }
+        // ensure the json data is a string
+        if (data['ResourceSubjectOwner'] && !(typeof data['ResourceSubjectOwner'] === 'string' || data['ResourceSubjectOwner'] instanceof String)) {
+            throw new Error("Expected the field `ResourceSubjectOwner` to be a primitive type in the JSON string but got " + data['ResourceSubjectOwner']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {Array.<String>} MetaUuids

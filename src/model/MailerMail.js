@@ -100,8 +100,88 @@ class MailerMail {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>MailerMail</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>MailerMail</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is an array
+        if (!Array.isArray(data['Attachments'])) {
+            throw new Error("Expected the field `Attachments` to be an array in the JSON data but got " + data['Attachments']);
+        }
+        if (data['Cc']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['Cc'])) {
+                throw new Error("Expected the field `Cc` to be an array in the JSON data but got " + data['Cc']);
+            }
+            // validate the optional field `Cc` (array)
+            for (const item of data['Cc']) {
+                MailerUser.validateJSON(item);
+            };
+        }
+        // ensure the json data is a string
+        if (data['ContentHtml'] && !(typeof data['ContentHtml'] === 'string' || data['ContentHtml'] instanceof String)) {
+            throw new Error("Expected the field `ContentHtml` to be a primitive type in the JSON string but got " + data['ContentHtml']);
+        }
+        // ensure the json data is a string
+        if (data['ContentMarkdown'] && !(typeof data['ContentMarkdown'] === 'string' || data['ContentMarkdown'] instanceof String)) {
+            throw new Error("Expected the field `ContentMarkdown` to be a primitive type in the JSON string but got " + data['ContentMarkdown']);
+        }
+        // ensure the json data is a string
+        if (data['ContentPlain'] && !(typeof data['ContentPlain'] === 'string' || data['ContentPlain'] instanceof String)) {
+            throw new Error("Expected the field `ContentPlain` to be a primitive type in the JSON string but got " + data['ContentPlain']);
+        }
+        // ensure the json data is a string
+        if (data['DateSent'] && !(typeof data['DateSent'] === 'string' || data['DateSent'] instanceof String)) {
+            throw new Error("Expected the field `DateSent` to be a primitive type in the JSON string but got " + data['DateSent']);
+        }
+        // validate the optional field `From`
+        if (data['From']) { // data not null
+          MailerUser.validateJSON(data['From']);
+        }
+        // validate the optional field `Sender`
+        if (data['Sender']) { // data not null
+          MailerUser.validateJSON(data['Sender']);
+        }
+        // ensure the json data is a string
+        if (data['Subject'] && !(typeof data['Subject'] === 'string' || data['Subject'] instanceof String)) {
+            throw new Error("Expected the field `Subject` to be a primitive type in the JSON string but got " + data['Subject']);
+        }
+        // ensure the json data is a string
+        if (data['TemplateId'] && !(typeof data['TemplateId'] === 'string' || data['TemplateId'] instanceof String)) {
+            throw new Error("Expected the field `TemplateId` to be a primitive type in the JSON string but got " + data['TemplateId']);
+        }
+        // ensure the json data is a string
+        if (data['ThreadIndex'] && !(typeof data['ThreadIndex'] === 'string' || data['ThreadIndex'] instanceof String)) {
+            throw new Error("Expected the field `ThreadIndex` to be a primitive type in the JSON string but got " + data['ThreadIndex']);
+        }
+        // ensure the json data is a string
+        if (data['ThreadUuid'] && !(typeof data['ThreadUuid'] === 'string' || data['ThreadUuid'] instanceof String)) {
+            throw new Error("Expected the field `ThreadUuid` to be a primitive type in the JSON string but got " + data['ThreadUuid']);
+        }
+        if (data['To']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['To'])) {
+                throw new Error("Expected the field `To` to be an array in the JSON data but got " + data['To']);
+            }
+            // validate the optional field `To` (array)
+            for (const item of data['To']) {
+                MailerUser.validateJSON(item);
+            };
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['sendErrors'])) {
+            throw new Error("Expected the field `sendErrors` to be an array in the JSON data but got " + data['sendErrors']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {Array.<String>} Attachments

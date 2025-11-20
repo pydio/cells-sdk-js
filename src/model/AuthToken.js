@@ -63,8 +63,36 @@ class AuthToken {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>AuthToken</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>AuthToken</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['AccessToken'] && !(typeof data['AccessToken'] === 'string' || data['AccessToken'] instanceof String)) {
+            throw new Error("Expected the field `AccessToken` to be a primitive type in the JSON string but got " + data['AccessToken']);
+        }
+        // ensure the json data is a string
+        if (data['ExpiresAt'] && !(typeof data['ExpiresAt'] === 'string' || data['ExpiresAt'] instanceof String)) {
+            throw new Error("Expected the field `ExpiresAt` to be a primitive type in the JSON string but got " + data['ExpiresAt']);
+        }
+        // ensure the json data is a string
+        if (data['IDToken'] && !(typeof data['IDToken'] === 'string' || data['IDToken'] instanceof String)) {
+            throw new Error("Expected the field `IDToken` to be a primitive type in the JSON string but got " + data['IDToken']);
+        }
+        // ensure the json data is a string
+        if (data['RefreshToken'] && !(typeof data['RefreshToken'] === 'string' || data['RefreshToken'] instanceof String)) {
+            throw new Error("Expected the field `RefreshToken` to be a primitive type in the JSON string but got " + data['RefreshToken']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} AccessToken

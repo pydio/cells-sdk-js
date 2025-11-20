@@ -58,6 +58,9 @@ class TreeQuery {
             if (data.hasOwnProperty('ETag')) {
                 obj['ETag'] = ApiClient.convertToType(data['ETag'], 'String');
             }
+            if (data.hasOwnProperty('ExcludedPathPrefix')) {
+                obj['ExcludedPathPrefix'] = ApiClient.convertToType(data['ExcludedPathPrefix'], ['String']);
+            }
             if (data.hasOwnProperty('Extension')) {
                 obj['Extension'] = ApiClient.convertToType(data['Extension'], 'String');
             }
@@ -107,8 +110,84 @@ class TreeQuery {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>TreeQuery</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>TreeQuery</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['Content'] && !(typeof data['Content'] === 'string' || data['Content'] instanceof String)) {
+            throw new Error("Expected the field `Content` to be a primitive type in the JSON string but got " + data['Content']);
+        }
+        // ensure the json data is a string
+        if (data['DurationDate'] && !(typeof data['DurationDate'] === 'string' || data['DurationDate'] instanceof String)) {
+            throw new Error("Expected the field `DurationDate` to be a primitive type in the JSON string but got " + data['DurationDate']);
+        }
+        // ensure the json data is a string
+        if (data['ETag'] && !(typeof data['ETag'] === 'string' || data['ETag'] instanceof String)) {
+            throw new Error("Expected the field `ETag` to be a primitive type in the JSON string but got " + data['ETag']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['ExcludedPathPrefix'])) {
+            throw new Error("Expected the field `ExcludedPathPrefix` to be an array in the JSON data but got " + data['ExcludedPathPrefix']);
+        }
+        // ensure the json data is a string
+        if (data['Extension'] && !(typeof data['Extension'] === 'string' || data['Extension'] instanceof String)) {
+            throw new Error("Expected the field `Extension` to be a primitive type in the JSON string but got " + data['Extension']);
+        }
+        // ensure the json data is a string
+        if (data['FileName'] && !(typeof data['FileName'] === 'string' || data['FileName'] instanceof String)) {
+            throw new Error("Expected the field `FileName` to be a primitive type in the JSON string but got " + data['FileName']);
+        }
+        // ensure the json data is a string
+        if (data['FileNameOrContent'] && !(typeof data['FileNameOrContent'] === 'string' || data['FileNameOrContent'] instanceof String)) {
+            throw new Error("Expected the field `FileNameOrContent` to be a primitive type in the JSON string but got " + data['FileNameOrContent']);
+        }
+        // ensure the json data is a string
+        if (data['FreeString'] && !(typeof data['FreeString'] === 'string' || data['FreeString'] instanceof String)) {
+            throw new Error("Expected the field `FreeString` to be a primitive type in the JSON string but got " + data['FreeString']);
+        }
+        // validate the optional field `GeoQuery`
+        if (data['GeoQuery']) { // data not null
+          TreeGeoQuery.validateJSON(data['GeoQuery']);
+        }
+        // ensure the json data is a string
+        if (data['MaxDate'] && !(typeof data['MaxDate'] === 'string' || data['MaxDate'] instanceof String)) {
+            throw new Error("Expected the field `MaxDate` to be a primitive type in the JSON string but got " + data['MaxDate']);
+        }
+        // ensure the json data is a string
+        if (data['MaxSize'] && !(typeof data['MaxSize'] === 'string' || data['MaxSize'] instanceof String)) {
+            throw new Error("Expected the field `MaxSize` to be a primitive type in the JSON string but got " + data['MaxSize']);
+        }
+        // ensure the json data is a string
+        if (data['MinDate'] && !(typeof data['MinDate'] === 'string' || data['MinDate'] instanceof String)) {
+            throw new Error("Expected the field `MinDate` to be a primitive type in the JSON string but got " + data['MinDate']);
+        }
+        // ensure the json data is a string
+        if (data['MinSize'] && !(typeof data['MinSize'] === 'string' || data['MinSize'] instanceof String)) {
+            throw new Error("Expected the field `MinSize` to be a primitive type in the JSON string but got " + data['MinSize']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['PathPrefix'])) {
+            throw new Error("Expected the field `PathPrefix` to be an array in the JSON data but got " + data['PathPrefix']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['Paths'])) {
+            throw new Error("Expected the field `Paths` to be an array in the JSON data but got " + data['Paths']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['UUIDs'])) {
+            throw new Error("Expected the field `UUIDs` to be an array in the JSON data but got " + data['UUIDs']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} Content
@@ -124,6 +203,11 @@ TreeQuery.prototype['DurationDate'] = undefined;
  * @member {String} ETag
  */
 TreeQuery.prototype['ETag'] = undefined;
+
+/**
+ * @member {Array.<String>} ExcludedPathPrefix
+ */
+TreeQuery.prototype['ExcludedPathPrefix'] = undefined;
 
 /**
  * @member {String} Extension

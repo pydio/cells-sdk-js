@@ -89,8 +89,64 @@ class IdmUser {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>IdmUser</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>IdmUser</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['GroupLabel'] && !(typeof data['GroupLabel'] === 'string' || data['GroupLabel'] instanceof String)) {
+            throw new Error("Expected the field `GroupLabel` to be a primitive type in the JSON string but got " + data['GroupLabel']);
+        }
+        // ensure the json data is a string
+        if (data['GroupPath'] && !(typeof data['GroupPath'] === 'string' || data['GroupPath'] instanceof String)) {
+            throw new Error("Expected the field `GroupPath` to be a primitive type in the JSON string but got " + data['GroupPath']);
+        }
+        // ensure the json data is a string
+        if (data['Login'] && !(typeof data['Login'] === 'string' || data['Login'] instanceof String)) {
+            throw new Error("Expected the field `Login` to be a primitive type in the JSON string but got " + data['Login']);
+        }
+        // ensure the json data is a string
+        if (data['OldPassword'] && !(typeof data['OldPassword'] === 'string' || data['OldPassword'] instanceof String)) {
+            throw new Error("Expected the field `OldPassword` to be a primitive type in the JSON string but got " + data['OldPassword']);
+        }
+        // ensure the json data is a string
+        if (data['Password'] && !(typeof data['Password'] === 'string' || data['Password'] instanceof String)) {
+            throw new Error("Expected the field `Password` to be a primitive type in the JSON string but got " + data['Password']);
+        }
+        if (data['Policies']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['Policies'])) {
+                throw new Error("Expected the field `Policies` to be an array in the JSON data but got " + data['Policies']);
+            }
+            // validate the optional field `Policies` (array)
+            for (const item of data['Policies']) {
+                ServiceResourcePolicy.validateJSON(item);
+            };
+        }
+        if (data['Roles']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['Roles'])) {
+                throw new Error("Expected the field `Roles` to be an array in the JSON data but got " + data['Roles']);
+            }
+            // validate the optional field `Roles` (array)
+            for (const item of data['Roles']) {
+                IdmRole.validateJSON(item);
+            };
+        }
+        // ensure the json data is a string
+        if (data['Uuid'] && !(typeof data['Uuid'] === 'string' || data['Uuid'] instanceof String)) {
+            throw new Error("Expected the field `Uuid` to be a primitive type in the JSON string but got " + data['Uuid']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {Object.<String, String>} Attributes

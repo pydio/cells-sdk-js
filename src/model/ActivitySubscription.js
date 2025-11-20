@@ -64,8 +64,32 @@ class ActivitySubscription {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>ActivitySubscription</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>ActivitySubscription</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is an array
+        if (!Array.isArray(data['Events'])) {
+            throw new Error("Expected the field `Events` to be an array in the JSON data but got " + data['Events']);
+        }
+        // ensure the json data is a string
+        if (data['ObjectId'] && !(typeof data['ObjectId'] === 'string' || data['ObjectId'] instanceof String)) {
+            throw new Error("Expected the field `ObjectId` to be a primitive type in the JSON string but got " + data['ObjectId']);
+        }
+        // ensure the json data is a string
+        if (data['UserId'] && !(typeof data['UserId'] === 'string' || data['UserId'] instanceof String)) {
+            throw new Error("Expected the field `UserId` to be a primitive type in the JSON string but got " + data['UserId']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {Array.<String>} Events

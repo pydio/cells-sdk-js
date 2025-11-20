@@ -68,8 +68,40 @@ class IdmACL {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>IdmACL</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>IdmACL</code>.
+     */
+    static validateJSON(data) {
+        // validate the optional field `Action`
+        if (data['Action']) { // data not null
+          IdmACLAction.validateJSON(data['Action']);
+        }
+        // ensure the json data is a string
+        if (data['ID'] && !(typeof data['ID'] === 'string' || data['ID'] instanceof String)) {
+            throw new Error("Expected the field `ID` to be a primitive type in the JSON string but got " + data['ID']);
+        }
+        // ensure the json data is a string
+        if (data['NodeID'] && !(typeof data['NodeID'] === 'string' || data['NodeID'] instanceof String)) {
+            throw new Error("Expected the field `NodeID` to be a primitive type in the JSON string but got " + data['NodeID']);
+        }
+        // ensure the json data is a string
+        if (data['RoleID'] && !(typeof data['RoleID'] === 'string' || data['RoleID'] instanceof String)) {
+            throw new Error("Expected the field `RoleID` to be a primitive type in the JSON string but got " + data['RoleID']);
+        }
+        // ensure the json data is a string
+        if (data['WorkspaceID'] && !(typeof data['WorkspaceID'] === 'string' || data['WorkspaceID'] instanceof String)) {
+            throw new Error("Expected the field `WorkspaceID` to be a primitive type in the JSON string but got " + data['WorkspaceID']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {module:model/IdmACLAction} Action

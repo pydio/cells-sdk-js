@@ -87,9 +87,6 @@ class ActivityObject {
             if (data.hasOwnProperty('content')) {
                 obj['content'] = ActivityObject.constructFromObject(data['content']);
             }
-            if (data.hasOwnProperty('context')) {
-                obj['context'] = ActivityObject.constructFromObject(data['context']);
-            }
             if (data.hasOwnProperty('current')) {
                 obj['current'] = ActivityObject.constructFromObject(data['current']);
             }
@@ -238,8 +235,202 @@ class ActivityObject {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>ActivityObject</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>ActivityObject</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['@context'] && !(typeof data['@context'] === 'string' || data['@context'] instanceof String)) {
+            throw new Error("Expected the field `@context` to be a primitive type in the JSON string but got " + data['@context']);
+        }
+        // validate the optional field `actor`
+        if (data['actor']) { // data not null
+          ActivityObject.validateJSON(data['actor']);
+        }
+        // validate the optional field `anyOf`
+        if (data['anyOf']) { // data not null
+          ActivityObject.validateJSON(data['anyOf']);
+        }
+        // validate the optional field `attachment`
+        if (data['attachment']) { // data not null
+          ActivityObject.validateJSON(data['attachment']);
+        }
+        // validate the optional field `attributedTo`
+        if (data['attributedTo']) { // data not null
+          ActivityObject.validateJSON(data['attributedTo']);
+        }
+        // validate the optional field `audience`
+        if (data['audience']) { // data not null
+          ActivityObject.validateJSON(data['audience']);
+        }
+        // validate the optional field `bcc`
+        if (data['bcc']) { // data not null
+          ActivityObject.validateJSON(data['bcc']);
+        }
+        // validate the optional field `bto`
+        if (data['bto']) { // data not null
+          ActivityObject.validateJSON(data['bto']);
+        }
+        // validate the optional field `cc`
+        if (data['cc']) { // data not null
+          ActivityObject.validateJSON(data['cc']);
+        }
+        // validate the optional field `content`
+        if (data['content']) { // data not null
+          ActivityObject.validateJSON(data['content']);
+        }
+        // validate the optional field `current`
+        if (data['current']) { // data not null
+          ActivityObject.validateJSON(data['current']);
+        }
+        // validate the optional field `first`
+        if (data['first']) { // data not null
+          ActivityObject.validateJSON(data['first']);
+        }
+        // validate the optional field `generator`
+        if (data['generator']) { // data not null
+          ActivityObject.validateJSON(data['generator']);
+        }
+        // ensure the json data is a string
+        if (data['href'] && !(typeof data['href'] === 'string' || data['href'] instanceof String)) {
+            throw new Error("Expected the field `href` to be a primitive type in the JSON string but got " + data['href']);
+        }
+        // ensure the json data is a string
+        if (data['hreflang'] && !(typeof data['hreflang'] === 'string' || data['hreflang'] instanceof String)) {
+            throw new Error("Expected the field `hreflang` to be a primitive type in the JSON string but got " + data['hreflang']);
+        }
+        // validate the optional field `icon`
+        if (data['icon']) { // data not null
+          ActivityObject.validateJSON(data['icon']);
+        }
+        // ensure the json data is a string
+        if (data['id'] && !(typeof data['id'] === 'string' || data['id'] instanceof String)) {
+            throw new Error("Expected the field `id` to be a primitive type in the JSON string but got " + data['id']);
+        }
+        // validate the optional field `image`
+        if (data['image']) { // data not null
+          ActivityObject.validateJSON(data['image']);
+        }
+        // validate the optional field `inReplyTo`
+        if (data['inReplyTo']) { // data not null
+          ActivityObject.validateJSON(data['inReplyTo']);
+        }
+        // validate the optional field `instrument`
+        if (data['instrument']) { // data not null
+          ActivityObject.validateJSON(data['instrument']);
+        }
+        if (data['items']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['items'])) {
+                throw new Error("Expected the field `items` to be an array in the JSON data but got " + data['items']);
+            }
+            // validate the optional field `items` (array)
+            for (const item of data['items']) {
+                ActivityObject.validateJSON(item);
+            };
+        }
+        // validate the optional field `last`
+        if (data['last']) { // data not null
+          ActivityObject.validateJSON(data['last']);
+        }
+        // validate the optional field `location`
+        if (data['location']) { // data not null
+          ActivityObject.validateJSON(data['location']);
+        }
+        // ensure the json data is a string
+        if (data['markdown'] && !(typeof data['markdown'] === 'string' || data['markdown'] instanceof String)) {
+            throw new Error("Expected the field `markdown` to be a primitive type in the JSON string but got " + data['markdown']);
+        }
+        // ensure the json data is a string
+        if (data['mediaType'] && !(typeof data['mediaType'] === 'string' || data['mediaType'] instanceof String)) {
+            throw new Error("Expected the field `mediaType` to be a primitive type in the JSON string but got " + data['mediaType']);
+        }
+        // ensure the json data is a string
+        if (data['name'] && !(typeof data['name'] === 'string' || data['name'] instanceof String)) {
+            throw new Error("Expected the field `name` to be a primitive type in the JSON string but got " + data['name']);
+        }
+        // validate the optional field `next`
+        if (data['next']) { // data not null
+          ActivityObject.validateJSON(data['next']);
+        }
+        // validate the optional field `object`
+        if (data['object']) { // data not null
+          ActivityObject.validateJSON(data['object']);
+        }
+        // validate the optional field `oneOf`
+        if (data['oneOf']) { // data not null
+          ActivityObject.validateJSON(data['oneOf']);
+        }
+        // validate the optional field `origin`
+        if (data['origin']) { // data not null
+          ActivityObject.validateJSON(data['origin']);
+        }
+        // validate the optional field `partOf`
+        if (data['partOf']) { // data not null
+          ActivityObject.validateJSON(data['partOf']);
+        }
+        // validate the optional field `prev`
+        if (data['prev']) { // data not null
+          ActivityObject.validateJSON(data['prev']);
+        }
+        // validate the optional field `preview`
+        if (data['preview']) { // data not null
+          ActivityObject.validateJSON(data['preview']);
+        }
+        // ensure the json data is a string
+        if (data['rel'] && !(typeof data['rel'] === 'string' || data['rel'] instanceof String)) {
+            throw new Error("Expected the field `rel` to be a primitive type in the JSON string but got " + data['rel']);
+        }
+        // validate the optional field `relationship`
+        if (data['relationship']) { // data not null
+          ActivityObject.validateJSON(data['relationship']);
+        }
+        // validate the optional field `replies`
+        if (data['replies']) { // data not null
+          ActivityObject.validateJSON(data['replies']);
+        }
+        // validate the optional field `result`
+        if (data['result']) { // data not null
+          ActivityObject.validateJSON(data['result']);
+        }
+        // validate the optional field `subject`
+        if (data['subject']) { // data not null
+          ActivityObject.validateJSON(data['subject']);
+        }
+        // ensure the json data is a string
+        if (data['summary'] && !(typeof data['summary'] === 'string' || data['summary'] instanceof String)) {
+            throw new Error("Expected the field `summary` to be a primitive type in the JSON string but got " + data['summary']);
+        }
+        // validate the optional field `tag`
+        if (data['tag']) { // data not null
+          ActivityObject.validateJSON(data['tag']);
+        }
+        // validate the optional field `target`
+        if (data['target']) { // data not null
+          ActivityObject.validateJSON(data['target']);
+        }
+        // validate the optional field `to`
+        if (data['to']) { // data not null
+          ActivityObject.validateJSON(data['to']);
+        }
+        // ensure the json data is a string
+        if (data['units'] && !(typeof data['units'] === 'string' || data['units'] instanceof String)) {
+            throw new Error("Expected the field `units` to be a primitive type in the JSON string but got " + data['units']);
+        }
+        // validate the optional field `url`
+        if (data['url']) { // data not null
+          ActivityObject.validateJSON(data['url']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} @context
@@ -305,11 +496,6 @@ ActivityObject.prototype['closed'] = undefined;
  * @member {module:model/ActivityObject} content
  */
 ActivityObject.prototype['content'] = undefined;
-
-/**
- * @member {module:model/ActivityObject} context
- */
-ActivityObject.prototype['context'] = undefined;
 
 /**
  * @member {module:model/ActivityObject} current

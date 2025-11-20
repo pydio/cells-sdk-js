@@ -60,8 +60,24 @@ class InstallTLSLetsEncrypt {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>InstallTLSLetsEncrypt</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>InstallTLSLetsEncrypt</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['Email'] && !(typeof data['Email'] === 'string' || data['Email'] instanceof String)) {
+            throw new Error("Expected the field `Email` to be a primitive type in the JSON string but got " + data['Email']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {Boolean} AcceptEULA

@@ -61,8 +61,34 @@ class RestCreateNodesRequest {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>RestCreateNodesRequest</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>RestCreateNodesRequest</code>.
+     */
+    static validateJSON(data) {
+        if (data['Nodes']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['Nodes'])) {
+                throw new Error("Expected the field `Nodes` to be an array in the JSON data but got " + data['Nodes']);
+            }
+            // validate the optional field `Nodes` (array)
+            for (const item of data['Nodes']) {
+                TreeNode.validateJSON(item);
+            };
+        }
+        // ensure the json data is a string
+        if (data['TemplateUUID'] && !(typeof data['TemplateUUID'] === 'string' || data['TemplateUUID'] instanceof String)) {
+            throw new Error("Expected the field `TemplateUUID` to be a primitive type in the JSON string but got " + data['TemplateUUID']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {Array.<module:model/TreeNode>} Nodes

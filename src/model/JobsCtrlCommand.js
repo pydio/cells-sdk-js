@@ -67,8 +67,32 @@ class JobsCtrlCommand {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>JobsCtrlCommand</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>JobsCtrlCommand</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['JobId'] && !(typeof data['JobId'] === 'string' || data['JobId'] instanceof String)) {
+            throw new Error("Expected the field `JobId` to be a primitive type in the JSON string but got " + data['JobId']);
+        }
+        // ensure the json data is a string
+        if (data['OwnerId'] && !(typeof data['OwnerId'] === 'string' || data['OwnerId'] instanceof String)) {
+            throw new Error("Expected the field `OwnerId` to be a primitive type in the JSON string but got " + data['OwnerId']);
+        }
+        // ensure the json data is a string
+        if (data['TaskId'] && !(typeof data['TaskId'] === 'string' || data['TaskId'] instanceof String)) {
+            throw new Error("Expected the field `TaskId` to be a primitive type in the JSON string but got " + data['TaskId']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {module:model/JobsCommand} Cmd

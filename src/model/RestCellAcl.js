@@ -72,8 +72,46 @@ class RestCellAcl {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>RestCellAcl</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>RestCellAcl</code>.
+     */
+    static validateJSON(data) {
+        if (data['Actions']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['Actions'])) {
+                throw new Error("Expected the field `Actions` to be an array in the JSON data but got " + data['Actions']);
+            }
+            // validate the optional field `Actions` (array)
+            for (const item of data['Actions']) {
+                IdmACLAction.validateJSON(item);
+            };
+        }
+        // validate the optional field `Group`
+        if (data['Group']) { // data not null
+          IdmUser.validateJSON(data['Group']);
+        }
+        // validate the optional field `Role`
+        if (data['Role']) { // data not null
+          IdmRole.validateJSON(data['Role']);
+        }
+        // ensure the json data is a string
+        if (data['RoleId'] && !(typeof data['RoleId'] === 'string' || data['RoleId'] instanceof String)) {
+            throw new Error("Expected the field `RoleId` to be a primitive type in the JSON string but got " + data['RoleId']);
+        }
+        // validate the optional field `User`
+        if (data['User']) { // data not null
+          IdmUser.validateJSON(data['User']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {Array.<module:model/IdmACLAction>} Actions

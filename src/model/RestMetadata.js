@@ -57,8 +57,28 @@ class RestMetadata {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>RestMetadata</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>RestMetadata</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['JsonMeta'] && !(typeof data['JsonMeta'] === 'string' || data['JsonMeta'] instanceof String)) {
+            throw new Error("Expected the field `JsonMeta` to be a primitive type in the JSON string but got " + data['JsonMeta']);
+        }
+        // ensure the json data is a string
+        if (data['Namespace'] && !(typeof data['Namespace'] === 'string' || data['Namespace'] instanceof String)) {
+            throw new Error("Expected the field `Namespace` to be a primitive type in the JSON string but got " + data['Namespace']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} JsonMeta

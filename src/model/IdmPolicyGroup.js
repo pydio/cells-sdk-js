@@ -74,8 +74,46 @@ class IdmPolicyGroup {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>IdmPolicyGroup</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>IdmPolicyGroup</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['Description'] && !(typeof data['Description'] === 'string' || data['Description'] instanceof String)) {
+            throw new Error("Expected the field `Description` to be a primitive type in the JSON string but got " + data['Description']);
+        }
+        // ensure the json data is a string
+        if (data['Name'] && !(typeof data['Name'] === 'string' || data['Name'] instanceof String)) {
+            throw new Error("Expected the field `Name` to be a primitive type in the JSON string but got " + data['Name']);
+        }
+        // ensure the json data is a string
+        if (data['OwnerUuid'] && !(typeof data['OwnerUuid'] === 'string' || data['OwnerUuid'] instanceof String)) {
+            throw new Error("Expected the field `OwnerUuid` to be a primitive type in the JSON string but got " + data['OwnerUuid']);
+        }
+        if (data['Policies']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['Policies'])) {
+                throw new Error("Expected the field `Policies` to be an array in the JSON data but got " + data['Policies']);
+            }
+            // validate the optional field `Policies` (array)
+            for (const item of data['Policies']) {
+                IdmPolicy.validateJSON(item);
+            };
+        }
+        // ensure the json data is a string
+        if (data['Uuid'] && !(typeof data['Uuid'] === 'string' || data['Uuid'] instanceof String)) {
+            throw new Error("Expected the field `Uuid` to be a primitive type in the JSON string but got " + data['Uuid']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} Description

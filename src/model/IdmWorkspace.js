@@ -88,8 +88,54 @@ class IdmWorkspace {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>IdmWorkspace</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>IdmWorkspace</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['Attributes'] && !(typeof data['Attributes'] === 'string' || data['Attributes'] instanceof String)) {
+            throw new Error("Expected the field `Attributes` to be a primitive type in the JSON string but got " + data['Attributes']);
+        }
+        // ensure the json data is a string
+        if (data['Description'] && !(typeof data['Description'] === 'string' || data['Description'] instanceof String)) {
+            throw new Error("Expected the field `Description` to be a primitive type in the JSON string but got " + data['Description']);
+        }
+        // ensure the json data is a string
+        if (data['Label'] && !(typeof data['Label'] === 'string' || data['Label'] instanceof String)) {
+            throw new Error("Expected the field `Label` to be a primitive type in the JSON string but got " + data['Label']);
+        }
+        if (data['Policies']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['Policies'])) {
+                throw new Error("Expected the field `Policies` to be an array in the JSON data but got " + data['Policies']);
+            }
+            // validate the optional field `Policies` (array)
+            for (const item of data['Policies']) {
+                ServiceResourcePolicy.validateJSON(item);
+            };
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['RootUUIDs'])) {
+            throw new Error("Expected the field `RootUUIDs` to be an array in the JSON data but got " + data['RootUUIDs']);
+        }
+        // ensure the json data is a string
+        if (data['Slug'] && !(typeof data['Slug'] === 'string' || data['Slug'] instanceof String)) {
+            throw new Error("Expected the field `Slug` to be a primitive type in the JSON string but got " + data['Slug']);
+        }
+        // ensure the json data is a string
+        if (data['UUID'] && !(typeof data['UUID'] === 'string' || data['UUID'] instanceof String)) {
+            throw new Error("Expected the field `UUID` to be a primitive type in the JSON string but got " + data['UUID']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} Attributes

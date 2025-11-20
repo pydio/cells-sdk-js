@@ -71,8 +71,36 @@ class ServiceResourcePolicy {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>ServiceResourcePolicy</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>ServiceResourcePolicy</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['JsonConditions'] && !(typeof data['JsonConditions'] === 'string' || data['JsonConditions'] instanceof String)) {
+            throw new Error("Expected the field `JsonConditions` to be a primitive type in the JSON string but got " + data['JsonConditions']);
+        }
+        // ensure the json data is a string
+        if (data['Resource'] && !(typeof data['Resource'] === 'string' || data['Resource'] instanceof String)) {
+            throw new Error("Expected the field `Resource` to be a primitive type in the JSON string but got " + data['Resource']);
+        }
+        // ensure the json data is a string
+        if (data['Subject'] && !(typeof data['Subject'] === 'string' || data['Subject'] instanceof String)) {
+            throw new Error("Expected the field `Subject` to be a primitive type in the JSON string but got " + data['Subject']);
+        }
+        // ensure the json data is a string
+        if (data['id'] && !(typeof data['id'] === 'string' || data['id'] instanceof String)) {
+            throw new Error("Expected the field `id` to be a primitive type in the JSON string but got " + data['id']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {module:model/ServiceResourcePolicyAction} Action

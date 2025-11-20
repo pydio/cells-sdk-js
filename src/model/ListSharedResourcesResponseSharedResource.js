@@ -63,8 +63,38 @@ class ListSharedResourcesResponseSharedResource {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>ListSharedResourcesResponseSharedResource</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>ListSharedResourcesResponseSharedResource</code>.
+     */
+    static validateJSON(data) {
+        if (data['Cells']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['Cells'])) {
+                throw new Error("Expected the field `Cells` to be an array in the JSON data but got " + data['Cells']);
+            }
+            // validate the optional field `Cells` (array)
+            for (const item of data['Cells']) {
+                RestCell.validateJSON(item);
+            };
+        }
+        // validate the optional field `Link`
+        if (data['Link']) { // data not null
+          RestShareLink.validateJSON(data['Link']);
+        }
+        // validate the optional field `Node`
+        if (data['Node']) { // data not null
+          TreeNode.validateJSON(data['Node']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {Array.<module:model/RestCell>} Cells

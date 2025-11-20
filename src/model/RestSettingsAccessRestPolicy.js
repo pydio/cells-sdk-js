@@ -57,8 +57,28 @@ class RestSettingsAccessRestPolicy {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>RestSettingsAccessRestPolicy</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>RestSettingsAccessRestPolicy</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['Action'] && !(typeof data['Action'] === 'string' || data['Action'] instanceof String)) {
+            throw new Error("Expected the field `Action` to be a primitive type in the JSON string but got " + data['Action']);
+        }
+        // ensure the json data is a string
+        if (data['Resource'] && !(typeof data['Resource'] === 'string' || data['Resource'] instanceof String)) {
+            throw new Error("Expected the field `Resource` to be a primitive type in the JSON string but got " + data['Resource']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} Action

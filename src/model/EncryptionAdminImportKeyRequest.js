@@ -61,8 +61,28 @@ class EncryptionAdminImportKeyRequest {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>EncryptionAdminImportKeyRequest</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>EncryptionAdminImportKeyRequest</code>.
+     */
+    static validateJSON(data) {
+        // validate the optional field `Key`
+        if (data['Key']) { // data not null
+          EncryptionKey.validateJSON(data['Key']);
+        }
+        // ensure the json data is a string
+        if (data['StrPassword'] && !(typeof data['StrPassword'] === 'string' || data['StrPassword'] instanceof String)) {
+            throw new Error("Expected the field `StrPassword` to be a primitive type in the JSON string but got " + data['StrPassword']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {module:model/EncryptionKey} Key

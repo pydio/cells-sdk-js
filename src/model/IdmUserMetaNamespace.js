@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import IdmPromptOptions from './IdmPromptOptions';
 import ServiceResourcePolicy from './ServiceResourcePolicy';
 
 /**
@@ -48,11 +49,17 @@ class IdmUserMetaNamespace {
         if (data) {
             obj = obj || new IdmUserMetaNamespace();
 
+            if (data.hasOwnProperty('EnforceDefault')) {
+                obj['EnforceDefault'] = ApiClient.convertToType(data['EnforceDefault'], 'Boolean');
+            }
             if (data.hasOwnProperty('Indexable')) {
                 obj['Indexable'] = ApiClient.convertToType(data['Indexable'], 'Boolean');
             }
             if (data.hasOwnProperty('JsonDefinition')) {
                 obj['JsonDefinition'] = ApiClient.convertToType(data['JsonDefinition'], 'String');
+            }
+            if (data.hasOwnProperty('JsonSchema')) {
+                obj['JsonSchema'] = ApiClient.convertToType(data['JsonSchema'], 'String');
             }
             if (data.hasOwnProperty('Label')) {
                 obj['Label'] = ApiClient.convertToType(data['Label'], 'String');
@@ -69,12 +76,62 @@ class IdmUserMetaNamespace {
             if (data.hasOwnProperty('PoliciesContextEditable')) {
                 obj['PoliciesContextEditable'] = ApiClient.convertToType(data['PoliciesContextEditable'], 'Boolean');
             }
+            if (data.hasOwnProperty('PromptOptions')) {
+                obj['PromptOptions'] = IdmPromptOptions.constructFromObject(data['PromptOptions']);
+            }
         }
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>IdmUserMetaNamespace</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>IdmUserMetaNamespace</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['JsonDefinition'] && !(typeof data['JsonDefinition'] === 'string' || data['JsonDefinition'] instanceof String)) {
+            throw new Error("Expected the field `JsonDefinition` to be a primitive type in the JSON string but got " + data['JsonDefinition']);
+        }
+        // ensure the json data is a string
+        if (data['JsonSchema'] && !(typeof data['JsonSchema'] === 'string' || data['JsonSchema'] instanceof String)) {
+            throw new Error("Expected the field `JsonSchema` to be a primitive type in the JSON string but got " + data['JsonSchema']);
+        }
+        // ensure the json data is a string
+        if (data['Label'] && !(typeof data['Label'] === 'string' || data['Label'] instanceof String)) {
+            throw new Error("Expected the field `Label` to be a primitive type in the JSON string but got " + data['Label']);
+        }
+        // ensure the json data is a string
+        if (data['Namespace'] && !(typeof data['Namespace'] === 'string' || data['Namespace'] instanceof String)) {
+            throw new Error("Expected the field `Namespace` to be a primitive type in the JSON string but got " + data['Namespace']);
+        }
+        if (data['Policies']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['Policies'])) {
+                throw new Error("Expected the field `Policies` to be an array in the JSON data but got " + data['Policies']);
+            }
+            // validate the optional field `Policies` (array)
+            for (const item of data['Policies']) {
+                ServiceResourcePolicy.validateJSON(item);
+            };
+        }
+        // validate the optional field `PromptOptions`
+        if (data['PromptOptions']) { // data not null
+          IdmPromptOptions.validateJSON(data['PromptOptions']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
+
+/**
+ * @member {Boolean} EnforceDefault
+ */
+IdmUserMetaNamespace.prototype['EnforceDefault'] = undefined;
 
 /**
  * @member {Boolean} Indexable
@@ -85,6 +142,11 @@ IdmUserMetaNamespace.prototype['Indexable'] = undefined;
  * @member {String} JsonDefinition
  */
 IdmUserMetaNamespace.prototype['JsonDefinition'] = undefined;
+
+/**
+ * @member {String} JsonSchema
+ */
+IdmUserMetaNamespace.prototype['JsonSchema'] = undefined;
 
 /**
  * @member {String} Label
@@ -110,6 +172,11 @@ IdmUserMetaNamespace.prototype['Policies'] = undefined;
  * @member {Boolean} PoliciesContextEditable
  */
 IdmUserMetaNamespace.prototype['PoliciesContextEditable'] = undefined;
+
+/**
+ * @member {module:model/IdmPromptOptions} PromptOptions
+ */
+IdmUserMetaNamespace.prototype['PromptOptions'] = undefined;
 
 
 

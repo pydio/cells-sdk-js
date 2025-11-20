@@ -103,6 +103,13 @@ export default class RegistryItemType {
         "STATS" = "STATS";
 
     
+        /**
+         * value: "STORAGE"
+         * @const
+         */
+        "STORAGE" = "STORAGE";
+
+    
 
     /**
     * Returns a <code>RegistryItemType</code> enum value from a Javascript object name.

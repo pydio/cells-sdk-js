@@ -60,8 +60,32 @@ class RestBackgroundJobResult {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>RestBackgroundJobResult</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>RestBackgroundJobResult</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['Label'] && !(typeof data['Label'] === 'string' || data['Label'] instanceof String)) {
+            throw new Error("Expected the field `Label` to be a primitive type in the JSON string but got " + data['Label']);
+        }
+        // ensure the json data is a string
+        if (data['NodeUuid'] && !(typeof data['NodeUuid'] === 'string' || data['NodeUuid'] instanceof String)) {
+            throw new Error("Expected the field `NodeUuid` to be a primitive type in the JSON string but got " + data['NodeUuid']);
+        }
+        // ensure the json data is a string
+        if (data['Uuid'] && !(typeof data['Uuid'] === 'string' || data['Uuid'] instanceof String)) {
+            throw new Error("Expected the field `Uuid` to be a primitive type in the JSON string but got " + data['Uuid']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} Label

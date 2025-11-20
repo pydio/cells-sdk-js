@@ -58,8 +58,28 @@ class RestListStorageBucketsRequest {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>RestListStorageBucketsRequest</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>RestListStorageBucketsRequest</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['BucketsRegexp'] && !(typeof data['BucketsRegexp'] === 'string' || data['BucketsRegexp'] instanceof String)) {
+            throw new Error("Expected the field `BucketsRegexp` to be a primitive type in the JSON string but got " + data['BucketsRegexp']);
+        }
+        // validate the optional field `DataSource`
+        if (data['DataSource']) { // data not null
+          ObjectDataSource.validateJSON(data['DataSource']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} BucketsRegexp

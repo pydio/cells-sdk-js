@@ -67,8 +67,42 @@ class IdmACLSingleQuery {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>IdmACLSingleQuery</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>IdmACLSingleQuery</code>.
+     */
+    static validateJSON(data) {
+        if (data['Actions']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['Actions'])) {
+                throw new Error("Expected the field `Actions` to be an array in the JSON data but got " + data['Actions']);
+            }
+            // validate the optional field `Actions` (array)
+            for (const item of data['Actions']) {
+                IdmACLAction.validateJSON(item);
+            };
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['NodeIDs'])) {
+            throw new Error("Expected the field `NodeIDs` to be an array in the JSON data but got " + data['NodeIDs']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['RoleIDs'])) {
+            throw new Error("Expected the field `RoleIDs` to be an array in the JSON data but got " + data['RoleIDs']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['WorkspaceIDs'])) {
+            throw new Error("Expected the field `WorkspaceIDs` to be an array in the JSON data but got " + data['WorkspaceIDs']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {Array.<module:model/IdmACLAction>} Actions

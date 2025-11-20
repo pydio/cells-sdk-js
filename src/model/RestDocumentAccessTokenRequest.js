@@ -57,8 +57,28 @@ class RestDocumentAccessTokenRequest {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>RestDocumentAccessTokenRequest</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>RestDocumentAccessTokenRequest</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['ClientID'] && !(typeof data['ClientID'] === 'string' || data['ClientID'] instanceof String)) {
+            throw new Error("Expected the field `ClientID` to be a primitive type in the JSON string but got " + data['ClientID']);
+        }
+        // ensure the json data is a string
+        if (data['Path'] && !(typeof data['Path'] === 'string' || data['Path'] instanceof String)) {
+            throw new Error("Expected the field `Path` to be a primitive type in the JSON string but got " + data['Path']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} ClientID

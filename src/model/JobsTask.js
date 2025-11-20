@@ -89,8 +89,46 @@ class JobsTask {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>JobsTask</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>JobsTask</code>.
+     */
+    static validateJSON(data) {
+        if (data['ActionsLogs']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['ActionsLogs'])) {
+                throw new Error("Expected the field `ActionsLogs` to be an array in the JSON data but got " + data['ActionsLogs']);
+            }
+            // validate the optional field `ActionsLogs` (array)
+            for (const item of data['ActionsLogs']) {
+                JobsActionLog.validateJSON(item);
+            };
+        }
+        // ensure the json data is a string
+        if (data['ID'] && !(typeof data['ID'] === 'string' || data['ID'] instanceof String)) {
+            throw new Error("Expected the field `ID` to be a primitive type in the JSON string but got " + data['ID']);
+        }
+        // ensure the json data is a string
+        if (data['JobID'] && !(typeof data['JobID'] === 'string' || data['JobID'] instanceof String)) {
+            throw new Error("Expected the field `JobID` to be a primitive type in the JSON string but got " + data['JobID']);
+        }
+        // ensure the json data is a string
+        if (data['StatusMessage'] && !(typeof data['StatusMessage'] === 'string' || data['StatusMessage'] instanceof String)) {
+            throw new Error("Expected the field `StatusMessage` to be a primitive type in the JSON string but got " + data['StatusMessage']);
+        }
+        // ensure the json data is a string
+        if (data['TriggerOwner'] && !(typeof data['TriggerOwner'] === 'string' || data['TriggerOwner'] instanceof String)) {
+            throw new Error("Expected the field `TriggerOwner` to be a primitive type in the JSON string but got " + data['TriggerOwner']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {Array.<module:model/JobsActionLog>} ActionsLogs

@@ -63,8 +63,36 @@ class RegistryNode {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>RegistryNode</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>RegistryNode</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['advertiseIp'] && !(typeof data['advertiseIp'] === 'string' || data['advertiseIp'] instanceof String)) {
+            throw new Error("Expected the field `advertiseIp` to be a primitive type in the JSON string but got " + data['advertiseIp']);
+        }
+        // ensure the json data is a string
+        if (data['hostname'] && !(typeof data['hostname'] === 'string' || data['hostname'] instanceof String)) {
+            throw new Error("Expected the field `hostname` to be a primitive type in the JSON string but got " + data['hostname']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['ips'])) {
+            throw new Error("Expected the field `ips` to be an array in the JSON data but got " + data['ips']);
+        }
+        // ensure the json data is a string
+        if (data['machine'] && !(typeof data['machine'] === 'string' || data['machine'] instanceof String)) {
+            throw new Error("Expected the field `machine` to be a primitive type in the JSON string but got " + data['machine']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} advertiseIp

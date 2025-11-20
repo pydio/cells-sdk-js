@@ -90,8 +90,64 @@ class RestActionDescription {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>RestActionDescription</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>RestActionDescription</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['Category'] && !(typeof data['Category'] === 'string' || data['Category'] instanceof String)) {
+            throw new Error("Expected the field `Category` to be a primitive type in the JSON string but got " + data['Category']);
+        }
+        // ensure the json data is a string
+        if (data['Description'] && !(typeof data['Description'] === 'string' || data['Description'] instanceof String)) {
+            throw new Error("Expected the field `Description` to be a primitive type in the JSON string but got " + data['Description']);
+        }
+        // ensure the json data is a string
+        if (data['FormModule'] && !(typeof data['FormModule'] === 'string' || data['FormModule'] instanceof String)) {
+            throw new Error("Expected the field `FormModule` to be a primitive type in the JSON string but got " + data['FormModule']);
+        }
+        // ensure the json data is a string
+        if (data['FormModuleProps'] && !(typeof data['FormModuleProps'] === 'string' || data['FormModuleProps'] instanceof String)) {
+            throw new Error("Expected the field `FormModuleProps` to be a primitive type in the JSON string but got " + data['FormModuleProps']);
+        }
+        // ensure the json data is a string
+        if (data['Icon'] && !(typeof data['Icon'] === 'string' || data['Icon'] instanceof String)) {
+            throw new Error("Expected the field `Icon` to be a primitive type in the JSON string but got " + data['Icon']);
+        }
+        // ensure the json data is a string
+        if (data['InputDescription'] && !(typeof data['InputDescription'] === 'string' || data['InputDescription'] instanceof String)) {
+            throw new Error("Expected the field `InputDescription` to be a primitive type in the JSON string but got " + data['InputDescription']);
+        }
+        // ensure the json data is a string
+        if (data['Label'] && !(typeof data['Label'] === 'string' || data['Label'] instanceof String)) {
+            throw new Error("Expected the field `Label` to be a primitive type in the JSON string but got " + data['Label']);
+        }
+        // ensure the json data is a string
+        if (data['Name'] && !(typeof data['Name'] === 'string' || data['Name'] instanceof String)) {
+            throw new Error("Expected the field `Name` to be a primitive type in the JSON string but got " + data['Name']);
+        }
+        // ensure the json data is a string
+        if (data['OutputDescription'] && !(typeof data['OutputDescription'] === 'string' || data['OutputDescription'] instanceof String)) {
+            throw new Error("Expected the field `OutputDescription` to be a primitive type in the JSON string but got " + data['OutputDescription']);
+        }
+        // ensure the json data is a string
+        if (data['SummaryTemplate'] && !(typeof data['SummaryTemplate'] === 'string' || data['SummaryTemplate'] instanceof String)) {
+            throw new Error("Expected the field `SummaryTemplate` to be a primitive type in the JSON string but got " + data['SummaryTemplate']);
+        }
+        // ensure the json data is a string
+        if (data['Tint'] && !(typeof data['Tint'] === 'string' || data['Tint'] instanceof String)) {
+            throw new Error("Expected the field `Tint` to be a primitive type in the JSON string but got " + data['Tint']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} Category

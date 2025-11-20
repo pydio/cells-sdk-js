@@ -55,8 +55,30 @@ class RestRestoreNodesResponse {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>RestRestoreNodesResponse</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>RestRestoreNodesResponse</code>.
+     */
+    static validateJSON(data) {
+        if (data['RestoreJobs']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['RestoreJobs'])) {
+                throw new Error("Expected the field `RestoreJobs` to be an array in the JSON data but got " + data['RestoreJobs']);
+            }
+            // validate the optional field `RestoreJobs` (array)
+            for (const item of data['RestoreJobs']) {
+                RestBackgroundJobResult.validateJSON(item);
+            };
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {Array.<module:model/RestBackgroundJobResult>} RestoreJobs

@@ -75,8 +75,28 @@ class JobsActionOutput {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>JobsActionOutput</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>JobsActionOutput</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['ErrorString'] && !(typeof data['ErrorString'] === 'string' || data['ErrorString'] instanceof String)) {
+            throw new Error("Expected the field `ErrorString` to be a primitive type in the JSON string but got " + data['ErrorString']);
+        }
+        // ensure the json data is a string
+        if (data['StringBody'] && !(typeof data['StringBody'] === 'string' || data['StringBody'] instanceof String)) {
+            throw new Error("Expected the field `StringBody` to be a primitive type in the JSON string but got " + data['StringBody']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} ErrorString

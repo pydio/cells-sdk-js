@@ -67,8 +67,34 @@ class JobsJobHook {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>JobsJobHook</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>JobsJobHook</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['ApiSlug'] && !(typeof data['ApiSlug'] === 'string' || data['ApiSlug'] instanceof String)) {
+            throw new Error("Expected the field `ApiSlug` to be a primitive type in the JSON string but got " + data['ApiSlug']);
+        }
+        if (data['Policies']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['Policies'])) {
+                throw new Error("Expected the field `Policies` to be an array in the JSON data but got " + data['Policies']);
+            }
+            // validate the optional field `Policies` (array)
+            for (const item of data['Policies']) {
+                ServiceResourcePolicy.validateJSON(item);
+            };
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {Boolean} AllowOverridePresets

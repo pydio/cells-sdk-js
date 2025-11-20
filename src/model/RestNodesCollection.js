@@ -58,8 +58,34 @@ class RestNodesCollection {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>RestNodesCollection</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>RestNodesCollection</code>.
+     */
+    static validateJSON(data) {
+        if (data['Children']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['Children'])) {
+                throw new Error("Expected the field `Children` to be an array in the JSON data but got " + data['Children']);
+            }
+            // validate the optional field `Children` (array)
+            for (const item of data['Children']) {
+                TreeNode.validateJSON(item);
+            };
+        }
+        // validate the optional field `Parent`
+        if (data['Parent']) { // data not null
+          TreeNode.validateJSON(data['Parent']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {Array.<module:model/TreeNode>} Children

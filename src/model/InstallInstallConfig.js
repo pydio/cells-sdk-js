@@ -52,6 +52,9 @@ class InstallInstallConfig {
             if (data.hasOwnProperty('CheckResults')) {
                 obj['CheckResults'] = ApiClient.convertToType(data['CheckResults'], [InstallCheckResult]);
             }
+            if (data.hasOwnProperty('CustomConfigs')) {
+                obj['CustomConfigs'] = ApiClient.convertToType(data['CustomConfigs'], {'String': 'String'});
+            }
             if (data.hasOwnProperty('DocumentsDSN')) {
                 obj['DocumentsDSN'] = ApiClient.convertToType(data['DocumentsDSN'], 'String');
             }
@@ -170,13 +173,180 @@ class InstallInstallConfig {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>InstallInstallConfig</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>InstallInstallConfig</code>.
+     */
+    static validateJSON(data) {
+        if (data['CheckResults']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['CheckResults'])) {
+                throw new Error("Expected the field `CheckResults` to be an array in the JSON data but got " + data['CheckResults']);
+            }
+            // validate the optional field `CheckResults` (array)
+            for (const item of data['CheckResults']) {
+                InstallCheckResult.validateJSON(item);
+            };
+        }
+        // ensure the json data is a string
+        if (data['DocumentsDSN'] && !(typeof data['DocumentsDSN'] === 'string' || data['DocumentsDSN'] instanceof String)) {
+            throw new Error("Expected the field `DocumentsDSN` to be a primitive type in the JSON string but got " + data['DocumentsDSN']);
+        }
+        // validate the optional field `ProxyConfig`
+        if (data['ProxyConfig']) { // data not null
+          InstallProxyConfig.validateJSON(data['ProxyConfig']);
+        }
+        // ensure the json data is a string
+        if (data['dbConnectionType'] && !(typeof data['dbConnectionType'] === 'string' || data['dbConnectionType'] instanceof String)) {
+            throw new Error("Expected the field `dbConnectionType` to be a primitive type in the JSON string but got " + data['dbConnectionType']);
+        }
+        // ensure the json data is a string
+        if (data['dbManualDSN'] && !(typeof data['dbManualDSN'] === 'string' || data['dbManualDSN'] instanceof String)) {
+            throw new Error("Expected the field `dbManualDSN` to be a primitive type in the JSON string but got " + data['dbManualDSN']);
+        }
+        // ensure the json data is a string
+        if (data['dbSocketFile'] && !(typeof data['dbSocketFile'] === 'string' || data['dbSocketFile'] instanceof String)) {
+            throw new Error("Expected the field `dbSocketFile` to be a primitive type in the JSON string but got " + data['dbSocketFile']);
+        }
+        // ensure the json data is a string
+        if (data['dbSocketName'] && !(typeof data['dbSocketName'] === 'string' || data['dbSocketName'] instanceof String)) {
+            throw new Error("Expected the field `dbSocketName` to be a primitive type in the JSON string but got " + data['dbSocketName']);
+        }
+        // ensure the json data is a string
+        if (data['dbSocketPassword'] && !(typeof data['dbSocketPassword'] === 'string' || data['dbSocketPassword'] instanceof String)) {
+            throw new Error("Expected the field `dbSocketPassword` to be a primitive type in the JSON string but got " + data['dbSocketPassword']);
+        }
+        // ensure the json data is a string
+        if (data['dbSocketUser'] && !(typeof data['dbSocketUser'] === 'string' || data['dbSocketUser'] instanceof String)) {
+            throw new Error("Expected the field `dbSocketUser` to be a primitive type in the JSON string but got " + data['dbSocketUser']);
+        }
+        // ensure the json data is a string
+        if (data['dbTCPHostname'] && !(typeof data['dbTCPHostname'] === 'string' || data['dbTCPHostname'] instanceof String)) {
+            throw new Error("Expected the field `dbTCPHostname` to be a primitive type in the JSON string but got " + data['dbTCPHostname']);
+        }
+        // ensure the json data is a string
+        if (data['dbTCPName'] && !(typeof data['dbTCPName'] === 'string' || data['dbTCPName'] instanceof String)) {
+            throw new Error("Expected the field `dbTCPName` to be a primitive type in the JSON string but got " + data['dbTCPName']);
+        }
+        // ensure the json data is a string
+        if (data['dbTCPPassword'] && !(typeof data['dbTCPPassword'] === 'string' || data['dbTCPPassword'] instanceof String)) {
+            throw new Error("Expected the field `dbTCPPassword` to be a primitive type in the JSON string but got " + data['dbTCPPassword']);
+        }
+        // ensure the json data is a string
+        if (data['dbTCPPort'] && !(typeof data['dbTCPPort'] === 'string' || data['dbTCPPort'] instanceof String)) {
+            throw new Error("Expected the field `dbTCPPort` to be a primitive type in the JSON string but got " + data['dbTCPPort']);
+        }
+        // ensure the json data is a string
+        if (data['dbTCPUser'] && !(typeof data['dbTCPUser'] === 'string' || data['dbTCPUser'] instanceof String)) {
+            throw new Error("Expected the field `dbTCPUser` to be a primitive type in the JSON string but got " + data['dbTCPUser']);
+        }
+        // ensure the json data is a string
+        if (data['dsFolder'] && !(typeof data['dsFolder'] === 'string' || data['dsFolder'] instanceof String)) {
+            throw new Error("Expected the field `dsFolder` to be a primitive type in the JSON string but got " + data['dsFolder']);
+        }
+        // ensure the json data is a string
+        if (data['dsName'] && !(typeof data['dsName'] === 'string' || data['dsName'] instanceof String)) {
+            throw new Error("Expected the field `dsName` to be a primitive type in the JSON string but got " + data['dsName']);
+        }
+        // ensure the json data is a string
+        if (data['dsPort'] && !(typeof data['dsPort'] === 'string' || data['dsPort'] instanceof String)) {
+            throw new Error("Expected the field `dsPort` to be a primitive type in the JSON string but got " + data['dsPort']);
+        }
+        // ensure the json data is a string
+        if (data['dsS3ApiKey'] && !(typeof data['dsS3ApiKey'] === 'string' || data['dsS3ApiKey'] instanceof String)) {
+            throw new Error("Expected the field `dsS3ApiKey` to be a primitive type in the JSON string but got " + data['dsS3ApiKey']);
+        }
+        // ensure the json data is a string
+        if (data['dsS3ApiSecret'] && !(typeof data['dsS3ApiSecret'] === 'string' || data['dsS3ApiSecret'] instanceof String)) {
+            throw new Error("Expected the field `dsS3ApiSecret` to be a primitive type in the JSON string but got " + data['dsS3ApiSecret']);
+        }
+        // ensure the json data is a string
+        if (data['dsS3BucketBinaries'] && !(typeof data['dsS3BucketBinaries'] === 'string' || data['dsS3BucketBinaries'] instanceof String)) {
+            throw new Error("Expected the field `dsS3BucketBinaries` to be a primitive type in the JSON string but got " + data['dsS3BucketBinaries']);
+        }
+        // ensure the json data is a string
+        if (data['dsS3BucketCells'] && !(typeof data['dsS3BucketCells'] === 'string' || data['dsS3BucketCells'] instanceof String)) {
+            throw new Error("Expected the field `dsS3BucketCells` to be a primitive type in the JSON string but got " + data['dsS3BucketCells']);
+        }
+        // ensure the json data is a string
+        if (data['dsS3BucketDefault'] && !(typeof data['dsS3BucketDefault'] === 'string' || data['dsS3BucketDefault'] instanceof String)) {
+            throw new Error("Expected the field `dsS3BucketDefault` to be a primitive type in the JSON string but got " + data['dsS3BucketDefault']);
+        }
+        // ensure the json data is a string
+        if (data['dsS3BucketPersonal'] && !(typeof data['dsS3BucketPersonal'] === 'string' || data['dsS3BucketPersonal'] instanceof String)) {
+            throw new Error("Expected the field `dsS3BucketPersonal` to be a primitive type in the JSON string but got " + data['dsS3BucketPersonal']);
+        }
+        // ensure the json data is a string
+        if (data['dsS3BucketThumbs'] && !(typeof data['dsS3BucketThumbs'] === 'string' || data['dsS3BucketThumbs'] instanceof String)) {
+            throw new Error("Expected the field `dsS3BucketThumbs` to be a primitive type in the JSON string but got " + data['dsS3BucketThumbs']);
+        }
+        // ensure the json data is a string
+        if (data['dsS3BucketVersions'] && !(typeof data['dsS3BucketVersions'] === 'string' || data['dsS3BucketVersions'] instanceof String)) {
+            throw new Error("Expected the field `dsS3BucketVersions` to be a primitive type in the JSON string but got " + data['dsS3BucketVersions']);
+        }
+        // ensure the json data is a string
+        if (data['dsS3Custom'] && !(typeof data['dsS3Custom'] === 'string' || data['dsS3Custom'] instanceof String)) {
+            throw new Error("Expected the field `dsS3Custom` to be a primitive type in the JSON string but got " + data['dsS3Custom']);
+        }
+        // ensure the json data is a string
+        if (data['dsS3CustomRegion'] && !(typeof data['dsS3CustomRegion'] === 'string' || data['dsS3CustomRegion'] instanceof String)) {
+            throw new Error("Expected the field `dsS3CustomRegion` to be a primitive type in the JSON string but got " + data['dsS3CustomRegion']);
+        }
+        // ensure the json data is a string
+        if (data['dsType'] && !(typeof data['dsType'] === 'string' || data['dsType'] instanceof String)) {
+            throw new Error("Expected the field `dsType` to be a primitive type in the JSON string but got " + data['dsType']);
+        }
+        // ensure the json data is a string
+        if (data['frontendApplicationTitle'] && !(typeof data['frontendApplicationTitle'] === 'string' || data['frontendApplicationTitle'] instanceof String)) {
+            throw new Error("Expected the field `frontendApplicationTitle` to be a primitive type in the JSON string but got " + data['frontendApplicationTitle']);
+        }
+        // ensure the json data is a string
+        if (data['frontendDefaultLanguage'] && !(typeof data['frontendDefaultLanguage'] === 'string' || data['frontendDefaultLanguage'] instanceof String)) {
+            throw new Error("Expected the field `frontendDefaultLanguage` to be a primitive type in the JSON string but got " + data['frontendDefaultLanguage']);
+        }
+        // ensure the json data is a string
+        if (data['frontendHosts'] && !(typeof data['frontendHosts'] === 'string' || data['frontendHosts'] instanceof String)) {
+            throw new Error("Expected the field `frontendHosts` to be a primitive type in the JSON string but got " + data['frontendHosts']);
+        }
+        // ensure the json data is a string
+        if (data['frontendLogin'] && !(typeof data['frontendLogin'] === 'string' || data['frontendLogin'] instanceof String)) {
+            throw new Error("Expected the field `frontendLogin` to be a primitive type in the JSON string but got " + data['frontendLogin']);
+        }
+        // ensure the json data is a string
+        if (data['frontendPassword'] && !(typeof data['frontendPassword'] === 'string' || data['frontendPassword'] instanceof String)) {
+            throw new Error("Expected the field `frontendPassword` to be a primitive type in the JSON string but got " + data['frontendPassword']);
+        }
+        // ensure the json data is a string
+        if (data['frontendRepeatPassword'] && !(typeof data['frontendRepeatPassword'] === 'string' || data['frontendRepeatPassword'] instanceof String)) {
+            throw new Error("Expected the field `frontendRepeatPassword` to be a primitive type in the JSON string but got " + data['frontendRepeatPassword']);
+        }
+        // ensure the json data is a string
+        if (data['internalUrl'] && !(typeof data['internalUrl'] === 'string' || data['internalUrl'] instanceof String)) {
+            throw new Error("Expected the field `internalUrl` to be a primitive type in the JSON string but got " + data['internalUrl']);
+        }
+        // ensure the json data is a string
+        if (data['licenseString'] && !(typeof data['licenseString'] === 'string' || data['licenseString'] instanceof String)) {
+            throw new Error("Expected the field `licenseString` to be a primitive type in the JSON string but got " + data['licenseString']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {Array.<module:model/InstallCheckResult>} CheckResults
  */
 InstallInstallConfig.prototype['CheckResults'] = undefined;
+
+/**
+ * @member {Object.<String, String>} CustomConfigs
+ */
+InstallInstallConfig.prototype['CustomConfigs'] = undefined;
 
 /**
  * @member {String} DocumentsDSN

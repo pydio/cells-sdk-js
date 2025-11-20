@@ -64,8 +64,32 @@ class JobsDeleteTasksRequest {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>JobsDeleteTasksRequest</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>JobsDeleteTasksRequest</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['JobId'] && !(typeof data['JobId'] === 'string' || data['JobId'] instanceof String)) {
+            throw new Error("Expected the field `JobId` to be a primitive type in the JSON string but got " + data['JobId']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['Status'])) {
+            throw new Error("Expected the field `Status` to be an array in the JSON data but got " + data['Status']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['TaskID'])) {
+            throw new Error("Expected the field `TaskID` to be an array in the JSON data but got " + data['TaskID']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} JobId

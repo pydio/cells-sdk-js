@@ -87,8 +87,62 @@ class RegistryItem {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>RegistryItem</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>RegistryItem</code>.
+     */
+    static validateJSON(data) {
+        if (data['adjacents']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['adjacents'])) {
+                throw new Error("Expected the field `adjacents` to be an array in the JSON data but got " + data['adjacents']);
+            }
+            // validate the optional field `adjacents` (array)
+            for (const item of data['adjacents']) {
+                RegistryItem.validateJSON(item);
+            };
+        }
+        // validate the optional field `dao`
+        if (data['dao']) { // data not null
+          RegistryDao.validateJSON(data['dao']);
+        }
+        // validate the optional field `edge`
+        if (data['edge']) { // data not null
+          RegistryEdge.validateJSON(data['edge']);
+        }
+        // validate the optional field `generic`
+        if (data['generic']) { // data not null
+          RegistryGeneric.validateJSON(data['generic']);
+        }
+        // ensure the json data is a string
+        if (data['id'] && !(typeof data['id'] === 'string' || data['id'] instanceof String)) {
+            throw new Error("Expected the field `id` to be a primitive type in the JSON string but got " + data['id']);
+        }
+        // ensure the json data is a string
+        if (data['name'] && !(typeof data['name'] === 'string' || data['name'] instanceof String)) {
+            throw new Error("Expected the field `name` to be a primitive type in the JSON string but got " + data['name']);
+        }
+        // validate the optional field `node`
+        if (data['node']) { // data not null
+          RegistryNode.validateJSON(data['node']);
+        }
+        // validate the optional field `server`
+        if (data['server']) { // data not null
+          RegistryServer.validateJSON(data['server']);
+        }
+        // validate the optional field `service`
+        if (data['service']) { // data not null
+          RegistryService.validateJSON(data['service']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {Array.<module:model/RegistryItem>} adjacents

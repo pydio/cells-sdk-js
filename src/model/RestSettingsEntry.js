@@ -77,8 +77,48 @@ class RestSettingsEntry {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>RestSettingsEntry</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>RestSettingsEntry</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['ALIAS'] && !(typeof data['ALIAS'] === 'string' || data['ALIAS'] instanceof String)) {
+            throw new Error("Expected the field `ALIAS` to be a primitive type in the JSON string but got " + data['ALIAS']);
+        }
+        // ensure the json data is a string
+        if (data['DESCRIPTION'] && !(typeof data['DESCRIPTION'] === 'string' || data['DESCRIPTION'] instanceof String)) {
+            throw new Error("Expected the field `DESCRIPTION` to be a primitive type in the JSON string but got " + data['DESCRIPTION']);
+        }
+        // ensure the json data is a string
+        if (data['Feature'] && !(typeof data['Feature'] === 'string' || data['Feature'] instanceof String)) {
+            throw new Error("Expected the field `Feature` to be a primitive type in the JSON string but got " + data['Feature']);
+        }
+        // ensure the json data is a string
+        if (data['Key'] && !(typeof data['Key'] === 'string' || data['Key'] instanceof String)) {
+            throw new Error("Expected the field `Key` to be a primitive type in the JSON string but got " + data['Key']);
+        }
+        // ensure the json data is a string
+        if (data['LABEL'] && !(typeof data['LABEL'] === 'string' || data['LABEL'] instanceof String)) {
+            throw new Error("Expected the field `LABEL` to be a primitive type in the JSON string but got " + data['LABEL']);
+        }
+        // ensure the json data is a string
+        if (data['MANAGER'] && !(typeof data['MANAGER'] === 'string' || data['MANAGER'] instanceof String)) {
+            throw new Error("Expected the field `MANAGER` to be a primitive type in the JSON string but got " + data['MANAGER']);
+        }
+        // validate the optional field `METADATA`
+        if (data['METADATA']) { // data not null
+          RestSettingsEntryMeta.validateJSON(data['METADATA']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} ALIAS

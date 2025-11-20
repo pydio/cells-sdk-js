@@ -39,7 +39,7 @@ export default class TemplatesServiceApi {
     /**
      * List available templates
      * @param {Object} opts Optional parameters
-     * @param {String} opts.TemplateType 
+     * @param {String} [TemplateType] 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/RestListTemplatesResponse} and HTTP response
      */
     listTemplatesWithHttpInfo(opts) {

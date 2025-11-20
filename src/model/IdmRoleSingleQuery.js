@@ -73,8 +73,28 @@ class IdmRoleSingleQuery {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>IdmRoleSingleQuery</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>IdmRoleSingleQuery</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['Label'] && !(typeof data['Label'] === 'string' || data['Label'] instanceof String)) {
+            throw new Error("Expected the field `Label` to be a primitive type in the JSON string but got " + data['Label']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['Uuid'])) {
+            throw new Error("Expected the field `Uuid` to be an array in the JSON data but got " + data['Uuid']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {Boolean} HasAutoApply

@@ -12,6 +12,8 @@
  */
 
 import ApiClient from '../ApiClient';
+import InstallHeaderMod from './InstallHeaderMod';
+import InstallRule from './InstallRule';
 import InstallTLSCertificate from './InstallTLSCertificate';
 import InstallTLSLetsEncrypt from './InstallTLSLetsEncrypt';
 import InstallTLSSelfSigned from './InstallTLSSelfSigned';
@@ -24,6 +26,7 @@ import InstallTLSSelfSigned from './InstallTLSSelfSigned';
 class InstallProxyConfig {
     /**
      * Constructs a new <code>InstallProxyConfig</code>.
+     * option (setter.all_fields) &#x3D; true;
      * @alias module:model/InstallProxyConfig
      */
     constructor() { 
@@ -56,6 +59,12 @@ class InstallProxyConfig {
             if (data.hasOwnProperty('Certificate')) {
                 obj['Certificate'] = InstallTLSCertificate.constructFromObject(data['Certificate']);
             }
+            if (data.hasOwnProperty('ComputedHash')) {
+                obj['ComputedHash'] = ApiClient.convertToType(data['ComputedHash'], 'String');
+            }
+            if (data.hasOwnProperty('HeaderMods')) {
+                obj['HeaderMods'] = ApiClient.convertToType(data['HeaderMods'], [InstallHeaderMod]);
+            }
             if (data.hasOwnProperty('LetsEncrypt')) {
                 obj['LetsEncrypt'] = InstallTLSLetsEncrypt.constructFromObject(data['LetsEncrypt']);
             }
@@ -68,6 +77,9 @@ class InstallProxyConfig {
             if (data.hasOwnProperty('ReverseProxyURL')) {
                 obj['ReverseProxyURL'] = ApiClient.convertToType(data['ReverseProxyURL'], 'String');
             }
+            if (data.hasOwnProperty('Routing')) {
+                obj['Routing'] = ApiClient.convertToType(data['Routing'], [InstallRule]);
+            }
             if (data.hasOwnProperty('SSLRedirect')) {
                 obj['SSLRedirect'] = ApiClient.convertToType(data['SSLRedirect'], 'Boolean');
             }
@@ -78,8 +90,68 @@ class InstallProxyConfig {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>InstallProxyConfig</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>InstallProxyConfig</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is an array
+        if (!Array.isArray(data['Binds'])) {
+            throw new Error("Expected the field `Binds` to be an array in the JSON data but got " + data['Binds']);
+        }
+        // validate the optional field `Certificate`
+        if (data['Certificate']) { // data not null
+          InstallTLSCertificate.validateJSON(data['Certificate']);
+        }
+        // ensure the json data is a string
+        if (data['ComputedHash'] && !(typeof data['ComputedHash'] === 'string' || data['ComputedHash'] instanceof String)) {
+            throw new Error("Expected the field `ComputedHash` to be a primitive type in the JSON string but got " + data['ComputedHash']);
+        }
+        if (data['HeaderMods']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['HeaderMods'])) {
+                throw new Error("Expected the field `HeaderMods` to be an array in the JSON data but got " + data['HeaderMods']);
+            }
+            // validate the optional field `HeaderMods` (array)
+            for (const item of data['HeaderMods']) {
+                InstallHeaderMod.validateJSON(item);
+            };
+        }
+        // validate the optional field `LetsEncrypt`
+        if (data['LetsEncrypt']) { // data not null
+          InstallTLSLetsEncrypt.validateJSON(data['LetsEncrypt']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['MaintenanceConditions'])) {
+            throw new Error("Expected the field `MaintenanceConditions` to be an array in the JSON data but got " + data['MaintenanceConditions']);
+        }
+        // ensure the json data is a string
+        if (data['ReverseProxyURL'] && !(typeof data['ReverseProxyURL'] === 'string' || data['ReverseProxyURL'] instanceof String)) {
+            throw new Error("Expected the field `ReverseProxyURL` to be a primitive type in the JSON string but got " + data['ReverseProxyURL']);
+        }
+        if (data['Routing']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['Routing'])) {
+                throw new Error("Expected the field `Routing` to be an array in the JSON data but got " + data['Routing']);
+            }
+            // validate the optional field `Routing` (array)
+            for (const item of data['Routing']) {
+                InstallRule.validateJSON(item);
+            };
+        }
+        // validate the optional field `SelfSigned`
+        if (data['SelfSigned']) { // data not null
+          InstallTLSSelfSigned.validateJSON(data['SelfSigned']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {Array.<String>} Binds
@@ -90,6 +162,16 @@ InstallProxyConfig.prototype['Binds'] = undefined;
  * @member {module:model/InstallTLSCertificate} Certificate
  */
 InstallProxyConfig.prototype['Certificate'] = undefined;
+
+/**
+ * @member {String} ComputedHash
+ */
+InstallProxyConfig.prototype['ComputedHash'] = undefined;
+
+/**
+ * @member {Array.<module:model/InstallHeaderMod>} HeaderMods
+ */
+InstallProxyConfig.prototype['HeaderMods'] = undefined;
 
 /**
  * @member {module:model/InstallTLSLetsEncrypt} LetsEncrypt
@@ -110,6 +192,11 @@ InstallProxyConfig.prototype['MaintenanceConditions'] = undefined;
  * @member {String} ReverseProxyURL
  */
 InstallProxyConfig.prototype['ReverseProxyURL'] = undefined;
+
+/**
+ * @member {Array.<module:model/InstallRule>} Routing
+ */
+InstallProxyConfig.prototype['Routing'] = undefined;
 
 /**
  * @member {Boolean} SSLRedirect

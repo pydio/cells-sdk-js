@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import ServiceResourcePolicyAction from './ServiceResourcePolicyAction';
 
 /**
  * The ServiceResourcePolicyQuery model module.
@@ -47,11 +48,17 @@ class ServiceResourcePolicyQuery {
         if (data) {
             obj = obj || new ServiceResourcePolicyQuery();
 
+            if (data.hasOwnProperty('Action')) {
+                obj['Action'] = ServiceResourcePolicyAction.constructFromObject(data['Action']);
+            }
             if (data.hasOwnProperty('Any')) {
                 obj['Any'] = ApiClient.convertToType(data['Any'], 'Boolean');
             }
             if (data.hasOwnProperty('Empty')) {
                 obj['Empty'] = ApiClient.convertToType(data['Empty'], 'Boolean');
+            }
+            if (data.hasOwnProperty('LeftIdentifier')) {
+                obj['LeftIdentifier'] = ApiClient.convertToType(data['LeftIdentifier'], 'String');
             }
             if (data.hasOwnProperty('Subjects')) {
                 obj['Subjects'] = ApiClient.convertToType(data['Subjects'], ['String']);
@@ -60,8 +67,33 @@ class ServiceResourcePolicyQuery {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>ServiceResourcePolicyQuery</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>ServiceResourcePolicyQuery</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['LeftIdentifier'] && !(typeof data['LeftIdentifier'] === 'string' || data['LeftIdentifier'] instanceof String)) {
+            throw new Error("Expected the field `LeftIdentifier` to be a primitive type in the JSON string but got " + data['LeftIdentifier']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['Subjects'])) {
+            throw new Error("Expected the field `Subjects` to be an array in the JSON data but got " + data['Subjects']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
+
+/**
+ * @member {module:model/ServiceResourcePolicyAction} Action
+ */
+ServiceResourcePolicyQuery.prototype['Action'] = undefined;
 
 /**
  * @member {Boolean} Any
@@ -72,6 +104,11 @@ ServiceResourcePolicyQuery.prototype['Any'] = undefined;
  * @member {Boolean} Empty
  */
 ServiceResourcePolicyQuery.prototype['Empty'] = undefined;
+
+/**
+ * @member {String} LeftIdentifier
+ */
+ServiceResourcePolicyQuery.prototype['LeftIdentifier'] = undefined;
 
 /**
  * @member {Array.<String>} Subjects

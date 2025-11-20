@@ -72,8 +72,44 @@ class RestProcess {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>RestProcess</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>RestProcess</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['ID'] && !(typeof data['ID'] === 'string' || data['ID'] instanceof String)) {
+            throw new Error("Expected the field `ID` to be a primitive type in the JSON string but got " + data['ID']);
+        }
+        // ensure the json data is a string
+        if (data['ParentID'] && !(typeof data['ParentID'] === 'string' || data['ParentID'] instanceof String)) {
+            throw new Error("Expected the field `ParentID` to be a primitive type in the JSON string but got " + data['ParentID']);
+        }
+        // ensure the json data is a string
+        if (data['PeerAddress'] && !(typeof data['PeerAddress'] === 'string' || data['PeerAddress'] instanceof String)) {
+            throw new Error("Expected the field `PeerAddress` to be a primitive type in the JSON string but got " + data['PeerAddress']);
+        }
+        // ensure the json data is a string
+        if (data['PeerId'] && !(typeof data['PeerId'] === 'string' || data['PeerId'] instanceof String)) {
+            throw new Error("Expected the field `PeerId` to be a primitive type in the JSON string but got " + data['PeerId']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['Services'])) {
+            throw new Error("Expected the field `Services` to be an array in the JSON data but got " + data['Services']);
+        }
+        // ensure the json data is a string
+        if (data['StartTag'] && !(typeof data['StartTag'] === 'string' || data['StartTag'] instanceof String)) {
+            throw new Error("Expected the field `StartTag` to be a primitive type in the JSON string but got " + data['StartTag']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} ID

@@ -61,8 +61,30 @@ class RestUpdateSharePoliciesResponse {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>RestUpdateSharePoliciesResponse</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>RestUpdateSharePoliciesResponse</code>.
+     */
+    static validateJSON(data) {
+        if (data['Policies']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['Policies'])) {
+                throw new Error("Expected the field `Policies` to be an array in the JSON data but got " + data['Policies']);
+            }
+            // validate the optional field `Policies` (array)
+            for (const item of data['Policies']) {
+                ServiceResourcePolicy.validateJSON(item);
+            };
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {Array.<module:model/ServiceResourcePolicy>} Policies

@@ -58,8 +58,30 @@ class RestDataSourceCollection {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>RestDataSourceCollection</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>RestDataSourceCollection</code>.
+     */
+    static validateJSON(data) {
+        if (data['DataSources']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['DataSources'])) {
+                throw new Error("Expected the field `DataSources` to be an array in the JSON data but got " + data['DataSources']);
+            }
+            // validate the optional field `DataSources` (array)
+            for (const item of data['DataSources']) {
+                ObjectDataSource.validateJSON(item);
+            };
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {Array.<module:model/ObjectDataSource>} DataSources

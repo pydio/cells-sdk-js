@@ -69,8 +69,36 @@ class RestDiscoveryResponse {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>RestDiscoveryResponse</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>RestDiscoveryResponse</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['BuildRevision'] && !(typeof data['BuildRevision'] === 'string' || data['BuildRevision'] instanceof String)) {
+            throw new Error("Expected the field `BuildRevision` to be a primitive type in the JSON string but got " + data['BuildRevision']);
+        }
+        // ensure the json data is a string
+        if (data['PackageLabel'] && !(typeof data['PackageLabel'] === 'string' || data['PackageLabel'] instanceof String)) {
+            throw new Error("Expected the field `PackageLabel` to be a primitive type in the JSON string but got " + data['PackageLabel']);
+        }
+        // ensure the json data is a string
+        if (data['PackageType'] && !(typeof data['PackageType'] === 'string' || data['PackageType'] instanceof String)) {
+            throw new Error("Expected the field `PackageType` to be a primitive type in the JSON string but got " + data['PackageType']);
+        }
+        // ensure the json data is a string
+        if (data['Version'] && !(typeof data['Version'] === 'string' || data['Version'] instanceof String)) {
+            throw new Error("Expected the field `Version` to be a primitive type in the JSON string but got " + data['Version']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} BuildRevision

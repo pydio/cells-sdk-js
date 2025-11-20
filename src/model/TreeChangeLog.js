@@ -77,8 +77,48 @@ class TreeChangeLog {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>TreeChangeLog</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>TreeChangeLog</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['Description'] && !(typeof data['Description'] === 'string' || data['Description'] instanceof String)) {
+            throw new Error("Expected the field `Description` to be a primitive type in the JSON string but got " + data['Description']);
+        }
+        // validate the optional field `Event`
+        if (data['Event']) { // data not null
+          TreeNodeChangeEvent.validateJSON(data['Event']);
+        }
+        // validate the optional field `Location`
+        if (data['Location']) { // data not null
+          TreeNode.validateJSON(data['Location']);
+        }
+        // ensure the json data is a string
+        if (data['MTime'] && !(typeof data['MTime'] === 'string' || data['MTime'] instanceof String)) {
+            throw new Error("Expected the field `MTime` to be a primitive type in the JSON string but got " + data['MTime']);
+        }
+        // ensure the json data is a string
+        if (data['OwnerUuid'] && !(typeof data['OwnerUuid'] === 'string' || data['OwnerUuid'] instanceof String)) {
+            throw new Error("Expected the field `OwnerUuid` to be a primitive type in the JSON string but got " + data['OwnerUuid']);
+        }
+        // ensure the json data is a string
+        if (data['Size'] && !(typeof data['Size'] === 'string' || data['Size'] instanceof String)) {
+            throw new Error("Expected the field `Size` to be a primitive type in the JSON string but got " + data['Size']);
+        }
+        // ensure the json data is a string
+        if (data['Uuid'] && !(typeof data['Uuid'] === 'string' || data['Uuid'] instanceof String)) {
+            throw new Error("Expected the field `Uuid` to be a primitive type in the JSON string but got " + data['Uuid']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {Blob} Data

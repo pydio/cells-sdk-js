@@ -58,8 +58,30 @@ class RestServiceCollection {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>RestServiceCollection</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>RestServiceCollection</code>.
+     */
+    static validateJSON(data) {
+        if (data['Services']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['Services'])) {
+                throw new Error("Expected the field `Services` to be an array in the JSON data but got " + data['Services']);
+            }
+            // validate the optional field `Services` (array)
+            for (const item of data['Services']) {
+                CtlService.validateJSON(item);
+            };
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {Array.<module:model/CtlService>} Services

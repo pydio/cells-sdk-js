@@ -106,8 +106,80 @@ class UpdatePackage {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>UpdatePackage</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>UpdatePackage</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['BinaryArch'] && !(typeof data['BinaryArch'] === 'string' || data['BinaryArch'] instanceof String)) {
+            throw new Error("Expected the field `BinaryArch` to be a primitive type in the JSON string but got " + data['BinaryArch']);
+        }
+        // ensure the json data is a string
+        if (data['BinaryChecksum'] && !(typeof data['BinaryChecksum'] === 'string' || data['BinaryChecksum'] instanceof String)) {
+            throw new Error("Expected the field `BinaryChecksum` to be a primitive type in the JSON string but got " + data['BinaryChecksum']);
+        }
+        // ensure the json data is a string
+        if (data['BinaryHashType'] && !(typeof data['BinaryHashType'] === 'string' || data['BinaryHashType'] instanceof String)) {
+            throw new Error("Expected the field `BinaryHashType` to be a primitive type in the JSON string but got " + data['BinaryHashType']);
+        }
+        // ensure the json data is a string
+        if (data['BinaryOS'] && !(typeof data['BinaryOS'] === 'string' || data['BinaryOS'] instanceof String)) {
+            throw new Error("Expected the field `BinaryOS` to be a primitive type in the JSON string but got " + data['BinaryOS']);
+        }
+        // ensure the json data is a string
+        if (data['BinarySignature'] && !(typeof data['BinarySignature'] === 'string' || data['BinarySignature'] instanceof String)) {
+            throw new Error("Expected the field `BinarySignature` to be a primitive type in the JSON string but got " + data['BinarySignature']);
+        }
+        // ensure the json data is a string
+        if (data['BinarySize'] && !(typeof data['BinarySize'] === 'string' || data['BinarySize'] instanceof String)) {
+            throw new Error("Expected the field `BinarySize` to be a primitive type in the JSON string but got " + data['BinarySize']);
+        }
+        // ensure the json data is a string
+        if (data['BinaryURL'] && !(typeof data['BinaryURL'] === 'string' || data['BinaryURL'] instanceof String)) {
+            throw new Error("Expected the field `BinaryURL` to be a primitive type in the JSON string but got " + data['BinaryURL']);
+        }
+        // ensure the json data is a string
+        if (data['ChangeLog'] && !(typeof data['ChangeLog'] === 'string' || data['ChangeLog'] instanceof String)) {
+            throw new Error("Expected the field `ChangeLog` to be a primitive type in the JSON string but got " + data['ChangeLog']);
+        }
+        // ensure the json data is a string
+        if (data['Description'] && !(typeof data['Description'] === 'string' || data['Description'] instanceof String)) {
+            throw new Error("Expected the field `Description` to be a primitive type in the JSON string but got " + data['Description']);
+        }
+        // ensure the json data is a string
+        if (data['Label'] && !(typeof data['Label'] === 'string' || data['Label'] instanceof String)) {
+            throw new Error("Expected the field `Label` to be a primitive type in the JSON string but got " + data['Label']);
+        }
+        // ensure the json data is a string
+        if (data['License'] && !(typeof data['License'] === 'string' || data['License'] instanceof String)) {
+            throw new Error("Expected the field `License` to be a primitive type in the JSON string but got " + data['License']);
+        }
+        // ensure the json data is a string
+        if (data['PackageName'] && !(typeof data['PackageName'] === 'string' || data['PackageName'] instanceof String)) {
+            throw new Error("Expected the field `PackageName` to be a primitive type in the JSON string but got " + data['PackageName']);
+        }
+        // ensure the json data is a string
+        if (data['PatchAlgorithm'] && !(typeof data['PatchAlgorithm'] === 'string' || data['PatchAlgorithm'] instanceof String)) {
+            throw new Error("Expected the field `PatchAlgorithm` to be a primitive type in the JSON string but got " + data['PatchAlgorithm']);
+        }
+        // ensure the json data is a string
+        if (data['ServiceName'] && !(typeof data['ServiceName'] === 'string' || data['ServiceName'] instanceof String)) {
+            throw new Error("Expected the field `ServiceName` to be a primitive type in the JSON string but got " + data['ServiceName']);
+        }
+        // ensure the json data is a string
+        if (data['Version'] && !(typeof data['Version'] === 'string' || data['Version'] instanceof String)) {
+            throw new Error("Expected the field `Version` to be a primitive type in the JSON string but got " + data['Version']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} BinaryArch

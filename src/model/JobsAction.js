@@ -132,8 +132,116 @@ class JobsAction {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>JobsAction</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>JobsAction</code>.
+     */
+    static validateJSON(data) {
+        // validate the optional field `ActionOutputFilter`
+        if (data['ActionOutputFilter']) { // data not null
+          JobsActionOutputFilter.validateJSON(data['ActionOutputFilter']);
+        }
+        if (data['ChainedActions']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['ChainedActions'])) {
+                throw new Error("Expected the field `ChainedActions` to be an array in the JSON data but got " + data['ChainedActions']);
+            }
+            // validate the optional field `ChainedActions` (array)
+            for (const item of data['ChainedActions']) {
+                JobsAction.validateJSON(item);
+            };
+        }
+        // validate the optional field `ChatEventFilter`
+        if (data['ChatEventFilter']) { // data not null
+          JobsChatEventFilter.validateJSON(data['ChatEventFilter']);
+        }
+        // validate the optional field `ContextMetaFilter`
+        if (data['ContextMetaFilter']) { // data not null
+          JobsContextMetaFilter.validateJSON(data['ContextMetaFilter']);
+        }
+        // validate the optional field `DataFilter`
+        if (data['DataFilter']) { // data not null
+          JobsDataSelector.validateJSON(data['DataFilter']);
+        }
+        // validate the optional field `DataSelector`
+        if (data['DataSelector']) { // data not null
+          JobsDataSelector.validateJSON(data['DataSelector']);
+        }
+        // validate the optional field `DataSourceFilter`
+        if (data['DataSourceFilter']) { // data not null
+          JobsDataSourceSelector.validateJSON(data['DataSourceFilter']);
+        }
+        // validate the optional field `DataSourceSelector`
+        if (data['DataSourceSelector']) { // data not null
+          JobsDataSourceSelector.validateJSON(data['DataSourceSelector']);
+        }
+        // ensure the json data is a string
+        if (data['Description'] && !(typeof data['Description'] === 'string' || data['Description'] instanceof String)) {
+            throw new Error("Expected the field `Description` to be a primitive type in the JSON string but got " + data['Description']);
+        }
+        if (data['FailedFilterActions']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['FailedFilterActions'])) {
+                throw new Error("Expected the field `FailedFilterActions` to be an array in the JSON data but got " + data['FailedFilterActions']);
+            }
+            // validate the optional field `FailedFilterActions` (array)
+            for (const item of data['FailedFilterActions']) {
+                JobsAction.validateJSON(item);
+            };
+        }
+        // ensure the json data is a string
+        if (data['ID'] && !(typeof data['ID'] === 'string' || data['ID'] instanceof String)) {
+            throw new Error("Expected the field `ID` to be a primitive type in the JSON string but got " + data['ID']);
+        }
+        // validate the optional field `IdmFilter`
+        if (data['IdmFilter']) { // data not null
+          JobsIdmSelector.validateJSON(data['IdmFilter']);
+        }
+        // validate the optional field `IdmSelector`
+        if (data['IdmSelector']) { // data not null
+          JobsIdmSelector.validateJSON(data['IdmSelector']);
+        }
+        // ensure the json data is a string
+        if (data['Label'] && !(typeof data['Label'] === 'string' || data['Label'] instanceof String)) {
+            throw new Error("Expected the field `Label` to be a primitive type in the JSON string but got " + data['Label']);
+        }
+        // validate the optional field `MergeAction`
+        if (data['MergeAction']) { // data not null
+          JobsAction.validateJSON(data['MergeAction']);
+        }
+        // validate the optional field `NodesFilter`
+        if (data['NodesFilter']) { // data not null
+          JobsNodesSelector.validateJSON(data['NodesFilter']);
+        }
+        // validate the optional field `NodesSelector`
+        if (data['NodesSelector']) { // data not null
+          JobsNodesSelector.validateJSON(data['NodesSelector']);
+        }
+        // ensure the json data is a string
+        if (data['Timeout'] && !(typeof data['Timeout'] === 'string' || data['Timeout'] instanceof String)) {
+            throw new Error("Expected the field `Timeout` to be a primitive type in the JSON string but got " + data['Timeout']);
+        }
+        // validate the optional field `TriggerFilter`
+        if (data['TriggerFilter']) { // data not null
+          JobsTriggerFilter.validateJSON(data['TriggerFilter']);
+        }
+        // validate the optional field `UsersFilter`
+        if (data['UsersFilter']) { // data not null
+          JobsUsersSelector.validateJSON(data['UsersFilter']);
+        }
+        // validate the optional field `UsersSelector`
+        if (data['UsersSelector']) { // data not null
+          JobsUsersSelector.validateJSON(data['UsersSelector']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {module:model/JobsActionOutputFilter} ActionOutputFilter

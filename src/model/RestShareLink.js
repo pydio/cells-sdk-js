@@ -112,8 +112,92 @@ class RestShareLink {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>RestShareLink</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>RestShareLink</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['AccessEnd'] && !(typeof data['AccessEnd'] === 'string' || data['AccessEnd'] instanceof String)) {
+            throw new Error("Expected the field `AccessEnd` to be a primitive type in the JSON string but got " + data['AccessEnd']);
+        }
+        // ensure the json data is a string
+        if (data['AccessStart'] && !(typeof data['AccessStart'] === 'string' || data['AccessStart'] instanceof String)) {
+            throw new Error("Expected the field `AccessStart` to be a primitive type in the JSON string but got " + data['AccessStart']);
+        }
+        // ensure the json data is a string
+        if (data['CurrentDownloads'] && !(typeof data['CurrentDownloads'] === 'string' || data['CurrentDownloads'] instanceof String)) {
+            throw new Error("Expected the field `CurrentDownloads` to be a primitive type in the JSON string but got " + data['CurrentDownloads']);
+        }
+        // ensure the json data is a string
+        if (data['Description'] && !(typeof data['Description'] === 'string' || data['Description'] instanceof String)) {
+            throw new Error("Expected the field `Description` to be a primitive type in the JSON string but got " + data['Description']);
+        }
+        // ensure the json data is a string
+        if (data['Label'] && !(typeof data['Label'] === 'string' || data['Label'] instanceof String)) {
+            throw new Error("Expected the field `Label` to be a primitive type in the JSON string but got " + data['Label']);
+        }
+        // ensure the json data is a string
+        if (data['LinkHash'] && !(typeof data['LinkHash'] === 'string' || data['LinkHash'] instanceof String)) {
+            throw new Error("Expected the field `LinkHash` to be a primitive type in the JSON string but got " + data['LinkHash']);
+        }
+        // ensure the json data is a string
+        if (data['LinkUrl'] && !(typeof data['LinkUrl'] === 'string' || data['LinkUrl'] instanceof String)) {
+            throw new Error("Expected the field `LinkUrl` to be a primitive type in the JSON string but got " + data['LinkUrl']);
+        }
+        // ensure the json data is a string
+        if (data['MaxDownloads'] && !(typeof data['MaxDownloads'] === 'string' || data['MaxDownloads'] instanceof String)) {
+            throw new Error("Expected the field `MaxDownloads` to be a primitive type in the JSON string but got " + data['MaxDownloads']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['Permissions'])) {
+            throw new Error("Expected the field `Permissions` to be an array in the JSON data but got " + data['Permissions']);
+        }
+        if (data['Policies']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['Policies'])) {
+                throw new Error("Expected the field `Policies` to be an array in the JSON data but got " + data['Policies']);
+            }
+            // validate the optional field `Policies` (array)
+            for (const item of data['Policies']) {
+                ServiceResourcePolicy.validateJSON(item);
+            };
+        }
+        if (data['RootNodes']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['RootNodes'])) {
+                throw new Error("Expected the field `RootNodes` to be an array in the JSON data but got " + data['RootNodes']);
+            }
+            // validate the optional field `RootNodes` (array)
+            for (const item of data['RootNodes']) {
+                TreeNode.validateJSON(item);
+            };
+        }
+        // ensure the json data is a string
+        if (data['UserLogin'] && !(typeof data['UserLogin'] === 'string' || data['UserLogin'] instanceof String)) {
+            throw new Error("Expected the field `UserLogin` to be a primitive type in the JSON string but got " + data['UserLogin']);
+        }
+        // ensure the json data is a string
+        if (data['UserUuid'] && !(typeof data['UserUuid'] === 'string' || data['UserUuid'] instanceof String)) {
+            throw new Error("Expected the field `UserUuid` to be a primitive type in the JSON string but got " + data['UserUuid']);
+        }
+        // ensure the json data is a string
+        if (data['Uuid'] && !(typeof data['Uuid'] === 'string' || data['Uuid'] instanceof String)) {
+            throw new Error("Expected the field `Uuid` to be a primitive type in the JSON string but got " + data['Uuid']);
+        }
+        // ensure the json data is a string
+        if (data['ViewTemplateName'] && !(typeof data['ViewTemplateName'] === 'string' || data['ViewTemplateName'] instanceof String)) {
+            throw new Error("Expected the field `ViewTemplateName` to be a primitive type in the JSON string but got " + data['ViewTemplateName']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} AccessEnd

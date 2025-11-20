@@ -61,8 +61,40 @@ class RestUsersCollection {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>RestUsersCollection</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>RestUsersCollection</code>.
+     */
+    static validateJSON(data) {
+        if (data['Groups']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['Groups'])) {
+                throw new Error("Expected the field `Groups` to be an array in the JSON data but got " + data['Groups']);
+            }
+            // validate the optional field `Groups` (array)
+            for (const item of data['Groups']) {
+                IdmUser.validateJSON(item);
+            };
+        }
+        if (data['Users']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['Users'])) {
+                throw new Error("Expected the field `Users` to be an array in the JSON data but got " + data['Users']);
+            }
+            // validate the optional field `Users` (array)
+            for (const item of data['Users']) {
+                IdmUser.validateJSON(item);
+            };
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {Array.<module:model/IdmUser>} Groups

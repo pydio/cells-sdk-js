@@ -54,8 +54,24 @@ class InstallTLSSelfSigned {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>InstallTLSSelfSigned</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>InstallTLSSelfSigned</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is an array
+        if (!Array.isArray(data['Hostnames'])) {
+            throw new Error("Expected the field `Hostnames` to be an array in the JSON data but got " + data['Hostnames']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {Array.<String>} Hostnames

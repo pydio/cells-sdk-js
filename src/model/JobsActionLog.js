@@ -62,8 +62,32 @@ class JobsActionLog {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>JobsActionLog</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>JobsActionLog</code>.
+     */
+    static validateJSON(data) {
+        // validate the optional field `Action`
+        if (data['Action']) { // data not null
+          JobsAction.validateJSON(data['Action']);
+        }
+        // validate the optional field `InputMessage`
+        if (data['InputMessage']) { // data not null
+          JobsActionMessage.validateJSON(data['InputMessage']);
+        }
+        // validate the optional field `OutputMessage`
+        if (data['OutputMessage']) { // data not null
+          JobsActionMessage.validateJSON(data['OutputMessage']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {module:model/JobsAction} Action

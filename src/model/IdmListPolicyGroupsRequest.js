@@ -54,8 +54,24 @@ class IdmListPolicyGroupsRequest {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>IdmListPolicyGroupsRequest</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>IdmListPolicyGroupsRequest</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['Filter'] && !(typeof data['Filter'] === 'string' || data['Filter'] instanceof String)) {
+            throw new Error("Expected the field `Filter` to be a primitive type in the JSON string but got " + data['Filter']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} Filter

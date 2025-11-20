@@ -54,8 +54,24 @@ class RestUserJobRequest {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>RestUserJobRequest</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>RestUserJobRequest</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['JsonParameters'] && !(typeof data['JsonParameters'] === 'string' || data['JsonParameters'] instanceof String)) {
+            throw new Error("Expected the field `JsonParameters` to be a primitive type in the JSON string but got " + data['JsonParameters']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} JsonParameters

@@ -57,8 +57,24 @@ class EncryptionExport {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>EncryptionExport</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>EncryptionExport</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['By'] && !(typeof data['By'] === 'string' || data['By'] instanceof String)) {
+            throw new Error("Expected the field `By` to be a primitive type in the JSON string but got " + data['By']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} By

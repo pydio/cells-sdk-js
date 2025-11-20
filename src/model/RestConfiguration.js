@@ -57,8 +57,28 @@ class RestConfiguration {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>RestConfiguration</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>RestConfiguration</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['Data'] && !(typeof data['Data'] === 'string' || data['Data'] instanceof String)) {
+            throw new Error("Expected the field `Data` to be a primitive type in the JSON string but got " + data['Data']);
+        }
+        // ensure the json data is a string
+        if (data['FullPath'] && !(typeof data['FullPath'] === 'string' || data['FullPath'] instanceof String)) {
+            throw new Error("Expected the field `FullPath` to be a primitive type in the JSON string but got " + data['FullPath']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} Data

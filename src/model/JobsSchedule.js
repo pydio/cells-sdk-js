@@ -57,8 +57,28 @@ class JobsSchedule {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>JobsSchedule</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>JobsSchedule</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['Iso8601MinDelta'] && !(typeof data['Iso8601MinDelta'] === 'string' || data['Iso8601MinDelta'] instanceof String)) {
+            throw new Error("Expected the field `Iso8601MinDelta` to be a primitive type in the JSON string but got " + data['Iso8601MinDelta']);
+        }
+        // ensure the json data is a string
+        if (data['Iso8601Schedule'] && !(typeof data['Iso8601Schedule'] === 'string' || data['Iso8601Schedule'] instanceof String)) {
+            throw new Error("Expected the field `Iso8601Schedule` to be a primitive type in the JSON string but got " + data['Iso8601Schedule']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} Iso8601MinDelta

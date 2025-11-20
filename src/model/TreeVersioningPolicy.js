@@ -83,8 +83,62 @@ class TreeVersioningPolicy {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>TreeVersioningPolicy</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>TreeVersioningPolicy</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['Description'] && !(typeof data['Description'] === 'string' || data['Description'] instanceof String)) {
+            throw new Error("Expected the field `Description` to be a primitive type in the JSON string but got " + data['Description']);
+        }
+        // ensure the json data is a string
+        if (data['IgnoreFilesGreaterThan'] && !(typeof data['IgnoreFilesGreaterThan'] === 'string' || data['IgnoreFilesGreaterThan'] instanceof String)) {
+            throw new Error("Expected the field `IgnoreFilesGreaterThan` to be a primitive type in the JSON string but got " + data['IgnoreFilesGreaterThan']);
+        }
+        if (data['KeepPeriods']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['KeepPeriods'])) {
+                throw new Error("Expected the field `KeepPeriods` to be an array in the JSON data but got " + data['KeepPeriods']);
+            }
+            // validate the optional field `KeepPeriods` (array)
+            for (const item of data['KeepPeriods']) {
+                TreeVersioningKeepPeriod.validateJSON(item);
+            };
+        }
+        // ensure the json data is a string
+        if (data['MaxSizePerFile'] && !(typeof data['MaxSizePerFile'] === 'string' || data['MaxSizePerFile'] instanceof String)) {
+            throw new Error("Expected the field `MaxSizePerFile` to be a primitive type in the JSON string but got " + data['MaxSizePerFile']);
+        }
+        // ensure the json data is a string
+        if (data['MaxTotalSize'] && !(typeof data['MaxTotalSize'] === 'string' || data['MaxTotalSize'] instanceof String)) {
+            throw new Error("Expected the field `MaxTotalSize` to be a primitive type in the JSON string but got " + data['MaxTotalSize']);
+        }
+        // ensure the json data is a string
+        if (data['Name'] && !(typeof data['Name'] === 'string' || data['Name'] instanceof String)) {
+            throw new Error("Expected the field `Name` to be a primitive type in the JSON string but got " + data['Name']);
+        }
+        // ensure the json data is a string
+        if (data['Uuid'] && !(typeof data['Uuid'] === 'string' || data['Uuid'] instanceof String)) {
+            throw new Error("Expected the field `Uuid` to be a primitive type in the JSON string but got " + data['Uuid']);
+        }
+        // ensure the json data is a string
+        if (data['VersionsDataSourceBucket'] && !(typeof data['VersionsDataSourceBucket'] === 'string' || data['VersionsDataSourceBucket'] instanceof String)) {
+            throw new Error("Expected the field `VersionsDataSourceBucket` to be a primitive type in the JSON string but got " + data['VersionsDataSourceBucket']);
+        }
+        // ensure the json data is a string
+        if (data['VersionsDataSourceName'] && !(typeof data['VersionsDataSourceName'] === 'string' || data['VersionsDataSourceName'] instanceof String)) {
+            throw new Error("Expected the field `VersionsDataSourceName` to be a primitive type in the JSON string but got " + data['VersionsDataSourceName']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} Description

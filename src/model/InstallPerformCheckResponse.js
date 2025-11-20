@@ -55,8 +55,24 @@ class InstallPerformCheckResponse {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>InstallPerformCheckResponse</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>InstallPerformCheckResponse</code>.
+     */
+    static validateJSON(data) {
+        // validate the optional field `Result`
+        if (data['Result']) { // data not null
+          InstallCheckResult.validateJSON(data['Result']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {module:model/InstallCheckResult} Result

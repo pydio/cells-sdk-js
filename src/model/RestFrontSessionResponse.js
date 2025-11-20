@@ -73,8 +73,40 @@ class RestFrontSessionResponse {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>RestFrontSessionResponse</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>RestFrontSessionResponse</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['Error'] && !(typeof data['Error'] === 'string' || data['Error'] instanceof String)) {
+            throw new Error("Expected the field `Error` to be a primitive type in the JSON string but got " + data['Error']);
+        }
+        // ensure the json data is a string
+        if (data['JWT'] && !(typeof data['JWT'] === 'string' || data['JWT'] instanceof String)) {
+            throw new Error("Expected the field `JWT` to be a primitive type in the JSON string but got " + data['JWT']);
+        }
+        // ensure the json data is a string
+        if (data['RedirectTo'] && !(typeof data['RedirectTo'] === 'string' || data['RedirectTo'] instanceof String)) {
+            throw new Error("Expected the field `RedirectTo` to be a primitive type in the JSON string but got " + data['RedirectTo']);
+        }
+        // validate the optional field `Token`
+        if (data['Token']) { // data not null
+          AuthToken.validateJSON(data['Token']);
+        }
+        // ensure the json data is a string
+        if (data['Trigger'] && !(typeof data['Trigger'] === 'string' || data['Trigger'] instanceof String)) {
+            throw new Error("Expected the field `Trigger` to be a primitive type in the JSON string but got " + data['Trigger']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} Error

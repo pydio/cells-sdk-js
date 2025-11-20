@@ -58,8 +58,34 @@ class UpdateUpdateResponse {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>UpdateUpdateResponse</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>UpdateUpdateResponse</code>.
+     */
+    static validateJSON(data) {
+        if (data['AvailableBinaries']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['AvailableBinaries'])) {
+                throw new Error("Expected the field `AvailableBinaries` to be an array in the JSON data but got " + data['AvailableBinaries']);
+            }
+            // validate the optional field `AvailableBinaries` (array)
+            for (const item of data['AvailableBinaries']) {
+                UpdatePackage.validateJSON(item);
+            };
+        }
+        // ensure the json data is a string
+        if (data['Channel'] && !(typeof data['Channel'] === 'string' || data['Channel'] instanceof String)) {
+            throw new Error("Expected the field `Channel` to be a primitive type in the JSON string but got " + data['Channel']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {Array.<module:model/UpdatePackage>} AvailableBinaries

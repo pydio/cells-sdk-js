@@ -133,8 +133,124 @@ class LogLogMessage {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>LogLogMessage</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>LogLogMessage</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['GroupPath'] && !(typeof data['GroupPath'] === 'string' || data['GroupPath'] instanceof String)) {
+            throw new Error("Expected the field `GroupPath` to be a primitive type in the JSON string but got " + data['GroupPath']);
+        }
+        // ensure the json data is a string
+        if (data['HttpProtocol'] && !(typeof data['HttpProtocol'] === 'string' || data['HttpProtocol'] instanceof String)) {
+            throw new Error("Expected the field `HttpProtocol` to be a primitive type in the JSON string but got " + data['HttpProtocol']);
+        }
+        // ensure the json data is a string
+        if (data['JsonZaps'] && !(typeof data['JsonZaps'] === 'string' || data['JsonZaps'] instanceof String)) {
+            throw new Error("Expected the field `JsonZaps` to be a primitive type in the JSON string but got " + data['JsonZaps']);
+        }
+        // ensure the json data is a string
+        if (data['Level'] && !(typeof data['Level'] === 'string' || data['Level'] instanceof String)) {
+            throw new Error("Expected the field `Level` to be a primitive type in the JSON string but got " + data['Level']);
+        }
+        // ensure the json data is a string
+        if (data['Logger'] && !(typeof data['Logger'] === 'string' || data['Logger'] instanceof String)) {
+            throw new Error("Expected the field `Logger` to be a primitive type in the JSON string but got " + data['Logger']);
+        }
+        // ensure the json data is a string
+        if (data['Msg'] && !(typeof data['Msg'] === 'string' || data['Msg'] instanceof String)) {
+            throw new Error("Expected the field `Msg` to be a primitive type in the JSON string but got " + data['Msg']);
+        }
+        // ensure the json data is a string
+        if (data['MsgId'] && !(typeof data['MsgId'] === 'string' || data['MsgId'] instanceof String)) {
+            throw new Error("Expected the field `MsgId` to be a primitive type in the JSON string but got " + data['MsgId']);
+        }
+        // ensure the json data is a string
+        if (data['NodePath'] && !(typeof data['NodePath'] === 'string' || data['NodePath'] instanceof String)) {
+            throw new Error("Expected the field `NodePath` to be a primitive type in the JSON string but got " + data['NodePath']);
+        }
+        // ensure the json data is a string
+        if (data['NodeUuid'] && !(typeof data['NodeUuid'] === 'string' || data['NodeUuid'] instanceof String)) {
+            throw new Error("Expected the field `NodeUuid` to be a primitive type in the JSON string but got " + data['NodeUuid']);
+        }
+        // ensure the json data is a string
+        if (data['OperationLabel'] && !(typeof data['OperationLabel'] === 'string' || data['OperationLabel'] instanceof String)) {
+            throw new Error("Expected the field `OperationLabel` to be a primitive type in the JSON string but got " + data['OperationLabel']);
+        }
+        // ensure the json data is a string
+        if (data['OperationUuid'] && !(typeof data['OperationUuid'] === 'string' || data['OperationUuid'] instanceof String)) {
+            throw new Error("Expected the field `OperationUuid` to be a primitive type in the JSON string but got " + data['OperationUuid']);
+        }
+        // ensure the json data is a string
+        if (data['Profile'] && !(typeof data['Profile'] === 'string' || data['Profile'] instanceof String)) {
+            throw new Error("Expected the field `Profile` to be a primitive type in the JSON string but got " + data['Profile']);
+        }
+        // ensure the json data is a string
+        if (data['RemoteAddress'] && !(typeof data['RemoteAddress'] === 'string' || data['RemoteAddress'] instanceof String)) {
+            throw new Error("Expected the field `RemoteAddress` to be a primitive type in the JSON string but got " + data['RemoteAddress']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['RoleUuids'])) {
+            throw new Error("Expected the field `RoleUuids` to be an array in the JSON data but got " + data['RoleUuids']);
+        }
+        // ensure the json data is a string
+        if (data['SchedulerJobUuid'] && !(typeof data['SchedulerJobUuid'] === 'string' || data['SchedulerJobUuid'] instanceof String)) {
+            throw new Error("Expected the field `SchedulerJobUuid` to be a primitive type in the JSON string but got " + data['SchedulerJobUuid']);
+        }
+        // ensure the json data is a string
+        if (data['SchedulerTaskActionPath'] && !(typeof data['SchedulerTaskActionPath'] === 'string' || data['SchedulerTaskActionPath'] instanceof String)) {
+            throw new Error("Expected the field `SchedulerTaskActionPath` to be a primitive type in the JSON string but got " + data['SchedulerTaskActionPath']);
+        }
+        // ensure the json data is a string
+        if (data['SchedulerTaskUuid'] && !(typeof data['SchedulerTaskUuid'] === 'string' || data['SchedulerTaskUuid'] instanceof String)) {
+            throw new Error("Expected the field `SchedulerTaskUuid` to be a primitive type in the JSON string but got " + data['SchedulerTaskUuid']);
+        }
+        // ensure the json data is a string
+        if (data['SpanParentUuid'] && !(typeof data['SpanParentUuid'] === 'string' || data['SpanParentUuid'] instanceof String)) {
+            throw new Error("Expected the field `SpanParentUuid` to be a primitive type in the JSON string but got " + data['SpanParentUuid']);
+        }
+        // ensure the json data is a string
+        if (data['SpanRootUuid'] && !(typeof data['SpanRootUuid'] === 'string' || data['SpanRootUuid'] instanceof String)) {
+            throw new Error("Expected the field `SpanRootUuid` to be a primitive type in the JSON string but got " + data['SpanRootUuid']);
+        }
+        // ensure the json data is a string
+        if (data['SpanUuid'] && !(typeof data['SpanUuid'] === 'string' || data['SpanUuid'] instanceof String)) {
+            throw new Error("Expected the field `SpanUuid` to be a primitive type in the JSON string but got " + data['SpanUuid']);
+        }
+        // ensure the json data is a string
+        if (data['TransferSize'] && !(typeof data['TransferSize'] === 'string' || data['TransferSize'] instanceof String)) {
+            throw new Error("Expected the field `TransferSize` to be a primitive type in the JSON string but got " + data['TransferSize']);
+        }
+        // ensure the json data is a string
+        if (data['UserAgent'] && !(typeof data['UserAgent'] === 'string' || data['UserAgent'] instanceof String)) {
+            throw new Error("Expected the field `UserAgent` to be a primitive type in the JSON string but got " + data['UserAgent']);
+        }
+        // ensure the json data is a string
+        if (data['UserName'] && !(typeof data['UserName'] === 'string' || data['UserName'] instanceof String)) {
+            throw new Error("Expected the field `UserName` to be a primitive type in the JSON string but got " + data['UserName']);
+        }
+        // ensure the json data is a string
+        if (data['UserUuid'] && !(typeof data['UserUuid'] === 'string' || data['UserUuid'] instanceof String)) {
+            throw new Error("Expected the field `UserUuid` to be a primitive type in the JSON string but got " + data['UserUuid']);
+        }
+        // ensure the json data is a string
+        if (data['WsScope'] && !(typeof data['WsScope'] === 'string' || data['WsScope'] instanceof String)) {
+            throw new Error("Expected the field `WsScope` to be a primitive type in the JSON string but got " + data['WsScope']);
+        }
+        // ensure the json data is a string
+        if (data['WsUuid'] && !(typeof data['WsUuid'] === 'string' || data['WsUuid'] instanceof String)) {
+            throw new Error("Expected the field `WsUuid` to be a primitive type in the JSON string but got " + data['WsUuid']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} GroupPath

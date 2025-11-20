@@ -59,8 +59,34 @@ class RestSettingsMenuResponse {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>RestSettingsMenuResponse</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>RestSettingsMenuResponse</code>.
+     */
+    static validateJSON(data) {
+        if (data['Sections']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['Sections'])) {
+                throw new Error("Expected the field `Sections` to be an array in the JSON data but got " + data['Sections']);
+            }
+            // validate the optional field `Sections` (array)
+            for (const item of data['Sections']) {
+                RestSettingsSection.validateJSON(item);
+            };
+        }
+        // validate the optional field `__metadata__`
+        if (data['__metadata__']) { // data not null
+          RestSettingsEntryMeta.validateJSON(data['__metadata__']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {Array.<module:model/RestSettingsSection>} Sections

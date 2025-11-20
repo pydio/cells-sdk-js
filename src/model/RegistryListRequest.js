@@ -58,8 +58,28 @@ class RegistryListRequest {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>RegistryListRequest</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>RegistryListRequest</code>.
+     */
+    static validateJSON(data) {
+        // validate the optional field `adjacentsOptions`
+        if (data['adjacentsOptions']) { // data not null
+          RegistryOptions.validateJSON(data['adjacentsOptions']);
+        }
+        // validate the optional field `options`
+        if (data['options']) { // data not null
+          RegistryOptions.validateJSON(data['options']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {module:model/RegistryOptions} adjacentsOptions

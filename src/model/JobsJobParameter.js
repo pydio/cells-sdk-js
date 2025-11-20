@@ -69,8 +69,40 @@ class JobsJobParameter {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>JobsJobParameter</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>JobsJobParameter</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['Description'] && !(typeof data['Description'] === 'string' || data['Description'] instanceof String)) {
+            throw new Error("Expected the field `Description` to be a primitive type in the JSON string but got " + data['Description']);
+        }
+        // ensure the json data is a string
+        if (data['JsonChoices'] && !(typeof data['JsonChoices'] === 'string' || data['JsonChoices'] instanceof String)) {
+            throw new Error("Expected the field `JsonChoices` to be a primitive type in the JSON string but got " + data['JsonChoices']);
+        }
+        // ensure the json data is a string
+        if (data['Name'] && !(typeof data['Name'] === 'string' || data['Name'] instanceof String)) {
+            throw new Error("Expected the field `Name` to be a primitive type in the JSON string but got " + data['Name']);
+        }
+        // ensure the json data is a string
+        if (data['Type'] && !(typeof data['Type'] === 'string' || data['Type'] instanceof String)) {
+            throw new Error("Expected the field `Type` to be a primitive type in the JSON string but got " + data['Type']);
+        }
+        // ensure the json data is a string
+        if (data['Value'] && !(typeof data['Value'] === 'string' || data['Value'] instanceof String)) {
+            throw new Error("Expected the field `Value` to be a primitive type in the JSON string but got " + data['Value']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} Description

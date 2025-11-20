@@ -13,7 +13,6 @@
 
 
 import ApiClient from "../ApiClient";
-import InlineObject from '../model/InlineObject';
 import RestDocumentAccessTokenRequest from '../model/RestDocumentAccessTokenRequest';
 import RestDocumentAccessTokenResponse from '../model/RestDocumentAccessTokenResponse';
 import RestError from '../model/RestError';
@@ -22,6 +21,7 @@ import RestResetPasswordResponse from '../model/RestResetPasswordResponse';
 import RestResetPasswordTokenResponse from '../model/RestResetPasswordTokenResponse';
 import RestRevokeRequest from '../model/RestRevokeRequest';
 import RestRevokeResponse from '../model/RestRevokeResponse';
+import TokenServiceResetPasswordTokenBody from '../model/TokenServiceResetPasswordTokenBody';
 
 /**
 * TokenService service.
@@ -136,7 +136,7 @@ export default class TokenServiceApi {
     /**
      * Generate a unique token for the reset password process
      * @param {String} UserLogin Start a ResetPassword workflow for this user
-     * @param {module:model/InlineObject} body 
+     * @param {module:model/TokenServiceResetPasswordTokenBody} body 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/RestResetPasswordTokenResponse} and HTTP response
      */
     resetPasswordTokenWithHttpInfo(UserLogin, body) {
@@ -174,7 +174,7 @@ export default class TokenServiceApi {
     /**
      * Generate a unique token for the reset password process
      * @param {String} UserLogin Start a ResetPassword workflow for this user
-     * @param {module:model/InlineObject} body 
+     * @param {module:model/TokenServiceResetPasswordTokenBody} body 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/RestResetPasswordTokenResponse}
      */
     resetPasswordToken(UserLogin, body) {

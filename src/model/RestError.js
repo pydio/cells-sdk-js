@@ -66,8 +66,36 @@ class RestError {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>RestError</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>RestError</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['Code'] && !(typeof data['Code'] === 'string' || data['Code'] instanceof String)) {
+            throw new Error("Expected the field `Code` to be a primitive type in the JSON string but got " + data['Code']);
+        }
+        // ensure the json data is a string
+        if (data['Detail'] && !(typeof data['Detail'] === 'string' || data['Detail'] instanceof String)) {
+            throw new Error("Expected the field `Detail` to be a primitive type in the JSON string but got " + data['Detail']);
+        }
+        // ensure the json data is a string
+        if (data['Source'] && !(typeof data['Source'] === 'string' || data['Source'] instanceof String)) {
+            throw new Error("Expected the field `Source` to be a primitive type in the JSON string but got " + data['Source']);
+        }
+        // ensure the json data is a string
+        if (data['Title'] && !(typeof data['Title'] === 'string' || data['Title'] instanceof String)) {
+            throw new Error("Expected the field `Title` to be a primitive type in the JSON string but got " + data['Title']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} Code

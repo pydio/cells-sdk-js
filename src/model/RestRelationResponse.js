@@ -59,8 +59,40 @@ class RestRelationResponse {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>RestRelationResponse</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>RestRelationResponse</code>.
+     */
+    static validateJSON(data) {
+        if (data['BelongsToTeams']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['BelongsToTeams'])) {
+                throw new Error("Expected the field `BelongsToTeams` to be an array in the JSON data but got " + data['BelongsToTeams']);
+            }
+            // validate the optional field `BelongsToTeams` (array)
+            for (const item of data['BelongsToTeams']) {
+                IdmRole.validateJSON(item);
+            };
+        }
+        if (data['SharedCells']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['SharedCells'])) {
+                throw new Error("Expected the field `SharedCells` to be an array in the JSON data but got " + data['SharedCells']);
+            }
+            // validate the optional field `SharedCells` (array)
+            for (const item of data['SharedCells']) {
+                IdmWorkspace.validateJSON(item);
+            };
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {Array.<module:model/IdmRole>} BelongsToTeams

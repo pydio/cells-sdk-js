@@ -58,8 +58,30 @@ class IdmListPolicyGroupsResponse {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>IdmListPolicyGroupsResponse</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>IdmListPolicyGroupsResponse</code>.
+     */
+    static validateJSON(data) {
+        if (data['PolicyGroups']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['PolicyGroups'])) {
+                throw new Error("Expected the field `PolicyGroups` to be an array in the JSON data but got " + data['PolicyGroups']);
+            }
+            // validate the optional field `PolicyGroups` (array)
+            for (const item of data['PolicyGroups']) {
+                IdmPolicyGroup.validateJSON(item);
+            };
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {Array.<module:model/IdmPolicyGroup>} PolicyGroups

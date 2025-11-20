@@ -62,8 +62,40 @@ class RestSearchResults {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>RestSearchResults</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>RestSearchResults</code>.
+     */
+    static validateJSON(data) {
+        if (data['Facets']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['Facets'])) {
+                throw new Error("Expected the field `Facets` to be an array in the JSON data but got " + data['Facets']);
+            }
+            // validate the optional field `Facets` (array)
+            for (const item of data['Facets']) {
+                TreeSearchFacet.validateJSON(item);
+            };
+        }
+        if (data['Results']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['Results'])) {
+                throw new Error("Expected the field `Results` to be an array in the JSON data but got " + data['Results']);
+            }
+            // validate the optional field `Results` (array)
+            for (const item of data['Results']) {
+                TreeNode.validateJSON(item);
+            };
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {Array.<module:model/TreeSearchFacet>} Facets

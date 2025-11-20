@@ -55,8 +55,20 @@ class RegistryGeneric {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>RegistryGeneric</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>RegistryGeneric</code>.
+     */
+    static validateJSON(data) {
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {module:model/RegistryItemType} type

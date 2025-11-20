@@ -74,8 +74,48 @@ class RegistryOptions {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>RegistryOptions</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>RegistryOptions</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is an array
+        if (!Array.isArray(data['actions'])) {
+            throw new Error("Expected the field `actions` to be an array in the JSON data but got " + data['actions']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['ids'])) {
+            throw new Error("Expected the field `ids` to be an array in the JSON data but got " + data['ids']);
+        }
+        // ensure the json data is a string
+        if (data['metaName'] && !(typeof data['metaName'] === 'string' || data['metaName'] instanceof String)) {
+            throw new Error("Expected the field `metaName` to be a primitive type in the JSON string but got " + data['metaName']);
+        }
+        // ensure the json data is a string
+        if (data['metaValue'] && !(typeof data['metaValue'] === 'string' || data['metaValue'] instanceof String)) {
+            throw new Error("Expected the field `metaValue` to be a primitive type in the JSON string but got " + data['metaValue']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['names'])) {
+            throw new Error("Expected the field `names` to be an array in the JSON data but got " + data['names']);
+        }
+        // ensure the json data is a string
+        if (data['ttl'] && !(typeof data['ttl'] === 'string' || data['ttl'] instanceof String)) {
+            throw new Error("Expected the field `ttl` to be a primitive type in the JSON string but got " + data['ttl']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['types'])) {
+            throw new Error("Expected the field `types` to be an array in the JSON data but got " + data['types']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {Array.<module:model/RegistryActionType>} actions

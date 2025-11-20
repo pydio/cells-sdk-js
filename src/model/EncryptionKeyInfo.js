@@ -59,8 +59,40 @@ class EncryptionKeyInfo {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>EncryptionKeyInfo</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>EncryptionKeyInfo</code>.
+     */
+    static validateJSON(data) {
+        if (data['Exports']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['Exports'])) {
+                throw new Error("Expected the field `Exports` to be an array in the JSON data but got " + data['Exports']);
+            }
+            // validate the optional field `Exports` (array)
+            for (const item of data['Exports']) {
+                EncryptionExport.validateJSON(item);
+            };
+        }
+        if (data['Imports']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['Imports'])) {
+                throw new Error("Expected the field `Imports` to be an array in the JSON data but got " + data['Imports']);
+            }
+            // validate the optional field `Imports` (array)
+            for (const item of data['Imports']) {
+                EncryptionImport.validateJSON(item);
+            };
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {Array.<module:model/EncryptionExport>} Exports

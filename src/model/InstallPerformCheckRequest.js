@@ -58,8 +58,28 @@ class InstallPerformCheckRequest {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>InstallPerformCheckRequest</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>InstallPerformCheckRequest</code>.
+     */
+    static validateJSON(data) {
+        // validate the optional field `Config`
+        if (data['Config']) { // data not null
+          InstallInstallConfig.validateJSON(data['Config']);
+        }
+        // ensure the json data is a string
+        if (data['Name'] && !(typeof data['Name'] === 'string' || data['Name'] instanceof String)) {
+            throw new Error("Expected the field `Name` to be a primitive type in the JSON string but got " + data['Name']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {module:model/InstallInstallConfig} Config

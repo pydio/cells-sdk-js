@@ -57,8 +57,28 @@ class IdmACLAction {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>IdmACLAction</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>IdmACLAction</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['Name'] && !(typeof data['Name'] === 'string' || data['Name'] instanceof String)) {
+            throw new Error("Expected the field `Name` to be a primitive type in the JSON string but got " + data['Name']);
+        }
+        // ensure the json data is a string
+        if (data['Value'] && !(typeof data['Value'] === 'string' || data['Value'] instanceof String)) {
+            throw new Error("Expected the field `Value` to be a primitive type in the JSON string but got " + data['Value']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} Name

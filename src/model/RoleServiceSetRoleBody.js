@@ -15,19 +15,19 @@ import ApiClient from '../ApiClient';
 import ServiceResourcePolicy from './ServiceResourcePolicy';
 
 /**
- * The InlineObject1 model module.
- * @module model/InlineObject1
+ * The RoleServiceSetRoleBody model module.
+ * @module model/RoleServiceSetRoleBody
  * @version 4.0
  */
-class InlineObject1 {
+class RoleServiceSetRoleBody {
     /**
-     * Constructs a new <code>InlineObject1</code>.
+     * Constructs a new <code>RoleServiceSetRoleBody</code>.
      * Role represents a generic set of permissions that can be applied to any users or groups.
-     * @alias module:model/InlineObject1
+     * @alias module:model/RoleServiceSetRoleBody
      */
     constructor() { 
         
-        InlineObject1.initialize(this);
+        RoleServiceSetRoleBody.initialize(this);
     }
 
     /**
@@ -39,15 +39,15 @@ class InlineObject1 {
     }
 
     /**
-     * Constructs a <code>InlineObject1</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>RoleServiceSetRoleBody</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/InlineObject1} obj Optional instance to populate.
-     * @return {module:model/InlineObject1} The populated <code>InlineObject1</code> instance.
+     * @param {module:model/RoleServiceSetRoleBody} obj Optional instance to populate.
+     * @return {module:model/RoleServiceSetRoleBody} The populated <code>RoleServiceSetRoleBody</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new InlineObject1();
+            obj = obj || new RoleServiceSetRoleBody();
 
             if (data.hasOwnProperty('AutoApplies')) {
                 obj['AutoApplies'] = ApiClient.convertToType(data['AutoApplies'], ['String']);
@@ -80,59 +80,89 @@ class InlineObject1 {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>RoleServiceSetRoleBody</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>RoleServiceSetRoleBody</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is an array
+        if (!Array.isArray(data['AutoApplies'])) {
+            throw new Error("Expected the field `AutoApplies` to be an array in the JSON data but got " + data['AutoApplies']);
+        }
+        // ensure the json data is a string
+        if (data['Label'] && !(typeof data['Label'] === 'string' || data['Label'] instanceof String)) {
+            throw new Error("Expected the field `Label` to be a primitive type in the JSON string but got " + data['Label']);
+        }
+        if (data['Policies']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['Policies'])) {
+                throw new Error("Expected the field `Policies` to be an array in the JSON data but got " + data['Policies']);
+            }
+            // validate the optional field `Policies` (array)
+            for (const item of data['Policies']) {
+                ServiceResourcePolicy.validateJSON(item);
+            };
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {Array.<String>} AutoApplies
  */
-InlineObject1.prototype['AutoApplies'] = undefined;
+RoleServiceSetRoleBody.prototype['AutoApplies'] = undefined;
 
 /**
  * Is used in a stack of roles, this one will always be applied last.
  * @member {Boolean} ForceOverride
  */
-InlineObject1.prototype['ForceOverride'] = undefined;
+RoleServiceSetRoleBody.prototype['ForceOverride'] = undefined;
 
 /**
  * @member {Boolean} GroupRole
  */
-InlineObject1.prototype['GroupRole'] = undefined;
+RoleServiceSetRoleBody.prototype['GroupRole'] = undefined;
 
 /**
  * @member {Boolean} IsTeam
  */
-InlineObject1.prototype['IsTeam'] = undefined;
+RoleServiceSetRoleBody.prototype['IsTeam'] = undefined;
 
 /**
  * @member {String} Label
  */
-InlineObject1.prototype['Label'] = undefined;
+RoleServiceSetRoleBody.prototype['Label'] = undefined;
 
 /**
  * @member {Number} LastUpdated
  */
-InlineObject1.prototype['LastUpdated'] = undefined;
+RoleServiceSetRoleBody.prototype['LastUpdated'] = undefined;
 
 /**
  * @member {Array.<module:model/ServiceResourcePolicy>} Policies
  */
-InlineObject1.prototype['Policies'] = undefined;
+RoleServiceSetRoleBody.prototype['Policies'] = undefined;
 
 /**
  * @member {Boolean} PoliciesContextEditable
  */
-InlineObject1.prototype['PoliciesContextEditable'] = undefined;
+RoleServiceSetRoleBody.prototype['PoliciesContextEditable'] = undefined;
 
 /**
  * @member {Boolean} UserRole
  */
-InlineObject1.prototype['UserRole'] = undefined;
+RoleServiceSetRoleBody.prototype['UserRole'] = undefined;
 
 
 
 
 
 
-export default InlineObject1;
+export default RoleServiceSetRoleBody;
 

@@ -63,8 +63,32 @@ class RestRecommendRequest {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>RestRecommendRequest</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>RestRecommendRequest</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['Category'] && !(typeof data['Category'] === 'string' || data['Category'] instanceof String)) {
+            throw new Error("Expected the field `Category` to be a primitive type in the JSON string but got " + data['Category']);
+        }
+        // ensure the json data is a string
+        if (data['Neighbor'] && !(typeof data['Neighbor'] === 'string' || data['Neighbor'] instanceof String)) {
+            throw new Error("Expected the field `Neighbor` to be a primitive type in the JSON string but got " + data['Neighbor']);
+        }
+        // ensure the json data is a string
+        if (data['Segment'] && !(typeof data['Segment'] === 'string' || data['Segment'] instanceof String)) {
+            throw new Error("Expected the field `Segment` to be a primitive type in the JSON string but got " + data['Segment']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} Category

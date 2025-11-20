@@ -73,8 +73,28 @@ class JobsListJobsRequest {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>JobsListJobsRequest</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>JobsListJobsRequest</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is an array
+        if (!Array.isArray(data['JobIDs'])) {
+            throw new Error("Expected the field `JobIDs` to be an array in the JSON data but got " + data['JobIDs']);
+        }
+        // ensure the json data is a string
+        if (data['Owner'] && !(typeof data['Owner'] === 'string' || data['Owner'] instanceof String)) {
+            throw new Error("Expected the field `Owner` to be a primitive type in the JSON string but got " + data['Owner']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {Boolean} EventsOnly

@@ -61,8 +61,32 @@ class ActivitySearchSubscriptionsRequest {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>ActivitySearchSubscriptionsRequest</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>ActivitySearchSubscriptionsRequest</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is an array
+        if (!Array.isArray(data['ObjectIds'])) {
+            throw new Error("Expected the field `ObjectIds` to be an array in the JSON data but got " + data['ObjectIds']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['ObjectTypes'])) {
+            throw new Error("Expected the field `ObjectTypes` to be an array in the JSON data but got " + data['ObjectTypes']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['UserIds'])) {
+            throw new Error("Expected the field `UserIds` to be an array in the JSON data but got " + data['UserIds']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {Array.<String>} ObjectIds

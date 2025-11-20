@@ -54,8 +54,24 @@ class RestRevokeRequest {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>RestRevokeRequest</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>RestRevokeRequest</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['TokenId'] && !(typeof data['TokenId'] === 'string' || data['TokenId'] instanceof String)) {
+            throw new Error("Expected the field `TokenId` to be a primitive type in the JSON string but got " + data['TokenId']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} TokenId

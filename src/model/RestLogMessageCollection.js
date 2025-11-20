@@ -55,8 +55,30 @@ class RestLogMessageCollection {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>RestLogMessageCollection</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>RestLogMessageCollection</code>.
+     */
+    static validateJSON(data) {
+        if (data['Logs']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['Logs'])) {
+                throw new Error("Expected the field `Logs` to be an array in the JSON data but got " + data['Logs']);
+            }
+            // validate the optional field `Logs` (array)
+            for (const item of data['Logs']) {
+                LogLogMessage.validateJSON(item);
+            };
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {Array.<module:model/LogLogMessage>} Logs

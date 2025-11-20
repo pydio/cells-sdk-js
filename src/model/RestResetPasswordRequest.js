@@ -60,8 +60,32 @@ class RestResetPasswordRequest {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>RestResetPasswordRequest</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>RestResetPasswordRequest</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['NewPassword'] && !(typeof data['NewPassword'] === 'string' || data['NewPassword'] instanceof String)) {
+            throw new Error("Expected the field `NewPassword` to be a primitive type in the JSON string but got " + data['NewPassword']);
+        }
+        // ensure the json data is a string
+        if (data['ResetPasswordToken'] && !(typeof data['ResetPasswordToken'] === 'string' || data['ResetPasswordToken'] instanceof String)) {
+            throw new Error("Expected the field `ResetPasswordToken` to be a primitive type in the JSON string but got " + data['ResetPasswordToken']);
+        }
+        // ensure the json data is a string
+        if (data['UserLogin'] && !(typeof data['UserLogin'] === 'string' || data['UserLogin'] instanceof String)) {
+            throw new Error("Expected the field `UserLogin` to be a primitive type in the JSON string but got " + data['UserLogin']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} NewPassword

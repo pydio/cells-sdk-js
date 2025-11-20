@@ -57,8 +57,28 @@ class EncryptionAdminExportKeyRequest {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>EncryptionAdminExportKeyRequest</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>EncryptionAdminExportKeyRequest</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['KeyID'] && !(typeof data['KeyID'] === 'string' || data['KeyID'] instanceof String)) {
+            throw new Error("Expected the field `KeyID` to be a primitive type in the JSON string but got " + data['KeyID']);
+        }
+        // ensure the json data is a string
+        if (data['StrPassword'] && !(typeof data['StrPassword'] === 'string' || data['StrPassword'] instanceof String)) {
+            throw new Error("Expected the field `StrPassword` to be a primitive type in the JSON string but got " + data['StrPassword']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} KeyID

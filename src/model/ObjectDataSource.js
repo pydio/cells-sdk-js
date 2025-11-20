@@ -116,8 +116,60 @@ class ObjectDataSource {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>ObjectDataSource</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>ObjectDataSource</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['ApiKey'] && !(typeof data['ApiKey'] === 'string' || data['ApiKey'] instanceof String)) {
+            throw new Error("Expected the field `ApiKey` to be a primitive type in the JSON string but got " + data['ApiKey']);
+        }
+        // ensure the json data is a string
+        if (data['ApiSecret'] && !(typeof data['ApiSecret'] === 'string' || data['ApiSecret'] instanceof String)) {
+            throw new Error("Expected the field `ApiSecret` to be a primitive type in the JSON string but got " + data['ApiSecret']);
+        }
+        // ensure the json data is a string
+        if (data['EncryptionKey'] && !(typeof data['EncryptionKey'] === 'string' || data['EncryptionKey'] instanceof String)) {
+            throw new Error("Expected the field `EncryptionKey` to be a primitive type in the JSON string but got " + data['EncryptionKey']);
+        }
+        // ensure the json data is a string
+        if (data['Name'] && !(typeof data['Name'] === 'string' || data['Name'] instanceof String)) {
+            throw new Error("Expected the field `Name` to be a primitive type in the JSON string but got " + data['Name']);
+        }
+        // ensure the json data is a string
+        if (data['ObjectsBaseFolder'] && !(typeof data['ObjectsBaseFolder'] === 'string' || data['ObjectsBaseFolder'] instanceof String)) {
+            throw new Error("Expected the field `ObjectsBaseFolder` to be a primitive type in the JSON string but got " + data['ObjectsBaseFolder']);
+        }
+        // ensure the json data is a string
+        if (data['ObjectsBucket'] && !(typeof data['ObjectsBucket'] === 'string' || data['ObjectsBucket'] instanceof String)) {
+            throw new Error("Expected the field `ObjectsBucket` to be a primitive type in the JSON string but got " + data['ObjectsBucket']);
+        }
+        // ensure the json data is a string
+        if (data['ObjectsHost'] && !(typeof data['ObjectsHost'] === 'string' || data['ObjectsHost'] instanceof String)) {
+            throw new Error("Expected the field `ObjectsHost` to be a primitive type in the JSON string but got " + data['ObjectsHost']);
+        }
+        // ensure the json data is a string
+        if (data['ObjectsServiceName'] && !(typeof data['ObjectsServiceName'] === 'string' || data['ObjectsServiceName'] instanceof String)) {
+            throw new Error("Expected the field `ObjectsServiceName` to be a primitive type in the JSON string but got " + data['ObjectsServiceName']);
+        }
+        // ensure the json data is a string
+        if (data['PeerAddress'] && !(typeof data['PeerAddress'] === 'string' || data['PeerAddress'] instanceof String)) {
+            throw new Error("Expected the field `PeerAddress` to be a primitive type in the JSON string but got " + data['PeerAddress']);
+        }
+        // ensure the json data is a string
+        if (data['VersioningPolicyName'] && !(typeof data['VersioningPolicyName'] === 'string' || data['VersioningPolicyName'] instanceof String)) {
+            throw new Error("Expected the field `VersioningPolicyName` to be a primitive type in the JSON string but got " + data['VersioningPolicyName']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * @member {String} ApiKey
