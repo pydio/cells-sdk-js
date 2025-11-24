@@ -48,11 +48,17 @@ class IdmUserMetaNamespace {
         if (data) {
             obj = obj || new IdmUserMetaNamespace();
 
+            if (data.hasOwnProperty('EnforceDefault')) {
+                obj['EnforceDefault'] = ApiClient.convertToType(data['EnforceDefault'], 'Boolean');
+            }
             if (data.hasOwnProperty('Indexable')) {
                 obj['Indexable'] = ApiClient.convertToType(data['Indexable'], 'Boolean');
             }
             if (data.hasOwnProperty('JsonDefinition')) {
                 obj['JsonDefinition'] = ApiClient.convertToType(data['JsonDefinition'], 'String');
+            }
+            if (data.hasOwnProperty('JsonSchema')) {
+                obj['JsonSchema'] = ApiClient.convertToType(data['JsonSchema'], Object);
             }
             if (data.hasOwnProperty('Label')) {
                 obj['Label'] = ApiClient.convertToType(data['Label'], 'String');
@@ -68,6 +74,9 @@ class IdmUserMetaNamespace {
             }
             if (data.hasOwnProperty('PoliciesContextEditable')) {
                 obj['PoliciesContextEditable'] = ApiClient.convertToType(data['PoliciesContextEditable'], 'Boolean');
+            }
+            if (data.hasOwnProperty('PromptOnUpload')) {
+                obj['PromptOnUpload'] = ApiClient.convertToType(data['PromptOnUpload'], 'Boolean');
             }
         }
         return obj;
@@ -111,6 +120,11 @@ class IdmUserMetaNamespace {
 
 
 /**
+ * @member {Boolean} EnforceDefault
+ */
+IdmUserMetaNamespace.prototype['EnforceDefault'] = undefined;
+
+/**
  * @member {Boolean} Indexable
  */
 IdmUserMetaNamespace.prototype['Indexable'] = undefined;
@@ -119,6 +133,11 @@ IdmUserMetaNamespace.prototype['Indexable'] = undefined;
  * @member {String} JsonDefinition
  */
 IdmUserMetaNamespace.prototype['JsonDefinition'] = undefined;
+
+/**
+ * @member {Object} JsonSchema
+ */
+IdmUserMetaNamespace.prototype['JsonSchema'] = undefined;
 
 /**
  * @member {String} Label
@@ -144,6 +163,11 @@ IdmUserMetaNamespace.prototype['Policies'] = undefined;
  * @member {Boolean} PoliciesContextEditable
  */
 IdmUserMetaNamespace.prototype['PoliciesContextEditable'] = undefined;
+
+/**
+ * @member {Boolean} PromptOnUpload
+ */
+IdmUserMetaNamespace.prototype['PromptOnUpload'] = undefined;
 
 
 

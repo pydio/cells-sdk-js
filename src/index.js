@@ -130,6 +130,7 @@ import ObjectEncryptionMode from './model/ObjectEncryptionMode';
 import ObjectStorageType from './model/ObjectStorageType';
 import PackagePackageStatus from './model/PackagePackageStatus';
 import ProtobufAny from './model/ProtobufAny';
+import ProtobufNullValue from './model/ProtobufNullValue';
 import RegistryActionType from './model/RegistryActionType';
 import RegistryDao from './model/RegistryDao';
 import RegistryEdge from './model/RegistryEdge';
@@ -1048,6 +1049,12 @@ export {
      * @property {module:model/ProtobufAny}
      */
     ProtobufAny,
+
+    /**
+     * The ProtobufNullValue model constructor.
+     * @property {module:model/ProtobufNullValue}
+     */
+    ProtobufNullValue,
 
     /**
      * The RegistryActionType model constructor.

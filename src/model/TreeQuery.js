@@ -58,6 +58,9 @@ class TreeQuery {
             if (data.hasOwnProperty('ETag')) {
                 obj['ETag'] = ApiClient.convertToType(data['ETag'], 'String');
             }
+            if (data.hasOwnProperty('ExcludedPathPrefix')) {
+                obj['ExcludedPathPrefix'] = ApiClient.convertToType(data['ExcludedPathPrefix'], ['String']);
+            }
             if (data.hasOwnProperty('Extension')) {
                 obj['Extension'] = ApiClient.convertToType(data['Extension'], 'String');
             }
@@ -124,6 +127,10 @@ class TreeQuery {
         // ensure the json data is a string
         if (data['ETag'] && !(typeof data['ETag'] === 'string' || data['ETag'] instanceof String)) {
             throw new Error("Expected the field `ETag` to be a primitive type in the JSON string but got " + data['ETag']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['ExcludedPathPrefix'])) {
+            throw new Error("Expected the field `ExcludedPathPrefix` to be an array in the JSON data but got " + data['ExcludedPathPrefix']);
         }
         // ensure the json data is a string
         if (data['Extension'] && !(typeof data['Extension'] === 'string' || data['Extension'] instanceof String)) {
@@ -196,6 +203,11 @@ TreeQuery.prototype['DurationDate'] = undefined;
  * @member {String} ETag
  */
 TreeQuery.prototype['ETag'] = undefined;
+
+/**
+ * @member {Array.<String>} ExcludedPathPrefix
+ */
+TreeQuery.prototype['ExcludedPathPrefix'] = undefined;
 
 /**
  * @member {String} Extension
