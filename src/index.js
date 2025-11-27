@@ -45,6 +45,7 @@ import EncryptionKeyInfo from './model/EncryptionKeyInfo';
 import IdmACL from './model/IdmACL';
 import IdmACLAction from './model/IdmACLAction';
 import IdmACLSingleQuery from './model/IdmACLSingleQuery';
+import IdmJsonSchemaResponse from './model/IdmJsonSchemaResponse';
 import IdmListPolicyGroupsRequest from './model/IdmListPolicyGroupsRequest';
 import IdmListPolicyGroupsResponse from './model/IdmListPolicyGroupsResponse';
 import IdmNodeType from './model/IdmNodeType';
@@ -539,6 +540,12 @@ export {
      * @property {module:model/IdmACLSingleQuery}
      */
     IdmACLSingleQuery,
+
+    /**
+     * The IdmJsonSchemaResponse model constructor.
+     * @property {module:model/IdmJsonSchemaResponse}
+     */
+    IdmJsonSchemaResponse,
 
     /**
      * The IdmListPolicyGroupsRequest model constructor.
