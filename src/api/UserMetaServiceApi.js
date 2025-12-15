@@ -150,14 +150,20 @@ export default class UserMetaServiceApi {
 
     /**
      * Get Json Schema for UserMeta namespace
+     * @param {Object} opts Optional parameters
+     * @param {String} [FieldType] 
+     * @param {String} [Namespace] 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/IdmJsonSchemaResponse} and HTTP response
      */
-    getNamespaceSchemaWithHttpInfo() {
+    getNamespaceSchemaWithHttpInfo(opts) {
+      opts = opts || {};
       let postBody = null;
 
       let pathParams = {
       };
       let queryParams = {
+        'FieldType': opts['FieldType'],
+        'Namespace': opts['Namespace']
       };
       let headerParams = {
       };
@@ -177,10 +183,13 @@ export default class UserMetaServiceApi {
 
     /**
      * Get Json Schema for UserMeta namespace
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.FieldType 
+     * @param {String} opts.Namespace 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/IdmJsonSchemaResponse}
      */
-    getNamespaceSchema() {
-      return this.getNamespaceSchemaWithHttpInfo()
+    getNamespaceSchema(opts) {
+      return this.getNamespaceSchemaWithHttpInfo(opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
