@@ -319,7 +319,7 @@ export default class ConfigServiceApi {
      * @param {Object} opts Optional parameters
      * @param {Boolean} [Disabled] Whether this data source is disabled or running
      * @param {module:model/String} [StorageType = 'LOCAL')] Type of underlying storage (LOCAL, S3, AZURE, GCS)
-     * @param {String} [StorageConfiguration] List of key values describing storage configuration  This is a request variable of the map type. The query format is \"map_name[key]=value\", e.g. If the map name is Age, the key type is string, and the value type is integer, the query parameter is expressed as Age[\"bob\"]=18
+     * @param {String} [StorageConfiguration] List of key values describing storage configuration
      * @param {String} [ObjectsServiceName] Corresponding objects service name (underlying s3 service)
      * @param {String} [ObjectsHost] Corresponding objects service host
      * @param {Number} [ObjectsPort] Corresponding objects service port
@@ -394,7 +394,7 @@ export default class ConfigServiceApi {
      * @param {Object} opts Optional parameters
      * @param {Boolean} opts.Disabled Whether this data source is disabled or running
      * @param {module:model/String} opts.StorageType Type of underlying storage (LOCAL, S3, AZURE, GCS) (default to 'LOCAL')
-     * @param {String} opts.StorageConfiguration List of key values describing storage configuration  This is a request variable of the map type. The query format is \"map_name[key]=value\", e.g. If the map name is Age, the key type is string, and the value type is integer, the query parameter is expressed as Age[\"bob\"]=18
+     * @param {String} opts.StorageConfiguration List of key values describing storage configuration
      * @param {String} opts.ObjectsServiceName Corresponding objects service name (underlying s3 service)
      * @param {String} opts.ObjectsHost Corresponding objects service host
      * @param {Number} opts.ObjectsPort Corresponding objects service port
@@ -615,7 +615,7 @@ export default class ConfigServiceApi {
      * @param {Object} opts Optional parameters
      * @param {Boolean} [Disabled] Whether this data source is disabled or running
      * @param {module:model/String} [StorageType = 'LOCAL')] Type of underlying storage (LOCAL, S3, AZURE, GCS)
-     * @param {String} [StorageConfiguration] List of key values describing storage configuration  This is a request variable of the map type. The query format is \"map_name[key]=value\", e.g. If the map name is Age, the key type is string, and the value type is integer, the query parameter is expressed as Age[\"bob\"]=18
+     * @param {String} [StorageConfiguration] List of key values describing storage configuration
      * @param {String} [ObjectsServiceName] Corresponding objects service name (underlying s3 service)
      * @param {String} [ObjectsHost] Corresponding objects service host
      * @param {Number} [ObjectsPort] Corresponding objects service port
@@ -690,7 +690,7 @@ export default class ConfigServiceApi {
      * @param {Object} opts Optional parameters
      * @param {Boolean} opts.Disabled Whether this data source is disabled or running
      * @param {module:model/String} opts.StorageType Type of underlying storage (LOCAL, S3, AZURE, GCS) (default to 'LOCAL')
-     * @param {String} opts.StorageConfiguration List of key values describing storage configuration  This is a request variable of the map type. The query format is \"map_name[key]=value\", e.g. If the map name is Age, the key type is string, and the value type is integer, the query parameter is expressed as Age[\"bob\"]=18
+     * @param {String} opts.StorageConfiguration List of key values describing storage configuration
      * @param {String} opts.ObjectsServiceName Corresponding objects service name (underlying s3 service)
      * @param {String} opts.ObjectsHost Corresponding objects service host
      * @param {Number} opts.ObjectsPort Corresponding objects service port

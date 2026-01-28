@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import InstallCorsOptions from './InstallCorsOptions';
 import InstallRuleEffect from './InstallRuleEffect';
 
 /**
@@ -51,6 +52,9 @@ class InstallRule {
             if (data.hasOwnProperty('Action')) {
                 obj['Action'] = ApiClient.convertToType(data['Action'], 'String');
             }
+            if (data.hasOwnProperty('CorsOptions')) {
+                obj['CorsOptions'] = InstallCorsOptions.constructFromObject(data['CorsOptions']);
+            }
             if (data.hasOwnProperty('Effect')) {
                 obj['Effect'] = InstallRuleEffect.constructFromObject(data['Effect']);
             }
@@ -74,6 +78,10 @@ class InstallRule {
         if (data['Action'] && !(typeof data['Action'] === 'string' || data['Action'] instanceof String)) {
             throw new Error("Expected the field `Action` to be a primitive type in the JSON string but got " + data['Action']);
         }
+        // validate the optional field `CorsOptions`
+        if (data['CorsOptions']) { // data not null
+          InstallCorsOptions.validateJSON(data['CorsOptions']);
+        }
         // ensure the json data is a string
         if (data['Matcher'] && !(typeof data['Matcher'] === 'string' || data['Matcher'] instanceof String)) {
             throw new Error("Expected the field `Matcher` to be a primitive type in the JSON string but got " + data['Matcher']);
@@ -96,6 +104,11 @@ class InstallRule {
  * @member {String} Action
  */
 InstallRule.prototype['Action'] = undefined;
+
+/**
+ * @member {module:model/InstallCorsOptions} CorsOptions
+ */
+InstallRule.prototype['CorsOptions'] = undefined;
 
 /**
  * @member {module:model/InstallRuleEffect} Effect
