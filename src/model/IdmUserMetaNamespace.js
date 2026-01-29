@@ -48,8 +48,14 @@ class IdmUserMetaNamespace {
         if (data) {
             obj = obj || new IdmUserMetaNamespace();
 
+            if (data.hasOwnProperty('Description')) {
+                obj['Description'] = ApiClient.convertToType(data['Description'], 'String');
+            }
             if (data.hasOwnProperty('EnforceDefault')) {
                 obj['EnforceDefault'] = ApiClient.convertToType(data['EnforceDefault'], 'Boolean');
+            }
+            if (data.hasOwnProperty('FieldType')) {
+                obj['FieldType'] = ApiClient.convertToType(data['FieldType'], 'String');
             }
             if (data.hasOwnProperty('Indexable')) {
                 obj['Indexable'] = ApiClient.convertToType(data['Indexable'], 'Boolean');
@@ -89,6 +95,14 @@ class IdmUserMetaNamespace {
      */
     static validateJSON(data) {
         // ensure the json data is a string
+        if (data['Description'] && !(typeof data['Description'] === 'string' || data['Description'] instanceof String)) {
+            throw new Error("Expected the field `Description` to be a primitive type in the JSON string but got " + data['Description']);
+        }
+        // ensure the json data is a string
+        if (data['FieldType'] && !(typeof data['FieldType'] === 'string' || data['FieldType'] instanceof String)) {
+            throw new Error("Expected the field `FieldType` to be a primitive type in the JSON string but got " + data['FieldType']);
+        }
+        // ensure the json data is a string
         if (data['JsonDefinition'] && !(typeof data['JsonDefinition'] === 'string' || data['JsonDefinition'] instanceof String)) {
             throw new Error("Expected the field `JsonDefinition` to be a primitive type in the JSON string but got " + data['JsonDefinition']);
         }
@@ -120,9 +134,19 @@ class IdmUserMetaNamespace {
 
 
 /**
+ * @member {String} Description
+ */
+IdmUserMetaNamespace.prototype['Description'] = undefined;
+
+/**
  * @member {Boolean} EnforceDefault
  */
 IdmUserMetaNamespace.prototype['EnforceDefault'] = undefined;
+
+/**
+ * @member {String} FieldType
+ */
+IdmUserMetaNamespace.prototype['FieldType'] = undefined;
 
 /**
  * @member {Boolean} Indexable

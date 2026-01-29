@@ -47,7 +47,7 @@ export default class UserServiceApi {
      * @param {Object} opts Optional parameters
      * @param {String} [Uuid] User unique identifier
      * @param {String} [GroupPath] Path to the parent group
-     * @param {String} [Attributes] A free list of attributes  This is a request variable of the map type. The query format is \"map_name[key]=value\", e.g. If the map name is Age, the key type is string, and the value type is integer, the query parameter is expressed as Age[\"bob\"]=18
+     * @param {String} [Attributes] A free list of attributes
      * @param {String} [Password] Password can be passed to be updated (but never read back), field is empty for groups
      * @param {String} [OldPassword] OldPassword must be set when a user updates her own password
      * @param {Boolean} [IsGroup] Whether this object is a group or a user
@@ -100,7 +100,7 @@ export default class UserServiceApi {
      * @param {Object} opts Optional parameters
      * @param {String} opts.Uuid User unique identifier
      * @param {String} opts.GroupPath Path to the parent group
-     * @param {String} opts.Attributes A free list of attributes  This is a request variable of the map type. The query format is \"map_name[key]=value\", e.g. If the map name is Age, the key type is string, and the value type is integer, the query parameter is expressed as Age[\"bob\"]=18
+     * @param {String} opts.Attributes A free list of attributes
      * @param {String} opts.Password Password can be passed to be updated (but never read back), field is empty for groups
      * @param {String} opts.OldPassword OldPassword must be set when a user updates her own password
      * @param {Boolean} opts.IsGroup Whether this object is a group or a user
@@ -123,7 +123,7 @@ export default class UserServiceApi {
      * @param {Object} opts Optional parameters
      * @param {String} [Uuid] User unique identifier
      * @param {String} [GroupPath] Path to the parent group
-     * @param {String} [Attributes] A free list of attributes  This is a request variable of the map type. The query format is \"map_name[key]=value\", e.g. If the map name is Age, the key type is string, and the value type is integer, the query parameter is expressed as Age[\"bob\"]=18
+     * @param {String} [Attributes] A free list of attributes
      * @param {String} [Password] Password can be passed to be updated (but never read back), field is empty for groups
      * @param {String} [OldPassword] OldPassword must be set when a user updates her own password
      * @param {Boolean} [IsGroup] Whether this object is a group or a user
@@ -176,7 +176,7 @@ export default class UserServiceApi {
      * @param {Object} opts Optional parameters
      * @param {String} opts.Uuid User unique identifier
      * @param {String} opts.GroupPath Path to the parent group
-     * @param {String} opts.Attributes A free list of attributes  This is a request variable of the map type. The query format is \"map_name[key]=value\", e.g. If the map name is Age, the key type is string, and the value type is integer, the query parameter is expressed as Age[\"bob\"]=18
+     * @param {String} opts.Attributes A free list of attributes
      * @param {String} opts.Password Password can be passed to be updated (but never read back), field is empty for groups
      * @param {String} opts.OldPassword OldPassword must be set when a user updates her own password
      * @param {Boolean} opts.IsGroup Whether this object is a group or a user

@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import ServiceQuery from './ServiceQuery';
 
 /**
  * The IdmListPolicyGroupsRequest model module.
@@ -50,6 +51,9 @@ class IdmListPolicyGroupsRequest {
             if (data.hasOwnProperty('Filter')) {
                 obj['Filter'] = ApiClient.convertToType(data['Filter'], 'String');
             }
+            if (data.hasOwnProperty('Query')) {
+                obj['Query'] = ServiceQuery.constructFromObject(data['Query']);
+            }
         }
         return obj;
     }
@@ -64,6 +68,10 @@ class IdmListPolicyGroupsRequest {
         if (data['Filter'] && !(typeof data['Filter'] === 'string' || data['Filter'] instanceof String)) {
             throw new Error("Expected the field `Filter` to be a primitive type in the JSON string but got " + data['Filter']);
         }
+        // validate the optional field `Query`
+        if (data['Query']) { // data not null
+          ServiceQuery.validateJSON(data['Query']);
+        }
 
         return true;
     }
@@ -77,6 +85,11 @@ class IdmListPolicyGroupsRequest {
  * @member {String} Filter
  */
 IdmListPolicyGroupsRequest.prototype['Filter'] = undefined;
+
+/**
+ * @member {module:model/ServiceQuery} Query
+ */
+IdmListPolicyGroupsRequest.prototype['Query'] = undefined;
 
 
 
