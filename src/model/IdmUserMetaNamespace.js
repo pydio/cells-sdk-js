@@ -48,6 +48,7 @@ class IdmUserMetaNamespace {
         if (data) {
             obj = obj || new IdmUserMetaNamespace();
 
+<<<<<<< HEAD
             if (data.hasOwnProperty('Description')) {
                 obj['Description'] = ApiClient.convertToType(data['Description'], 'String');
             }
@@ -57,6 +58,23 @@ class IdmUserMetaNamespace {
             if (data.hasOwnProperty('FieldType')) {
                 obj['FieldType'] = ApiClient.convertToType(data['FieldType'], 'String');
             }
+=======
+<<<<<<< HEAD
+            if (data.hasOwnProperty('EnforceDefault')) {
+                obj['EnforceDefault'] = ApiClient.convertToType(data['EnforceDefault'], 'Boolean');
+            }
+=======
+            if (data.hasOwnProperty('Description')) {
+                obj['Description'] = ApiClient.convertToType(data['Description'], 'String');
+            }
+            if (data.hasOwnProperty('EnforceDefault')) {
+                obj['EnforceDefault'] = ApiClient.convertToType(data['EnforceDefault'], 'Boolean');
+            }
+            if (data.hasOwnProperty('FieldType')) {
+                obj['FieldType'] = ApiClient.convertToType(data['FieldType'], 'String');
+            }
+>>>>>>> 0b69af5 (feat(namespaces): add format for json schema sample handler)
+>>>>>>> 8c40316 (feat(namespaces): add format for json schema sample handler)
             if (data.hasOwnProperty('Indexable')) {
                 obj['Indexable'] = ApiClient.convertToType(data['Indexable'], 'Boolean');
             }
@@ -134,21 +152,39 @@ class IdmUserMetaNamespace {
 
 
 /**
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> 8c40316 (feat(namespaces): add format for json schema sample handler)
  * @member {String} Description
  */
 IdmUserMetaNamespace.prototype['Description'] = undefined;
 
 /**
+<<<<<<< HEAD
+=======
+>>>>>>> 0b69af5 (feat(namespaces): add format for json schema sample handler)
+>>>>>>> 8c40316 (feat(namespaces): add format for json schema sample handler)
  * @member {Boolean} EnforceDefault
  */
 IdmUserMetaNamespace.prototype['EnforceDefault'] = undefined;
 
 /**
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> 8c40316 (feat(namespaces): add format for json schema sample handler)
  * @member {String} FieldType
  */
 IdmUserMetaNamespace.prototype['FieldType'] = undefined;
 
 /**
+<<<<<<< HEAD
+=======
+>>>>>>> 0b69af5 (feat(namespaces): add format for json schema sample handler)
+>>>>>>> 8c40316 (feat(namespaces): add format for json schema sample handler)
  * @member {Boolean} Indexable
  */
 IdmUserMetaNamespace.prototype['Indexable'] = undefined;

@@ -153,6 +153,7 @@ export default class UserMetaServiceApi {
      * @param {Object} opts Optional parameters
      * @param {String} [FieldType] 
      * @param {String} [Namespace] 
+     * @param {String} [Format] 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/IdmJsonSchemaResponse} and HTTP response
      */
     getNamespaceSchemaWithHttpInfo(opts) {
@@ -163,7 +164,8 @@ export default class UserMetaServiceApi {
       };
       let queryParams = {
         'FieldType': opts['FieldType'],
-        'Namespace': opts['Namespace']
+        'Namespace': opts['Namespace'],
+        'Format': opts['Format']
       };
       let headerParams = {
       };
@@ -186,6 +188,7 @@ export default class UserMetaServiceApi {
      * @param {Object} opts Optional parameters
      * @param {String} opts.FieldType 
      * @param {String} opts.Namespace 
+     * @param {String} opts.Format 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/IdmJsonSchemaResponse}
      */
     getNamespaceSchema(opts) {
