@@ -12,8 +12,8 @@
  */
 
 import ApiClient from '../ApiClient';
+import IdmUpdateUserMetaRequestUserMetaOp from './IdmUpdateUserMetaRequestUserMetaOp';
 import IdmUserMeta from './IdmUserMeta';
-import UpdateUserMetaRequestUserMetaOp from './UpdateUserMetaRequestUserMetaOp';
 
 /**
  * The IdmUpdateUserMetaRequest model module.
@@ -53,7 +53,7 @@ class IdmUpdateUserMetaRequest {
                 obj['MetaDatas'] = ApiClient.convertToType(data['MetaDatas'], [IdmUserMeta]);
             }
             if (data.hasOwnProperty('Operation')) {
-                obj['Operation'] = UpdateUserMetaRequestUserMetaOp.constructFromObject(data['Operation']);
+                obj['Operation'] = IdmUpdateUserMetaRequestUserMetaOp.constructFromObject(data['Operation']);
             }
         }
         return obj;
@@ -90,7 +90,7 @@ class IdmUpdateUserMetaRequest {
 IdmUpdateUserMetaRequest.prototype['MetaDatas'] = undefined;
 
 /**
- * @member {module:model/UpdateUserMetaRequestUserMetaOp} Operation
+ * @member {module:model/IdmUpdateUserMetaRequestUserMetaOp} Operation
  */
 IdmUpdateUserMetaRequest.prototype['Operation'] = undefined;
 

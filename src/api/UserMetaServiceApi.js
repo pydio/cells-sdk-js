@@ -13,6 +13,7 @@
 
 
 import ApiClient from "../ApiClient";
+import IdmJsonSchemaResponse from '../model/IdmJsonSchemaResponse';
 import IdmSearchUserMetaRequest from '../model/IdmSearchUserMetaRequest';
 import IdmUpdateUserMetaNamespaceRequest from '../model/IdmUpdateUserMetaNamespaceRequest';
 import IdmUpdateUserMetaNamespaceResponse from '../model/IdmUpdateUserMetaNamespaceResponse';
@@ -95,6 +96,103 @@ export default class UserMetaServiceApi {
      */
     deleteUserMetaTags(Namespace, Tags) {
       return this.deleteUserMetaTagsWithHttpInfo(Namespace, Tags)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Get Json Schema for a given field type
+     * @param {String} FieldType 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/IdmJsonSchemaResponse} and HTTP response
+     */
+    getFieldSchemaWithHttpInfo(FieldType) {
+      let postBody = null;
+      // verify the required parameter 'FieldType' is set
+      if (FieldType === undefined || FieldType === null) {
+        throw new Error("Missing the required parameter 'FieldType' when calling getFieldSchema");
+      }
+
+      let pathParams = {
+        'FieldType': FieldType
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = IdmJsonSchemaResponse;
+      return this.apiClient.callApi(
+        '/user-meta/namespace/discovery/field/{FieldType}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Get Json Schema for a given field type
+     * @param {String} FieldType 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/IdmJsonSchemaResponse}
+     */
+    getFieldSchema(FieldType) {
+      return this.getFieldSchemaWithHttpInfo(FieldType)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Get Json Schema for UserMeta namespace
+     * @param {Object} opts Optional parameters
+     * @param {String} [FieldType] 
+     * @param {String} [Namespace] 
+     * @param {String} [Format] 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/IdmJsonSchemaResponse} and HTTP response
+     */
+    getNamespaceSchemaWithHttpInfo(opts) {
+      opts = opts || {};
+      let postBody = null;
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'FieldType': opts['FieldType'],
+        'Namespace': opts['Namespace'],
+        'Format': opts['Format']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = IdmJsonSchemaResponse;
+      return this.apiClient.callApi(
+        '/user-meta/namespace/jsonschema', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Get Json Schema for UserMeta namespace
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.FieldType 
+     * @param {String} opts.Namespace 
+     * @param {String} opts.Format 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/IdmJsonSchemaResponse}
+     */
+    getNamespaceSchema(opts) {
+      return this.getNamespaceSchemaWithHttpInfo(opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

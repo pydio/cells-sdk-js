@@ -48,11 +48,23 @@ class IdmUserMetaNamespace {
         if (data) {
             obj = obj || new IdmUserMetaNamespace();
 
+            if (data.hasOwnProperty('Description')) {
+                obj['Description'] = ApiClient.convertToType(data['Description'], 'String');
+            }
+            if (data.hasOwnProperty('EnforceDefault')) {
+                obj['EnforceDefault'] = ApiClient.convertToType(data['EnforceDefault'], 'Boolean');
+            }
+            if (data.hasOwnProperty('FieldType')) {
+                obj['FieldType'] = ApiClient.convertToType(data['FieldType'], 'String');
+            }
             if (data.hasOwnProperty('Indexable')) {
                 obj['Indexable'] = ApiClient.convertToType(data['Indexable'], 'Boolean');
             }
             if (data.hasOwnProperty('JsonDefinition')) {
                 obj['JsonDefinition'] = ApiClient.convertToType(data['JsonDefinition'], 'String');
+            }
+            if (data.hasOwnProperty('JsonSchema')) {
+                obj['JsonSchema'] = ApiClient.convertToType(data['JsonSchema'], Object);
             }
             if (data.hasOwnProperty('Label')) {
                 obj['Label'] = ApiClient.convertToType(data['Label'], 'String');
@@ -69,6 +81,9 @@ class IdmUserMetaNamespace {
             if (data.hasOwnProperty('PoliciesContextEditable')) {
                 obj['PoliciesContextEditable'] = ApiClient.convertToType(data['PoliciesContextEditable'], 'Boolean');
             }
+            if (data.hasOwnProperty('PromptOnUpload')) {
+                obj['PromptOnUpload'] = ApiClient.convertToType(data['PromptOnUpload'], 'Boolean');
+            }
         }
         return obj;
     }
@@ -79,6 +94,14 @@ class IdmUserMetaNamespace {
      * @return {boolean} to indicate whether the JSON data is valid with respect to <code>IdmUserMetaNamespace</code>.
      */
     static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['Description'] && !(typeof data['Description'] === 'string' || data['Description'] instanceof String)) {
+            throw new Error("Expected the field `Description` to be a primitive type in the JSON string but got " + data['Description']);
+        }
+        // ensure the json data is a string
+        if (data['FieldType'] && !(typeof data['FieldType'] === 'string' || data['FieldType'] instanceof String)) {
+            throw new Error("Expected the field `FieldType` to be a primitive type in the JSON string but got " + data['FieldType']);
+        }
         // ensure the json data is a string
         if (data['JsonDefinition'] && !(typeof data['JsonDefinition'] === 'string' || data['JsonDefinition'] instanceof String)) {
             throw new Error("Expected the field `JsonDefinition` to be a primitive type in the JSON string but got " + data['JsonDefinition']);
@@ -111,6 +134,21 @@ class IdmUserMetaNamespace {
 
 
 /**
+ * @member {String} Description
+ */
+IdmUserMetaNamespace.prototype['Description'] = undefined;
+
+/**
+ * @member {Boolean} EnforceDefault
+ */
+IdmUserMetaNamespace.prototype['EnforceDefault'] = undefined;
+
+/**
+ * @member {String} FieldType
+ */
+IdmUserMetaNamespace.prototype['FieldType'] = undefined;
+
+/**
  * @member {Boolean} Indexable
  */
 IdmUserMetaNamespace.prototype['Indexable'] = undefined;
@@ -119,6 +157,11 @@ IdmUserMetaNamespace.prototype['Indexable'] = undefined;
  * @member {String} JsonDefinition
  */
 IdmUserMetaNamespace.prototype['JsonDefinition'] = undefined;
+
+/**
+ * @member {Object} JsonSchema
+ */
+IdmUserMetaNamespace.prototype['JsonSchema'] = undefined;
 
 /**
  * @member {String} Label
@@ -144,6 +187,11 @@ IdmUserMetaNamespace.prototype['Policies'] = undefined;
  * @member {Boolean} PoliciesContextEditable
  */
 IdmUserMetaNamespace.prototype['PoliciesContextEditable'] = undefined;
+
+/**
+ * @member {Boolean} PromptOnUpload
+ */
+IdmUserMetaNamespace.prototype['PromptOnUpload'] = undefined;
 
 
 

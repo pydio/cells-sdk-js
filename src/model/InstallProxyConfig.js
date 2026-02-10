@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import InstallCorsOptions from './InstallCorsOptions';
 import InstallHeaderMod from './InstallHeaderMod';
 import InstallRule from './InstallRule';
 import InstallTLSCertificate from './InstallTLSCertificate';
@@ -62,6 +63,9 @@ class InstallProxyConfig {
             if (data.hasOwnProperty('ComputedHash')) {
                 obj['ComputedHash'] = ApiClient.convertToType(data['ComputedHash'], 'String');
             }
+            if (data.hasOwnProperty('CorsOptions')) {
+                obj['CorsOptions'] = InstallCorsOptions.constructFromObject(data['CorsOptions']);
+            }
             if (data.hasOwnProperty('HeaderMods')) {
                 obj['HeaderMods'] = ApiClient.convertToType(data['HeaderMods'], [InstallHeaderMod]);
             }
@@ -107,6 +111,10 @@ class InstallProxyConfig {
         // ensure the json data is a string
         if (data['ComputedHash'] && !(typeof data['ComputedHash'] === 'string' || data['ComputedHash'] instanceof String)) {
             throw new Error("Expected the field `ComputedHash` to be a primitive type in the JSON string but got " + data['ComputedHash']);
+        }
+        // validate the optional field `CorsOptions`
+        if (data['CorsOptions']) { // data not null
+          InstallCorsOptions.validateJSON(data['CorsOptions']);
         }
         if (data['HeaderMods']) { // data not null
             // ensure the json data is an array
@@ -167,6 +175,11 @@ InstallProxyConfig.prototype['Certificate'] = undefined;
  * @member {String} ComputedHash
  */
 InstallProxyConfig.prototype['ComputedHash'] = undefined;
+
+/**
+ * @member {module:model/InstallCorsOptions} CorsOptions
+ */
+InstallProxyConfig.prototype['CorsOptions'] = undefined;
 
 /**
  * @member {Array.<module:model/InstallHeaderMod>} HeaderMods
