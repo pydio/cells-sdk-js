@@ -63,7 +63,6 @@ import IdmSearchUserMetaRequest from './model/IdmSearchUserMetaRequest';
 import IdmUpdateUserMetaNamespaceRequest from './model/IdmUpdateUserMetaNamespaceRequest';
 import IdmUpdateUserMetaNamespaceResponse from './model/IdmUpdateUserMetaNamespaceResponse';
 import IdmUpdateUserMetaRequest from './model/IdmUpdateUserMetaRequest';
-import IdmUpdateUserMetaRequestUserMetaOp from './model/IdmUpdateUserMetaRequestUserMetaOp';
 import IdmUpdateUserMetaResponse from './model/IdmUpdateUserMetaResponse';
 import IdmUser from './model/IdmUser';
 import IdmUserMeta from './model/IdmUserMeta';
@@ -284,6 +283,7 @@ import UpdatePackage from './model/UpdatePackage';
 import UpdateUpdateRequest from './model/UpdateUpdateRequest';
 import UpdateUpdateResponse from './model/UpdateUpdateResponse';
 import UpdateUserMetaNamespaceRequestUserMetaNsOp from './model/UpdateUserMetaNamespaceRequestUserMetaNsOp';
+import UpdateUserMetaRequestUserMetaOp from './model/UpdateUserMetaRequestUserMetaOp';
 import UserServicePutRolesBody from './model/UserServicePutRolesBody';
 import UserServicePutUserBody from './model/UserServicePutUserBody';
 import WorkspaceServicePutWorkspaceBody from './model/WorkspaceServicePutWorkspaceBody';
@@ -649,12 +649,6 @@ export {
      * @property {module:model/IdmUpdateUserMetaRequest}
      */
     IdmUpdateUserMetaRequest,
-
-    /**
-     * The IdmUpdateUserMetaRequestUserMetaOp model constructor.
-     * @property {module:model/IdmUpdateUserMetaRequestUserMetaOp}
-     */
-    IdmUpdateUserMetaRequestUserMetaOp,
 
     /**
      * The IdmUpdateUserMetaResponse model constructor.
@@ -1975,6 +1969,12 @@ export {
      * @property {module:model/UpdateUserMetaNamespaceRequestUserMetaNsOp}
      */
     UpdateUserMetaNamespaceRequestUserMetaNsOp,
+
+    /**
+     * The UpdateUserMetaRequestUserMetaOp model constructor.
+     * @property {module:model/UpdateUserMetaRequestUserMetaOp}
+     */
+    UpdateUserMetaRequestUserMetaOp,
 
     /**
      * The UserServicePutRolesBody model constructor.

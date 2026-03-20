@@ -13,11 +13,11 @@
 
 import ApiClient from '../ApiClient';
 /**
-* Enum class IdmUpdateUserMetaRequestUserMetaOp.
+* Enum class UpdateUserMetaRequestUserMetaOp.
 * @enum {}
 * @readonly
 */
-export default class IdmUpdateUserMetaRequestUserMetaOp {
+export default class UpdateUserMetaRequestUserMetaOp {
     
         /**
          * value: "PUT"
@@ -35,9 +35,9 @@ export default class IdmUpdateUserMetaRequestUserMetaOp {
     
 
     /**
-    * Returns a <code>IdmUpdateUserMetaRequestUserMetaOp</code> enum value from a Javascript object name.
+    * Returns a <code>UpdateUserMetaRequestUserMetaOp</code> enum value from a Javascript object name.
     * @param {Object} data The plain JavaScript object containing the name of the enum value.
-    * @return {module:model/IdmUpdateUserMetaRequestUserMetaOp} The enum <code>IdmUpdateUserMetaRequestUserMetaOp</code> value.
+    * @return {module:model/UpdateUserMetaRequestUserMetaOp} The enum <code>UpdateUserMetaRequestUserMetaOp</code> value.
     */
     static constructFromObject(object) {
         return object;
