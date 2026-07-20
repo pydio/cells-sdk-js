@@ -45,9 +45,18 @@ import EncryptionKeyInfo from './model/EncryptionKeyInfo';
 import IdmACL from './model/IdmACL';
 import IdmACLAction from './model/IdmACLAction';
 import IdmACLSingleQuery from './model/IdmACLSingleQuery';
+import IdmCreateEntityRequest from './model/IdmCreateEntityRequest';
+import IdmCreateEntityResponse from './model/IdmCreateEntityResponse';
+import IdmCreateEntityValueRequest from './model/IdmCreateEntityValueRequest';
+import IdmCreateEntityValueResponse from './model/IdmCreateEntityValueResponse';
+import IdmDeleteEntityResponse from './model/IdmDeleteEntityResponse';
+import IdmDeleteEntityValueResponse from './model/IdmDeleteEntityValueResponse';
+import IdmEntityValue from './model/IdmEntityValue';
 import IdmJsonSchemaResponse from './model/IdmJsonSchemaResponse';
+import IdmListEntitiesResponse from './model/IdmListEntitiesResponse';
 import IdmListPolicyGroupsRequest from './model/IdmListPolicyGroupsRequest';
 import IdmListPolicyGroupsResponse from './model/IdmListPolicyGroupsResponse';
+import IdmMetaEntity from './model/IdmMetaEntity';
 import IdmNodeType from './model/IdmNodeType';
 import IdmPolicy from './model/IdmPolicy';
 import IdmPolicyAction from './model/IdmPolicyAction';
@@ -543,10 +552,58 @@ export {
     IdmACLSingleQuery,
 
     /**
+     * The IdmCreateEntityRequest model constructor.
+     * @property {module:model/IdmCreateEntityRequest}
+     */
+    IdmCreateEntityRequest,
+
+    /**
+     * The IdmCreateEntityResponse model constructor.
+     * @property {module:model/IdmCreateEntityResponse}
+     */
+    IdmCreateEntityResponse,
+
+    /**
+     * The IdmCreateEntityValueRequest model constructor.
+     * @property {module:model/IdmCreateEntityValueRequest}
+     */
+    IdmCreateEntityValueRequest,
+
+    /**
+     * The IdmCreateEntityValueResponse model constructor.
+     * @property {module:model/IdmCreateEntityValueResponse}
+     */
+    IdmCreateEntityValueResponse,
+
+    /**
+     * The IdmDeleteEntityResponse model constructor.
+     * @property {module:model/IdmDeleteEntityResponse}
+     */
+    IdmDeleteEntityResponse,
+
+    /**
+     * The IdmDeleteEntityValueResponse model constructor.
+     * @property {module:model/IdmDeleteEntityValueResponse}
+     */
+    IdmDeleteEntityValueResponse,
+
+    /**
+     * The IdmEntityValue model constructor.
+     * @property {module:model/IdmEntityValue}
+     */
+    IdmEntityValue,
+
+    /**
      * The IdmJsonSchemaResponse model constructor.
      * @property {module:model/IdmJsonSchemaResponse}
      */
     IdmJsonSchemaResponse,
+
+    /**
+     * The IdmListEntitiesResponse model constructor.
+     * @property {module:model/IdmListEntitiesResponse}
+     */
+    IdmListEntitiesResponse,
 
     /**
      * The IdmListPolicyGroupsRequest model constructor.
@@ -559,6 +616,12 @@ export {
      * @property {module:model/IdmListPolicyGroupsResponse}
      */
     IdmListPolicyGroupsResponse,
+
+    /**
+     * The IdmMetaEntity model constructor.
+     * @property {module:model/IdmMetaEntity}
+     */
+    IdmMetaEntity,
 
     /**
      * The IdmNodeType model constructor.
