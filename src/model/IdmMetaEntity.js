@@ -54,6 +54,9 @@ class IdmMetaEntity {
             if (data.hasOwnProperty('Label')) {
                 obj['Label'] = ApiClient.convertToType(data['Label'], 'String');
             }
+            if (data.hasOwnProperty('Namespace')) {
+                obj['Namespace'] = ApiClient.convertToType(data['Namespace'], ['String']);
+            }
             if (data.hasOwnProperty('Policies')) {
                 obj['Policies'] = ApiClient.convertToType(data['Policies'], [ServiceResourcePolicy]);
             }
@@ -80,6 +83,10 @@ class IdmMetaEntity {
         // ensure the json data is a string
         if (data['Label'] && !(typeof data['Label'] === 'string' || data['Label'] instanceof String)) {
             throw new Error("Expected the field `Label` to be a primitive type in the JSON string but got " + data['Label']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['Namespace'])) {
+            throw new Error("Expected the field `Namespace` to be an array in the JSON data but got " + data['Namespace']);
         }
         if (data['Policies']) { // data not null
             // ensure the json data is an array
@@ -113,6 +120,11 @@ IdmMetaEntity.prototype['Description'] = undefined;
  * @member {String} Label
  */
 IdmMetaEntity.prototype['Label'] = undefined;
+
+/**
+ * @member {Array.<String>} Namespace
+ */
+IdmMetaEntity.prototype['Namespace'] = undefined;
 
 /**
  * @member {Array.<module:model/ServiceResourcePolicy>} Policies
