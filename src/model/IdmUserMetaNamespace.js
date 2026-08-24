@@ -54,6 +54,9 @@ class IdmUserMetaNamespace {
             if (data.hasOwnProperty('EnforceDefault')) {
                 obj['EnforceDefault'] = ApiClient.convertToType(data['EnforceDefault'], 'Boolean');
             }
+            if (data.hasOwnProperty('EntityUUID')) {
+                obj['EntityUUID'] = ApiClient.convertToType(data['EntityUUID'], 'String');
+            }
             if (data.hasOwnProperty('FieldType')) {
                 obj['FieldType'] = ApiClient.convertToType(data['FieldType'], 'String');
             }
@@ -99,6 +102,10 @@ class IdmUserMetaNamespace {
             throw new Error("Expected the field `Description` to be a primitive type in the JSON string but got " + data['Description']);
         }
         // ensure the json data is a string
+        if (data['EntityUUID'] && !(typeof data['EntityUUID'] === 'string' || data['EntityUUID'] instanceof String)) {
+            throw new Error("Expected the field `EntityUUID` to be a primitive type in the JSON string but got " + data['EntityUUID']);
+        }
+        // ensure the json data is a string
         if (data['FieldType'] && !(typeof data['FieldType'] === 'string' || data['FieldType'] instanceof String)) {
             throw new Error("Expected the field `FieldType` to be a primitive type in the JSON string but got " + data['FieldType']);
         }
@@ -142,6 +149,11 @@ IdmUserMetaNamespace.prototype['Description'] = undefined;
  * @member {Boolean} EnforceDefault
  */
 IdmUserMetaNamespace.prototype['EnforceDefault'] = undefined;
+
+/**
+ * @member {String} EntityUUID
+ */
+IdmUserMetaNamespace.prototype['EntityUUID'] = undefined;
 
 /**
  * @member {String} FieldType
