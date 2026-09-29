@@ -13,7 +13,14 @@
 
 
 import ApiClient from "../ApiClient";
+import IdmCreateEntityRequest from '../model/IdmCreateEntityRequest';
+import IdmCreateEntityResponse from '../model/IdmCreateEntityResponse';
+import IdmCreateEntityValueRequest from '../model/IdmCreateEntityValueRequest';
+import IdmCreateEntityValueResponse from '../model/IdmCreateEntityValueResponse';
+import IdmDeleteEntityResponse from '../model/IdmDeleteEntityResponse';
+import IdmDeleteEntityValueResponse from '../model/IdmDeleteEntityValueResponse';
 import IdmJsonSchemaResponse from '../model/IdmJsonSchemaResponse';
+import IdmListEntitiesResponse from '../model/IdmListEntitiesResponse';
 import IdmSearchUserMetaRequest from '../model/IdmSearchUserMetaRequest';
 import IdmUpdateUserMetaNamespaceRequest from '../model/IdmUpdateUserMetaNamespaceRequest';
 import IdmUpdateUserMetaNamespaceResponse from '../model/IdmUpdateUserMetaNamespaceResponse';
@@ -47,6 +54,137 @@ export default class UserMetaServiceApi {
         this.apiClient = apiClient || ApiClient.instance;
     }
 
+
+
+    /**
+     * @param {module:model/IdmCreateEntityValueRequest} body 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/IdmCreateEntityValueResponse} and HTTP response
+     */
+    createEntityValuesWithHttpInfo(body) {
+      let postBody = body;
+      // verify the required parameter 'body' is set
+      if (body === undefined || body === null) {
+        throw new Error("Missing the required parameter 'body' when calling createEntityValues");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = IdmCreateEntityValueResponse;
+      return this.apiClient.callApi(
+        '/user-meta/entity/values', 'PUT',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * @param {module:model/IdmCreateEntityValueRequest} body 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/IdmCreateEntityValueResponse}
+     */
+    createEntityValues(body) {
+      return this.createEntityValuesWithHttpInfo(body)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * @param {String} EntityId 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/IdmDeleteEntityResponse} and HTTP response
+     */
+    deleteEntityWithHttpInfo(EntityId) {
+      let postBody = null;
+      // verify the required parameter 'EntityId' is set
+      if (EntityId === undefined || EntityId === null) {
+        throw new Error("Missing the required parameter 'EntityId' when calling deleteEntity");
+      }
+
+      let pathParams = {
+        'EntityId': EntityId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = IdmDeleteEntityResponse;
+      return this.apiClient.callApi(
+        '/user-meta/entity/{EntityId}', 'DELETE',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * @param {String} EntityId 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/IdmDeleteEntityResponse}
+     */
+    deleteEntity(EntityId) {
+      return this.deleteEntityWithHttpInfo(EntityId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * @param {String} EntityValueUuid 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/IdmDeleteEntityValueResponse} and HTTP response
+     */
+    deleteEntityValueWithHttpInfo(EntityValueUuid) {
+      let postBody = null;
+      // verify the required parameter 'EntityValueUuid' is set
+      if (EntityValueUuid === undefined || EntityValueUuid === null) {
+        throw new Error("Missing the required parameter 'EntityValueUuid' when calling deleteEntityValue");
+      }
+
+      let pathParams = {
+        'EntityValueUuid': EntityValueUuid
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = IdmDeleteEntityValueResponse;
+      return this.apiClient.callApi(
+        '/user-meta/entity/values/{EntityValueUuid}', 'DELETE',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * @param {String} EntityValueUuid 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/IdmDeleteEntityValueResponse}
+     */
+    deleteEntityValue(EntityValueUuid) {
+      return this.deleteEntityValueWithHttpInfo(EntityValueUuid)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
 
 
     /**
@@ -200,6 +338,49 @@ export default class UserMetaServiceApi {
 
 
     /**
+     * @param {Object} opts Optional parameters
+     * @param {String} [EntityId] 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/IdmListEntitiesResponse} and HTTP response
+     */
+    listEntitiesWithHttpInfo(opts) {
+      opts = opts || {};
+      let postBody = null;
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'EntityId': opts['EntityId']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = IdmListEntitiesResponse;
+      return this.apiClient.callApi(
+        '/user-meta/entity', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.EntityId 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/IdmListEntitiesResponse}
+     */
+    listEntities(opts) {
+      return this.listEntitiesWithHttpInfo(opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
      * List defined meta namespaces
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/RestUserMetaNamespaceCollection} and HTTP response
      */
@@ -278,6 +459,49 @@ export default class UserMetaServiceApi {
      */
     listUserMetaTags(Namespace) {
       return this.listUserMetaTagsWithHttpInfo(Namespace)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * @param {module:model/IdmCreateEntityRequest} body 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/IdmCreateEntityResponse} and HTTP response
+     */
+    putEntityWithHttpInfo(body) {
+      let postBody = body;
+      // verify the required parameter 'body' is set
+      if (body === undefined || body === null) {
+        throw new Error("Missing the required parameter 'body' when calling putEntity");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = IdmCreateEntityResponse;
+      return this.apiClient.callApi(
+        '/user-meta/entity', 'PUT',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * @param {module:model/IdmCreateEntityRequest} body 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/IdmCreateEntityResponse}
+     */
+    putEntity(body) {
+      return this.putEntityWithHttpInfo(body)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
